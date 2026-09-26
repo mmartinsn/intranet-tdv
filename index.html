@@ -339,7 +339,7 @@ button{font:inherit}
 <span id="count" style="font-size:15px;color:var(--muted)"></span>
 <span style="font-size:14px;color:var(--muted)">Orden: <strong style="color:var(--ink)">A–Z</strong></span>
 </div>
-<div id="people" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px"></div>
+<div id="people" style="display:flex;flex-direction:column;gap:48px"></div>
 </div>
 </section>
 <div data-footer></div>
@@ -563,43 +563,83 @@ button{font:inherit}
   send.addEventListener('click', function () { send.textContent = '✓ ¡Felicitación enviada!'; send.style.background = '#D0021B'; send.style.color = '#fff'; });
   $('#closeParty').addEventListener('click', function () { party.hidden = true; party.style.display = 'none'; $('#bday').focus(); });
 
-  /* Directorio */
-  var people = [
-    ['María Alejandra Ortiz', 'MO', 'Jefe de sección', 'Mercadeo', '—'],
-    ['Mariana Rangel Blanco', 'MR', 'Analista III', 'Planificación Estratégica y Corporativa', '—'],
-    ['Solcibeth K. Pereira Duno', 'SP', 'Supervisor I', 'Finanzas, Contabilidad & Impuestos', '2654'],
-    ['Taimir C. Morales Pérez', 'TM', 'Supervisor I', 'Comercial', '2698'],
-    ['Toichi Komatsuda Hara', 'TK', 'Gerente General', 'Auditoría', '—'],
-    ['Víctor E. Díaz Cortez', 'VD', 'Supervisor I', 'Ventas & Distribución', '—']
+  /* Directorio: miembros por departamento. [Nombre Apellido] = por completar con la nómina real */
+  var TBD = null;
+  var depts = [
+    { name: 'Auditoría', members: [['Toichi Komatsuda Hara', 'TK', 'Gerente General', '—'], TBD, TBD] },
+    { name: 'Comercial', members: [['Taimir C. Morales Pérez', 'TM', 'Supervisor I', '2698'], TBD, TBD] },
+    { name: 'Finanzas, Contabilidad & Impuestos', members: [['Solcibeth K. Pereira Duno', 'SP', 'Supervisor I', '2654'], TBD, TBD] },
+    { name: 'Mercadeo', members: [['María Alejandra Ortiz', 'MO', 'Jefe de sección', '—'], TBD, TBD] },
+    { name: 'Planificación Estratégica y Corporativa', members: [['Mariana Rangel Blanco', 'MR', 'Analista III', '—'], TBD, TBD] },
+    { name: 'Ventas & Distribución', members: [['Víctor E. Díaz Cortez', 'VD', 'Supervisor I', '—'], TBD, TBD] }
   ];
-  var area = 'Todas';
-  var areaList = ['Todas', 'Auditoría', 'Comercial', 'Finanzas, Contabilidad & Impuestos', 'Mercadeo', 'Planificación Estratégica y Corporativa', 'Ventas & Distribución'];
+  var area = 'Todas', query = '';
+  var isLead = function (m) { return m && /^(Gerente|Jefe)/.test(m[2]); };
+  function matches(m) {
+    if (!query) return true;
+    if (!m) return false;
+    return (m[0] + ' ' + m[2] + ' ' + m[3]).toLowerCase().indexOf(query) !== -1;
+  }
+  function card(m, dept) {
+    if (!m) {
+      return '<article style="border:1.5px dashed #CFC9BF;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px;min-height:280px">' +
+        '<div style="display:flex;justify-content:space-between;align-items:flex-start"><span style="width:64px;height:64px;border-radius:50%;border:1.5px dashed #CFC9BF;display:flex;align-items:center;justify-content:center;color:#8F8A82"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span>' +
+        '<span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8F8A82;text-align:right;max-width:150px;line-height:1.4">' + esc(dept) + '</span></div>' +
+        '<div style="display:flex;flex-direction:column;gap:4px"><h3 style="margin:0;font-size:20px;line-height:1.2;font-weight:700;color:#8F8A82">[Nombre Apellido]</h3><span style="font-size:15px;color:#8F8A82">[Cargo]</span><span style="font-size:13px;color:#8F8A82">Sede Corporativa · Ext. [—]</span></div>' +
+        '<span style="margin-top:auto;font-size:13px;color:#8F8A82">Por completar con la nómina del área</span></article>';
+    }
+    var bd = m[1] === 'MR', lead = isLead(m);
+    var badge = bd ? '<span style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-bottom:6px;padding:4px 10px;border-radius:999px;background:#FBE6E8;color:#A30015;font-size:12px;font-weight:700">' + CAKE(13, 2.2) + 'Cumpleaños hoy</span>'
+      : lead ? '<span style="align-self:flex-start;margin-bottom:6px;padding:4px 10px;border-radius:999px;background:#141414;color:#fff;font-size:12px;font-weight:700">Responsable del área</span>' : '';
+    return '<article class="card" style="padding:24px;display:flex;flex-direction:column;gap:16px;min-height:280px">' +
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start">' +
+      '<span style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;font-stretch:110%;' +
+      (bd ? 'background:#D0021B;color:#fff;box-shadow:0 0 0 3px #fff,0 0 0 5px #D0021B' : lead ? 'background:#141414;color:#fff' : 'background:#EFEBE4') + '">' + m[1] + '</span>' +
+      '<span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D0021B;text-align:right;max-width:150px;line-height:1.4">' + esc(dept) + '</span></div>' +
+      '<div style="display:flex;flex-direction:column;gap:4px">' + badge +
+      '<h3 style="margin:0;font-size:20px;line-height:1.2;font-weight:700">' + esc(m[0]) + '</h3><span style="font-size:15px;color:#3A3733">' + m[2] + '</span>' +
+      '<span style="font-size:13px;color:#5F5B55">Sede Corporativa · Ext. ' + m[3] + '</span></div>' +
+      '<div style="display:flex;gap:8px;margin-top:auto">' +
+      '<a href="#directorio" aria-label="Enviar correo a ' + esc(m[0]) + '" style="width:44px;height:44px;border-radius:12px;border:1px solid #DAD5CD;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>' +
+      '<a href="#directorio" aria-label="Llamar a la extensión de ' + esc(m[0]) + '" style="width:44px;height:44px;border-radius:12px;border:1px solid #DAD5CD;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>' +
+      '<a href="#directorio" class="pill" style="flex-grow:1;height:44px;border-radius:12px;background:#141414;color:#fff;font-size:14px">Chatear en Teams</a></div></article>';
+  }
+  var grid = function (html) { return '<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">' + html + '</div>'; };
+  var ordered = function (d) { return d.members.slice().sort(function (x, y) { return (isLead(y) ? 2 : y ? 1 : 0) - (isLead(x) ? 2 : x ? 1 : 0); }); };
   function drawDir() {
-    $('#areas').innerHTML = areaList.map(function (a) {
-      var on = a === area;
-      return '<button type="button" aria-pressed="' + on + '" data-area="' + esc(a) + '" style="min-height:44px;text-align:left;padding:10px 14px;border:0;border-radius:10px;cursor:pointer;font-size:15px;' +
-        (on ? 'background:#141414;color:#fff;font-weight:600' : 'background:transparent;color:#3A3733') + '">' + esc(a === 'Todas' ? 'Todas las áreas' : a) + '</button>';
+    $('#areas').innerHTML = [{ name: 'Todas' }].concat(depts).map(function (d) {
+      var on = d.name === area;
+      var n = d.members ? d.members.length : depts.reduce(function (t, x) { return t + x.members.length; }, 0);
+      return '<button type="button" aria-pressed="' + on + '" data-area="' + esc(d.name) + '" style="min-height:44px;display:flex;justify-content:space-between;gap:12px;align-items:center;text-align:left;padding:10px 14px;border:0;border-radius:10px;cursor:pointer;font-size:15px;' +
+        (on ? 'background:#141414;color:#fff;font-weight:600' : 'background:transparent;color:#3A3733') + '"><span>' + esc(d.name === 'Todas' ? 'Todas las áreas' : d.name) + '</span><span style="font-size:13px;opacity:.7">' + n + '</span></button>';
     }).join('');
-    var list = area === 'Todas' ? people : people.filter(function (p) { return p[3] === area; });
-    $('#count').textContent = list.length + (list.length === 1 ? ' persona' : ' personas');
-    $('#people').innerHTML = list.map(function (p) {
-      var bd = p[1] === 'MR';
-      return '<article class="card" style="padding:24px;display:flex;flex-direction:column;gap:16px;min-height:280px">' +
-        '<div style="display:flex;justify-content:space-between;align-items:flex-start">' +
-        '<span style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;font-stretch:110%;' +
-        (bd ? 'background:#D0021B;color:#fff;box-shadow:0 0 0 3px #fff,0 0 0 5px #D0021B' : 'background:#EFEBE4') + '">' + p[1] + '</span>' +
-        '<span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D0021B;text-align:right;max-width:150px;line-height:1.4">' + esc(p[3]) + '</span></div>' +
-        '<div style="display:flex;flex-direction:column;gap:4px">' +
-        (bd ? '<span style="align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-bottom:6px;padding:4px 10px;border-radius:999px;background:#FBE6E8;color:#A30015;font-size:12px;font-weight:700">' + CAKE(13, 2.2) + 'Cumpleaños hoy</span>' : '') +
-        '<h3 style="margin:0;font-size:20px;line-height:1.2;font-weight:700">' + esc(p[0]) + '</h3><span style="font-size:15px;color:#3A3733">' + p[2] + '</span>' +
-        '<span style="font-size:13px;color:#5F5B55">Sede Corporativa · Ext. ' + p[4] + '</span></div>' +
-        '<div style="display:flex;gap:8px;margin-top:auto">' +
-        '<a href="#directorio" aria-label="Enviar correo a ' + esc(p[0]) + '" style="width:44px;height:44px;border-radius:12px;border:1px solid #DAD5CD;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>' +
-        '<a href="#directorio" aria-label="Llamar a la extensión de ' + esc(p[0]) + '" style="width:44px;height:44px;border-radius:12px;border:1px solid #DAD5CD;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>' +
-        '<a href="#directorio" class="pill" style="flex-grow:1;height:44px;border-radius:12px;background:#141414;color:#fff;font-size:14px">Chatear en Teams</a></div></article>';
+    var shown = depts.filter(function (d) { return area === 'Todas' || d.name === area; })
+      .map(function (d) { return { name: d.name, members: ordered(d).filter(matches), total: d.members.length }; })
+      .filter(function (d) { return d.members.length; });
+    var total = shown.reduce(function (t, d) { return t + d.members.length; }, 0);
+    $('#count').textContent = total + (total === 1 ? ' persona' : ' personas') + (query ? ' para «' + query + '»' : '');
+    if (!shown.length) { $('#people').innerHTML = '<p style="margin:0;font-size:16px;color:#5F5B55">Nadie coincide con esa búsqueda.</p>'; return; }
+    if (area !== 'Todas') {
+      var d = shown[0];
+      $('#people').innerHTML = '<section style="display:flex;flex-direction:column;gap:24px">' +
+        '<div style="background:#EFEBE4;border-radius:20px;padding:28px 32px;display:flex;justify-content:space-between;align-items:flex-end">' +
+        '<div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" style="color:#D0021B">Departamento</span><h2 class="serif" style="margin:0;font-weight:500;font-size:40px;line-height:1.05">' + esc(d.name) + '</h2></div>' +
+        '<span style="font-size:15px;color:#5F5B55">' + d.total + ' miembros · Sede Corporativa</span></div>' +
+        grid(d.members.map(function (m) { return card(m, d.name); }).join('')) + '</section>';
+      return;
+    }
+    $('#people').innerHTML = shown.map(function (d) {
+      return '<section style="display:flex;flex-direction:column;gap:18px">' +
+        '<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #E4E0D9;padding-bottom:12px">' +
+        '<h2 style="margin:0;font-size:22px;font-weight:700">' + esc(d.name) + ' <span style="font-size:15px;font-weight:500;color:#8F8A82">· ' + d.members.length + '</span></h2>' +
+        '<button type="button" data-area="' + esc(d.name) + '" style="border:0;background:transparent;cursor:pointer;font-size:14px;font-weight:600;color:#141414;min-height:44px">Ver departamento →</button></div>' +
+        grid(d.members.map(function (m) { return card(m, d.name); }).join('')) + '</section>';
     }).join('');
   }
-  $('#areas').addEventListener('click', function (e) { var b = e.target.closest('[data-area]'); if (b) { area = b.getAttribute('data-area'); drawDir(); } });
+  var pick = function (e) { var b = e.target.closest('[data-area]'); if (b) { area = b.getAttribute('data-area'); drawDir(); } };
+  $('#areas').addEventListener('click', pick);
+  $('#people').addEventListener('click', pick);
+  $('#dq').addEventListener('input', function (e) { query = e.target.value.trim().toLowerCase(); drawDir(); });
   drawDir();
 
   /* Recursos de marca */
