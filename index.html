@@ -87,6 +87,22 @@ button{font:inherit}
 <div class="serif" style="font-style:italic;font-size:20px;color:var(--muted)">Todo lo que te mueve, en un solo lugar.</div>
 </section>
 
+<section aria-label="Cumpleaños de hoy" style="position:relative;overflow:hidden;border-radius:24px;background:#D0021B;color:#fff;margin-bottom:24px;min-height:172px;padding:0 48px;display:flex;align-items:center;gap:32px">
+<span class="tmark" aria-hidden="true" style="position:absolute;left:-60px;top:-70px;width:420px;height:280px;color:#fff;opacity:.08"></span>
+<div class="cfl" id="homecf" aria-hidden="true"></div>
+<span style="position:relative;flex-shrink:0;width:104px;height:104px;border-radius:50%;background:#fff;color:#D0021B;box-shadow:0 0 0 6px #D0021B,0 0 0 8px rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;font-stretch:112%">MR
+<span style="position:absolute;right:-6px;bottom:-4px;width:40px;height:40px;border-radius:50%;background:#141414;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #D0021B" data-icon="cake20"></span></span>
+<div style="position:relative;display:flex;flex-direction:column;gap:6px;flex-grow:1">
+<span class="eyebrow" style="color:#FFD5D9">Hoy, 26 de septiembre · Cumpleaños</span>
+<h2 class="serif" style="margin:0;font-weight:500;font-size:48px;line-height:1.05">¡Feliz cumpleaños, <em>Mariana</em>!</h2>
+<span style="font-size:16px;color:#FFE3E5">Mariana Rangel Blanco · Analista III · Planificación Estratégica y Corporativa</span>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:10px;flex-shrink:0;width:250px">
+<button type="button" id="homesend" class="pill" style="height:54px;border:0;background:#fff;color:#141414;font-size:16px;font-weight:700;gap:10px">Enviar felicitación →</button>
+<a href="#directorio" class="pill" style="height:44px;border:1px solid rgba(255,255,255,.7);color:#fff;font-size:14px">Ver en el directorio</a>
+</div>
+</section>
+
 <section style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;height:480px">
 <article style="grid-column:span 8;position:relative;overflow:hidden;border-radius:20px;background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:44px 48px">
 <span class="tmark" aria-hidden="true" style="position:absolute;right:-150px;top:40px;width:620px;height:414px;color:#fff;opacity:0.05"></span>
@@ -849,24 +865,26 @@ button{font:inherit}
 
   document.addEventListener('click', function (e) { var b = e.target.closest('[data-scroll]'); if (b) document.getElementById(b.getAttribute('data-scroll')).scrollIntoView({ behavior: 'smooth' }); });
 
-  /* Directorio: lluvia suave de confeti y ráfaga al felicitar */
-  (function () {
-    var box = $('#dircf'), cols = ['#D0021B', '#FFFFFF', '#FF6B6B', '#E8B4B8', '#F5F3EF'];
+  /* Confeti: lluvia suave en la franja de cumpleaños y ráfaga al felicitar (Inicio y Directorio) */
+  function confetti(boxSel, btnSel, loop, from, onDark) {
+    var box = $(boxSel), cols = onDark ? ['#D0021B', '#FFFFFF', '#FF6B6B', '#E8B4B8', '#F5F3EF'] : ['#FFFFFF', '#141414', '#FFD5D9', '#FFFFFF', '#FF9AA5'];
     function piece(k, burst) {
       var w = [8, 10, 6, 12][k % 4], h = [12, 10, 14, 5][k % 4];
-      return '<i' + (burst ? ' class="b"' : '') + ' style="left:' + (burst ? 30 + Math.random() * 68 : 55 + Math.random() * 43).toFixed(1) + '%;width:' + w + 'px;height:' + h + 'px;border-radius:' + (w === h ? '50%' : '2px') +
-        ';background:' + cols[k % cols.length] + ';--dx:' + Math.round(Math.random() * 80 - 40) + 'px;--r:' + Math.round((Math.random() > 0.5 ? 1 : -1) * (180 + Math.random() * 360)) + 'deg;--y:' + Math.round(Math.random() * 130) + 'px;' +
+      return '<i' + (burst ? ' class="b"' : '') + ' style="left:' + (burst ? 2 + Math.random() * 96 : from + Math.random() * (98 - from)).toFixed(1) + '%;width:' + w + 'px;height:' + h + 'px;border-radius:' + (w === h ? '50%' : '2px') +
+        ';background:' + cols[k % cols.length] + ';--dx:' + Math.round(Math.random() * 80 - 40) + 'px;--r:' + Math.round((Math.random() > 0.5 ? 1 : -1) * (180 + Math.random() * 360)) + 'deg;--y:' + Math.round(Math.random() * 150) + 'px;' +
         (burst ? 'animation-delay:' + (Math.random() * 0.5).toFixed(2) + 's' : 'animation-duration:' + (3.5 + Math.random() * 3).toFixed(2) + 's;animation-delay:-' + (Math.random() * 6).toFixed(2) + 's') + '"></i>';
     }
-    var h = ''; for (var k = 0; k < 16; k++) h += piece(k); box.innerHTML = h;
-    var send = $('#dirsend');
+    var h = ''; for (var k = 0; k < loop; k++) h += piece(k); box.innerHTML = h;
+    var send = $(btnSel), sentBg = onDark ? '#D0021B' : '#141414';
     send.addEventListener('click', function () {
-      var b = ''; for (var k = 0; k < 36; k++) b += piece(k, true);
+      var b = ''; for (var k = 0; k < 44; k++) b += piece(k, true);
       box.insertAdjacentHTML('beforeend', b);
-      setTimeout(function () { $$('#dircf i.b').forEach(function (i) { i.remove(); }); }, 3200);
-      send.textContent = '✓ ¡Felicitación enviada!'; send.style.background = '#D0021B'; send.style.color = '#fff';
+      setTimeout(function () { $$(boxSel + ' i.b').forEach(function (i) { i.remove(); }); }, 3200);
+      send.textContent = '✓ ¡Felicitación enviada!'; send.style.background = sentBg; send.style.color = '#fff';
     });
-  })();
+  }
+  confetti('#dircf', '#dirsend', 16, 55, true);
+  confetti('#homecf', '#homesend', 20, 48, false);
 
   /* Menú de secciones de Recursos Humanos: marca la sección que se está viendo */
   (function () {
