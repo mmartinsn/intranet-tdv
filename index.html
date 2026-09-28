@@ -497,6 +497,17 @@ button{font:inherit}
     org: '<rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2h12v2"/>',
     grid: '<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/>',
     chev: '<path d="M9 6l6 6-6 6"/>',
+    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+    badge: '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 16.5c.6-1.6 2-2.5 3.5-2.5s2.9.9 3.5 2.5M15 10h3M15 13.5h3"/>',
+    chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+    blocks: '<rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/><path d="M13 7h4a2 2 0 0 1 2 2v2M11 17H7a2 2 0 0 1-2-2v-2"/>',
+    db: '<ellipse cx="12" cy="5.5" rx="8" ry="2.5"/><path d="M4 5.5v13c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-13M4 12c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5"/>',
+    headset: '<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20a3 3 0 0 1-3 2h-3"/>',
+    clipboard: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 11l2 2 4-4M9 17h6"/>',
+    cardcheck: '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4M15 15l1.5 1.5L19 14"/>',
+    leaf: '<path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19c3-4 6-6 10-8"/>',
+    growth: '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+    car: '<path d="M5 16l1.5-5a2 2 0 0 1 2-1.5h7a2 2 0 0 1 2 1.5L19 16"/><rect x="3" y="16" width="18" height="4" rx="1.5"/><circle cx="7.5" cy="20" r="1.5"/><circle cx="16.5" cy="20" r="1.5"/>',
     columns: '<path d="M3 9l9-5 9 5M4 9h16M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 20h18"/>'
   };
   var ICON = function (k, s, sw) { return '<svg width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (sw || 1.8) + '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICO[k] + '</svg>'; };
@@ -506,10 +517,10 @@ button{font:inherit}
   /* Cabecera y pie compartidos */
   /* Aplicaciones Toyota y Políticas, tal como están en la intranet actual */
   var APPS = [
-    ['WEB', 'Página Web'], ['SPI', 'Autoservicios SPI', 'Recursos Humanos'], ['BI', 'Power BI Web'], ['OS', 'Outsystem'],
-    ['R12', 'Oracle R12', null, ['[Módulos por confirmar]']], ['HD', 'Sistema Helpdesk', null, ['Nuevo portal', 'Anterior portal']],
-    ['RCT', 'RCT', null, ['[Opciones por confirmar]']], ['PAG', 'Plataforma de Aprobaciones de Pagos'], ['AMB', 'Sistema de Procesos Ambientales'],
-    ['SDO', 'Sistema de Desarrollo Organizacional'], ['CBU', 'Sistema de Pre-Pedido CBU'], ['R11', 'Oracle R11', null, ['[Módulos por confirmar]']]
+    ['globe', 'Página Web'], ['badge', 'Autoservicios SPI', 'Recursos Humanos'], ['chart', 'Power BI Web'], ['blocks', 'Outsystem'],
+    ['db', 'Oracle R12', null, ['[Módulos por confirmar]']], ['headset', 'Sistema Helpdesk', null, ['Nuevo portal', 'Anterior portal']],
+    ['clipboard', 'RCT', null, ['[Opciones por confirmar]']], ['cardcheck', 'Plataforma de Aprobaciones de Pagos'], ['leaf', 'Sistema de Procesos Ambientales'],
+    ['growth', 'Sistema de Desarrollo Organizacional'], ['car', 'Sistema de Pre-Pedido CBU'], ['db', 'Oracle R11', null, ['[Módulos por confirmar]']]
   ];
   var POLS = [['ABAC', 'Anticorrupción y antisoborno', '#inicio', 'shield'], ['Gestión de Información', 'Seguridad y manejo de datos', '#inicio', 'lock'],
     ['Mercadeo, Comunicaciones & RSE', 'Marca, campañas y voluntariado', '#area', 'megaphone'], ['Recursos Humanos', 'Beneficios, políticas y calendarios', '#rrhh', 'people'],
@@ -519,7 +530,7 @@ button{font:inherit}
       var sub = p[3] ? '<span style="display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:3px">' + p[3].map(function (x) { return '<a href="#inicio" style="font-size:12px;color:#5F5B55">' + x + ' ›</a>'; }).join('') + '</span>'
         : p[2] ? '<span style="font-size:12px;color:#5F5B55">' + p[2] + '</span>' : '';
       return '<div style="display:flex;gap:12px;align-items:flex-start;padding:12px 8px;border-radius:10px">' +
-        '<span style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#F5F3EF;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;font-stretch:115%;color:#D0021B">' + p[0] + '</span>' +
+        '<span style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON(p[0], 20) + '</span>' +
         '<span style="display:flex;flex-direction:column;min-width:0"><a href="#inicio" style="font-size:14px;font-weight:600;line-height:1.3">' + p[1] + '</a>' + sub + '</span></div>';
     }).join('') + '</div>';
   var polsPanel = '<span class="eyebrow" style="display:block;padding-bottom:12px;border-bottom:1px solid #EEEAE4;margin-bottom:6px">Políticas y más</span>' + POLS.map(function (p) {
