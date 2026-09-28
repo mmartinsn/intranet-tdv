@@ -83,7 +83,7 @@ button{font:inherit}
 <section style="display:flex;align-items:flex-end;justify-content:space-between;padding-bottom:28px">
 <div style="display:flex;flex-direction:column;gap:8px">
 <div style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">26 de septiembre de 2026 · Sede Corporativa</div>
-<h1 class="serif" style="margin:0;font-weight:500;font-size:52px;line-height:1.05">Buenos días, <em style="color:var(--red)">[Nombre]</em>.</h1>
+<h1 class="serif" style="margin:0;font-weight:500;font-size:52px;line-height:1.05">Buenos días, <em style="color:var(--red)">Mariangel</em>.</h1>
 </div>
 <div id="bdaywrap" style="position:relative">
 <aside id="bdaypill" aria-label="Cumpleaños de hoy" style="position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;padding:10px 10px 10px 12px;background:#fff;border:1px solid #F1C9CD;border-radius:999px;box-shadow:0 10px 30px rgba(208,2,27,.10)">
@@ -129,7 +129,7 @@ button{font:inherit}
 </aside>
 </section>
 
-<section id="row3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:64px;height:490px;position:relative">
+<section id="row3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:64px;position:relative;align-items:stretch">
 
 <article class="card" style="padding:26px 28px;display:flex;flex-direction:column;gap:14px">
 <div style="display:flex;justify-content:space-between;align-items:center">
@@ -138,10 +138,8 @@ button{font:inherit}
 </div>
 <div id="cal" style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px;text-align:center;font-size:13px"></div>
 <div style="display:flex;flex-direction:column;gap:4px;border-top:1px solid #EEEAE4;padding-top:12px">
-<div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">Cumpleañeros del mes</span><a href="#directorio" style="font-size:13px;color:var(--muted)">Ver todos</a></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">Cumpleaños de hoy</span><a href="#directorio" style="font-size:13px;color:var(--muted)">Ver todos</a></div>
 <div id="bdaytoday" style="display:flex;flex-direction:column;gap:4px"></div>
-<div class="upc" style="display:flex;align-items:center;gap:12px;padding:8px 12px"><span style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#F5F3EF;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1"><span style="font-size:14px;font-weight:800;font-stretch:115%;color:#5F5B55">28</span><span style="font-size:9px;font-weight:700;letter-spacing:.1em;color:#8F8A82;margin-top:2px">SEP</span></span><span style="display:flex;flex-direction:column;flex-grow:1;min-width:0"><span style="font-size:14px;font-weight:600">Solcibeth K. Pereira Duno</span><span style="font-size:12px;color:#5F5B55">Finanzas, Contabilidad &amp; Impuestos</span></span><span style="font-size:12px;color:#8F8A82;flex-shrink:0">En 2 días</span></div>
-<div class="upc" style="display:flex;align-items:center;gap:12px;padding:8px 12px"><span style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#F5F3EF;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1"><span style="font-size:14px;font-weight:800;font-stretch:115%;color:#5F5B55">30</span><span style="font-size:9px;font-weight:700;letter-spacing:.1em;color:#8F8A82;margin-top:2px">SEP</span></span><span style="display:flex;flex-direction:column;flex-grow:1;min-width:0"><span style="font-size:14px;font-weight:600">Víctor E. Díaz Cortez</span><span style="font-size:12px;color:#5F5B55">Ventas &amp; Distribución</span></span><span style="font-size:12px;color:#8F8A82;flex-shrink:0">En 4 días</span></div>
 </div>
 </article>
 
@@ -152,7 +150,7 @@ button{font:inherit}
 </div>
 <div style="display:flex;flex-direction:column;gap:6px">
 <label for="sala" style="font-size:12px;font-weight:600;color:var(--muted)">Sala</label>
-<select id="sala" style="height:44px;border:1px solid #DAD5CD;border-radius:10px;padding:0 12px;font:inherit;font-size:15px;background:#FAF9F7"><option>[Nombre de la sala]</option></select>
+<select id="sala" style="height:44px;border:1px solid #DAD5CD;border-radius:10px;padding:0 12px;font:inherit;font-size:15px;background:#FAF9F7"><option>Selecciona una sala</option></select>
 </div>
 <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
 <div style="display:flex;flex-direction:column;gap:6px"><label for="fecha" style="font-size:12px;font-weight:600;color:var(--muted)">Fecha</label><input id="fecha" type="text" value="29 sep 2026" style="height:44px;border:1px solid #DAD5CD;border-radius:10px;padding:0 12px;font:inherit;font-size:15px;background:#FAF9F7"></div>
@@ -212,19 +210,6 @@ button{font:inherit}
 </div>
 </section>
 
-<section style="margin-top:96px;height:240px;border-radius:20px;background:var(--red);color:#fff;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;padding:48px;align-items:center;position:relative;overflow:hidden">
-<span class="tmark" aria-hidden="true" style="position:absolute;left:-90px;bottom:-110px;width:420px;height:280px;color:#fff;opacity:0.10"></span>
-<div class="eyebrow" style="grid-column:span 3;position:relative">Movilidad de talento<br>Postulación interna</div>
-<div style="grid-column:span 6;display:flex;flex-direction:column;gap:10px;position:relative">
-<h2 style="margin:0;font-size:38px;line-height:1.05;font-weight:800;font-stretch:110%">Analista III de Desarrollo de Concesionarios</h2>
-<p style="margin:0;font-size:17px;line-height:1.5;color:#FFE3E5">En Toyota abrimos oportunidades reales para que puedas moverte dentro de la organización.</p>
-</div>
-<div style="grid-column:span 3;display:flex;flex-direction:column;gap:10px;position:relative">
-<a href="#inicio" class="pill" style="height:48px;background:#fff;color:var(--ink);font-size:15px;font-weight:700">Rellenar formulario</a>
-<a href="#inicio" class="pill" style="height:48px;border:1px solid #fff;color:#fff;font-size:15px">Ver perfil y requisitos</a>
-</div>
-</section>
-
 <section style="margin-top:96px;display:flex;flex-direction:column;gap:28px">
 <div style="display:flex;justify-content:space-between;align-items:flex-end">
 <div style="display:flex;flex-direction:column;gap:10px">
@@ -261,7 +246,7 @@ button{font:inherit}
 <main style="padding:24px 16px 32px;display:flex;flex-direction:column;gap:32px">
 <div style="display:flex;flex-direction:column;gap:6px">
 <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">26 de septiembre de 2026</span>
-<h1 class="serif" style="margin:0;font-weight:500;font-size:34px;line-height:1.1">Buenos días, <em style="color:var(--red)">[Nombre]</em>.</h1>
+<h1 class="serif" style="margin:0;font-weight:500;font-size:34px;line-height:1.1">Buenos días, <em style="color:var(--red)">Mariangel</em>.</h1>
 </div>
 <article style="position:relative;overflow:hidden;border-radius:20px;background:var(--ink);color:#fff;padding:28px 24px;height:400px;display:flex;flex-direction:column;justify-content:space-between">
 <span class="tmark" aria-hidden="true" style="position:absolute;right:-140px;top:30px;width:360px;height:240px;color:#fff;opacity:0.05"></span>
@@ -379,7 +364,7 @@ button{font:inherit}
 </aside>
 </section>
 
-<nav id="hrnav" aria-label="Secciones de Recursos Humanos" style="position:sticky;top:0;z-index:30;background:rgba(245,243,239,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:0 80px"><div style="display:flex;gap:36px;border-bottom:1px solid var(--line);height:60px"><button type="button" class="hrtab" data-scroll="hr-estructura" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Estructura y calendario</button><button type="button" class="hrtab" data-scroll="hr-consultado" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Lo más consultado</button><button type="button" class="hrtab" data-scroll="hr-politicas" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Políticas</button><button type="button" class="hrtab" data-scroll="hr-valores" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Nuestros valores</button></div></nav>
+<nav id="hrnav" aria-label="Secciones de Recursos Humanos" style="position:sticky;top:0;z-index:30;background:#F5F3EF;box-shadow:0 1px 0 #E4E0D9;padding:0 80px"><div style="display:flex;gap:36px;border-bottom:1px solid var(--line);height:60px"><button type="button" class="hrtab" data-scroll="hr-estructura" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Estructura y calendario</button><button type="button" class="hrtab" data-scroll="hr-consultado" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Destacadas</button><button type="button" class="hrtab" data-scroll="hr-politicas" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Políticas</button><button type="button" class="hrtab" data-scroll="hr-valores" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Nuestros valores</button></div></nav>
 
 <section id="hr-estructura" style="padding:56px 80px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px">
 <article class="card" style="padding:32px;display:flex;flex-direction:column;gap:18px">
@@ -404,7 +389,7 @@ button{font:inherit}
 <div style="grid-column:span 6;display:flex;flex-direction:column;gap:12px"><span class="eyebrow" style="color:var(--red)">Políticas de Recursos Humanos</span><h2 class="serif" style="margin:0;font-weight:500;font-size:52px;line-height:1.02">Todo lo que necesitas saber, <em style="color:var(--red)">en un solo lugar.</em></h2></div>
 <p style="grid-column:8 / span 5;margin:0;font-size:16px;line-height:1.6;color:var(--muted)">Lineamientos que guían la gestión del talento en Toyota, promoviendo respeto, desarrollo, seguridad y cumplimiento: ingreso, desempeño, bienestar, relaciones laborales y administración.</p>
 </div>
-<div id="hr-consultado" style="display:flex;flex-direction:column;gap:18px"><div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #E4E0D9;padding-bottom:12px"><h3 style="margin:0;font-size:22px;font-weight:700">Lo más consultado</h3><span style="font-size:13px;color:#8F8A82">Por completar con Recursos Humanos o con las visitas de la intranet</span></div><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px"><a href="#rrhh" style="display:flex;flex-direction:column;gap:18px;padding:24px;border:1.5px dashed #CFC9BF;border-radius:20px;min-height:170px"><span style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:40px;font-weight:800;font-stretch:115%;color:#D0021B;line-height:1">01</span><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8F8A82">[Categoría]</span></span><span style="font-size:18px;font-weight:700;color:#5F5B55">[Política más consultada]</span><span style="margin-top:auto;font-size:14px;font-weight:600;color:#8F8A82">Ver documento →</span></a><a href="#rrhh" style="display:flex;flex-direction:column;gap:18px;padding:24px;border:1.5px dashed #CFC9BF;border-radius:20px;min-height:170px"><span style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:40px;font-weight:800;font-stretch:115%;color:#D0021B;line-height:1">02</span><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8F8A82">[Categoría]</span></span><span style="font-size:18px;font-weight:700;color:#5F5B55">[Política más consultada]</span><span style="margin-top:auto;font-size:14px;font-weight:600;color:#8F8A82">Ver documento →</span></a><a href="#rrhh" style="display:flex;flex-direction:column;gap:18px;padding:24px;border:1.5px dashed #CFC9BF;border-radius:20px;min-height:170px"><span style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:40px;font-weight:800;font-stretch:115%;color:#D0021B;line-height:1">03</span><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8F8A82">[Categoría]</span></span><span style="font-size:18px;font-weight:700;color:#5F5B55">[Política más consultada]</span><span style="margin-top:auto;font-size:14px;font-weight:600;color:#8F8A82">Ver documento →</span></a></div></div>
+<div id="hr-consultado" style="display:flex;flex-direction:column;gap:18px"><div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #E4E0D9;padding-bottom:12px"><h3 style="margin:0;font-size:22px;font-weight:700">Destacadas</h3><span style="font-size:13px;color:#5F5B55">Los documentos que se usan todos los meses</span></div><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px"><a href="#rrhh" class="card" style="display:flex;flex-direction:column;gap:18px;padding:24px;border-radius:20px;min-height:170px"><span style="display:flex;justify-content:space-between;align-items:center"><span style="width:48px;height:48px;border-radius:12px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center" data-ico="cal"></span><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">Calendario</span></span><span style="font-size:19px;font-weight:700;line-height:1.25">Calendario de nómina 2026 · Caracas y Cumaná</span><span style="margin-top:auto;font-size:14px;font-weight:600;color:#D0021B">Ver documento →</span></a><a href="#rrhh" class="card" style="display:flex;flex-direction:column;gap:18px;padding:24px;border-radius:20px;min-height:170px"><span style="display:flex;justify-content:space-between;align-items:center"><span style="width:48px;height:48px;border-radius:12px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center" data-ico="briefcase"></span><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">Empleo</span></span><span style="font-size:19px;font-weight:700;line-height:1.25">Política de permisos</span><span style="margin-top:auto;font-size:14px;font-weight:600;color:#D0021B">Ver documento →</span></a><a href="#rrhh" class="card" style="display:flex;flex-direction:column;gap:18px;padding:24px;border-radius:20px;min-height:170px"><span style="display:flex;justify-content:space-between;align-items:center"><span style="width:48px;height:48px;border-radius:12px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center" data-ico="heart"></span><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">Beneficios</span></span><span style="font-size:19px;font-weight:700;line-height:1.25">Pólizas de seguro</span><span style="margin-top:auto;font-size:14px;font-weight:600;color:#D0021B">Ver documento →</span></a></div></div>
 <div style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:start">
 <aside style="grid-column:span 4;display:flex;flex-direction:column;gap:12px;position:sticky;top:84px">
 <div style="display:flex;align-items:center;gap:10px;height:52px;padding:0 16px;background:#fff;border:1px solid #DAD5CD;border-radius:14px">
@@ -453,9 +438,9 @@ button{font:inherit}
 </div>
 <p style="grid-column:6 / span 7;margin:0;font-size:19px;line-height:1.6;color:#3A3733;align-self:end">Tiene como objetivo destacar a Toyota como una marca líder en el mercado, apoyada en tres pilares fundamentales: un servicio de excelencia, la reconocida calidad, durabilidad y confiabilidad (QDR) de nuestros vehículos, y una avanzada tecnología híbrida.</p>
 <div style="grid-column:span 12;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px">
-<article style="height:280px;background:var(--ink);color:#fff;border-radius:20px;padding:32px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:56px;font-weight:800;font-stretch:120%;color:var(--red);line-height:1">01</span><div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:26px;font-weight:700">Servicio de excelencia</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#CFCAC2">[Una línea sobre la experiencia en concesionarios y posventa.]</p></div></article>
+<article style="height:280px;background:var(--ink);color:#fff;border-radius:20px;padding:32px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:56px;font-weight:800;font-stretch:120%;color:var(--red);line-height:1">01</span><div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:26px;font-weight:700">Servicio de excelencia</h3><p style="margin:0;font-size:15px;line-height:1.5;color:#CFCAC2">En cada concesionario, en cada visita al taller.</p></div></article>
 <article class="card" style="height:280px;padding:32px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:56px;font-weight:800;font-stretch:120%;color:var(--red);line-height:1">02</span><div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:26px;font-weight:700">Calidad, durabilidad y confiabilidad</h3><p style="margin:0;font-size:15px;line-height:1.5;color:var(--muted)">QDR: lo que define a cada vehículo Toyota.</p></div></article>
-<article class="card" style="height:280px;padding:32px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:56px;font-weight:800;font-stretch:120%;color:var(--red);line-height:1">03</span><div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:26px;font-weight:700">Tecnología híbrida avanzada</h3><p style="margin:0;font-size:15px;line-height:1.5;color:var(--muted)">[Una línea sobre la gama híbrida disponible en Venezuela.]</p></div></article>
+<article class="card" style="height:280px;padding:32px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:56px;font-weight:800;font-stretch:120%;color:var(--red);line-height:1">03</span><div style="display:flex;flex-direction:column;gap:8px"><h3 style="margin:0;font-size:26px;font-weight:700">Tecnología híbrida avanzada</h3><p style="margin:0;font-size:15px;line-height:1.5;color:var(--muted)">Eficiencia y confiabilidad en cada kilómetro.</p></div></article>
 </div>
 </section>
 <section style="padding:96px 80px 0;display:flex;flex-direction:column;gap:28px">
@@ -464,8 +449,8 @@ button{font:inherit}
 <a href="#area" style="font-size:15px;font-weight:600">Sumarme al voluntariado →</a>
 </div>
 <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px">
-<a href="#area" class="card" style="display:flex;gap:24px;padding:20px;height:260px"><span class="ph" style="width:260px;flex-shrink:0;border-radius:14px;display:flex;align-items:flex-end;padding:14px"><span style="font-size:11px;font-weight:600;letter-spacing:.08em;background:#fff;color:var(--muted);padding:5px 8px;border-radius:6px">FOTO · VOLUNTARIADO</span></span><span style="display:flex;flex-direction:column;gap:10px;padding:8px 0"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)">Voluntariado TDV</span><span style="font-size:26px;line-height:1.15;font-weight:700">Mes de la movilidad con el voluntariado TDV</span><span style="font-size:15px;line-height:1.5;color:var(--muted)">En noviembre, más de 50 niños fueron beneficiados con cirugías musculoesqueléticas.</span></span></a>
-<a href="#area" class="card" style="display:flex;gap:24px;padding:20px;height:260px"><span class="ph" style="width:260px;flex-shrink:0;border-radius:14px;display:flex;align-items:flex-end;padding:14px"><span style="font-size:11px;font-weight:600;letter-spacing:.08em;background:#fff;color:var(--muted);padding:5px 8px;border-radius:6px">FOTO · RALLY 4×4</span></span><span style="display:flex;flex-direction:column;gap:10px;padding:8px 0"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)">Diversidad e inclusión</span><span style="font-size:26px;line-height:1.15;font-weight:700">Rally 4×4: D&amp;I</span><span style="font-size:15px;line-height:1.5;color:var(--muted)">¿Qué tiene que ver un sistema 4×4 con la inclusión? Te lo contamos.</span></span></a>
+<a href="#area" class="card" style="display:flex;gap:24px;padding:20px;height:260px"><span data-cover="RSE" data-label="Voluntariado TDV" style="width:260px;flex-shrink:0;border-radius:14px;overflow:hidden"></span><span style="display:flex;flex-direction:column;gap:10px;padding:8px 0"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)">Voluntariado TDV</span><span style="font-size:26px;line-height:1.15;font-weight:700">Mes de la movilidad con el voluntariado TDV</span><span style="font-size:15px;line-height:1.5;color:var(--muted)">En noviembre, más de 50 niños fueron beneficiados con cirugías musculoesqueléticas.</span></span></a>
+<a href="#area" class="card" style="display:flex;gap:24px;padding:20px;height:260px"><span data-cover="D&amp;I" data-label="Rally 4×4" style="width:260px;flex-shrink:0;border-radius:14px;overflow:hidden"></span><span style="display:flex;flex-direction:column;gap:10px;padding:8px 0"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)">Diversidad e inclusión</span><span style="font-size:26px;line-height:1.15;font-weight:700">Rally 4×4: D&amp;I</span><span style="font-size:15px;line-height:1.5;color:var(--muted)">¿Qué tiene que ver un sistema 4×4 con la inclusión? Te lo contamos.</span></span></a>
 </div>
 </section>
 <section style="padding:96px 80px 96px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px">
@@ -522,6 +507,11 @@ button{font:inherit}
     heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
     briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
     coins: '<ellipse cx="9" cy="7" rx="6" ry="2.5"/><path d="M3 7v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V7M9 13.5V17c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4c0-1.4-2.7-2.5-6-2.5"/>',
+    trophy: '<path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4.5a3 3 0 0 0 3.5 4M16 6h3.5a3 3 0 0 1-3.5 4M12 13v4M8 21h8M9.5 17h5v4h-5z"/>',
+    grad: '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5M22 9v6"/>',
+    door: '<path d="M5 21V4a1 1 0 0 1 1-1h9l4 2v16"/><path d="M3 21h18M12 12.5v1"/>',
+    monitor: '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
+    star: '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
     columns: '<path d="M3 9l9-5 9 5M4 9h16M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 20h18"/>'
   };
   var ICON = function (k, s, sw) { return '<svg width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (sw || 1.8) + '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICO[k] + '</svg>'; };
@@ -610,15 +600,15 @@ button{font:inherit}
   drawSlide();
 
   /* Accesos rápidos */
-  var quick = [['R12', 'Oracle R12', 'ERP corporativo', '#inicio'], ['SAL', 'Reservar sala', 'Salas de reuniones', '#inicio'], ['DIR', 'Directorio', 'Personas y extensiones', '#directorio'], ['IT', 'Menú IT', 'Soporte y aplicaciones', '#inicio'], ['RH', 'Recursos Humanos', 'Beneficios y políticas', '#rrhh'], ['ÉT', 'Canal de denuncias', 'Confidencial', '#inicio']];
+  var quick = [['db', 'Oracle R12', 'ERP corporativo', '#inicio'], ['door', 'Reservar sala', 'Salas de reuniones', '#inicio'], ['people', 'Directorio', 'Personas y extensiones', '#directorio'], ['monitor', 'Menú IT', 'Soporte y aplicaciones', '#inicio'], ['badge', 'Recursos Humanos', 'Beneficios y políticas', '#rrhh'], ['shield', 'Canal de denuncias', 'Confidencial', '#inicio']];
   $('#quick').innerHTML = quick.map(function (q) {
     return '<a href="' + q[3] + '" style="display:flex;align-items:center;gap:14px;min-height:60px;border-top:1px solid #EEEAE4">' +
-      '<span style="width:38px;height:38px;border-radius:10px;background:#F5F3EF;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;font-stretch:115%;color:#D0021B">' + q[0] + '</span>' +
+      '<span style="width:40px;height:40px;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON(q[0], 20) + '</span>' +
       '<span style="display:flex;flex-direction:column;flex-grow:1"><span style="font-size:15px;font-weight:600">' + q[1] + '</span><span style="font-size:13px;color:#5F5B55">' + q[2] + '</span></span>' + ARROW + '</a>';
   }).join('');
   $('#mquick').innerHTML = quick.map(function (q) {
     return '<a href="' + (q[3] === '#directorio' ? '#directorio' : '#movil') + '" style="height:92px;background:#fff;border:1px solid #E4E0D9;border-radius:16px;padding:14px;display:flex;flex-direction:column;justify-content:space-between">' +
-      '<span style="font-size:12px;font-weight:800;font-stretch:115%;color:#D0021B">' + q[0] + '</span><span style="font-size:15px;font-weight:600;line-height:1.2">' + q[1] + '</span></a>';
+      '<span style="width:36px;height:36px;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON(q[0], 18) + '</span><span style="font-size:15px;font-weight:600;line-height:1.2">' + q[1] + '</span></a>';
   }).join('');
 
   /* Calendario: el 1 de septiembre de 2026 cae martes */
@@ -627,12 +617,19 @@ button{font:inherit}
     var lab = n >= 1 && n <= 30 ? n : '';
     cal += n === 26
       ? '<span style="height:28px;position:relative;display:flex;align-items:center;justify-content:center"><span style="width:28px;height:28px;border-radius:50%;background:#D0021B;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center">26</span><span aria-hidden="true" style="position:absolute;bottom:-5px;width:5px;height:5px;border-radius:50%;background:#D0021B"></span></span>'
-      : (n === 28 || n === 30)
-        ? '<span style="height:28px;position:relative;display:flex;align-items:center;justify-content:center;color:#3A3733;font-weight:600">' + lab + '<span aria-hidden="true" style="position:absolute;bottom:-1px;width:4px;height:4px;border-radius:50%;background:#B3ADA4"></span></span>'
-        : '<span style="height:28px;display:flex;align-items:center;justify-content:center;color:#3A3733">' + lab + '</span>';
+      : '<span style="height:28px;display:flex;align-items:center;justify-content:center;color:#3A3733">' + lab + '</span>';
   }
   $('#cal').innerHTML = cal;
 
+  /* Portadas por categoría (se reemplazan por fotos reales cuando las haya) */
+  var COVERS = { 'Gente': ['#141414', '#fff', 'people'], 'Reconocimientos': ['#D0021B', '#fff', 'trophy'], 'Formación': ['#EFEBE4', '#141414', 'grad'],
+    'RSE': ['#FBE6E8', '#D0021B', 'heart'], 'Talento': ['#141414', '#fff', 'growth'], 'D&I': ['#141414', '#fff', 'people'] };
+  function cover(cat, iconSize, label) {
+    var c = COVERS[cat] || COVERS['Gente'];
+    return '<span style="position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:inherit;background:' + c[0] + ';color:' + c[1] + '">' +
+      '<span class="tmark" aria-hidden="true" style="position:absolute;right:-18%;bottom:-30%;width:75%;aspect-ratio:1.5;height:auto;color:' + c[1] + ';opacity:.08"></span>' +
+      ICON(c[2], iconSize, 1.4) + (label ? '<span style="position:absolute;left:20px;bottom:18px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.75">' + label + '</span>' : '') + '</span>';
+  }
   /* Noticias */
   var news = [
     { cat: 'Gente', date: '16 dic 2025', title: '¡Se celebró la 17ª edición del Concurso de Habilidades!', body: 'Celebramos la excelencia y la mejora continua en Toyota de Venezuela.', photo: 'Concurso de Habilidades' },
@@ -652,13 +649,13 @@ button{font:inherit}
     }).join('');
     var f = list[0];
     $('#feature').innerHTML = f ?
-      '<div class="ph" style="height:360px;border-radius:20px;display:flex;align-items:flex-end;padding:20px"><span style="font-size:12px;font-weight:600;letter-spacing:.08em;background:#fff;color:#5F5B55;padding:6px 10px;border-radius:6px">FOTO · ' + esc(f.photo) + '</span></div>' +
+      '<div style="height:360px;border-radius:20px;overflow:hidden">' + cover(f.cat, 88, f.photo) + '</div>' +
       '<div style="display:flex;gap:12px;align-items:center;font-size:13px"><span style="font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D0021B">' + f.cat + '</span><span style="color:#8F8A82">' + f.date + '</span></div>' +
       '<h3 style="margin:0;font-size:32px;line-height:1.12;font-weight:700;font-stretch:105%;letter-spacing:-.01em">' + esc(f.title) + '</h3>' +
       '<p style="margin:0;font-size:17px;line-height:1.55;color:#5F5B55">' + esc(f.body) + '</p>' : '';
     var rest = list.slice(1, 5);
     $('#rest').innerHTML = rest.map(function (x) {
-      return '<a href="#inicio" style="display:flex;gap:18px;padding:18px 0;border-top:1px solid #E4E0D9"><span class="ph" style="width:120px;height:96px;flex-shrink:0;border-radius:12px"></span>' +
+      return '<a href="#inicio" style="display:flex;gap:18px;padding:18px 0;border-top:1px solid #E4E0D9"><span style="width:120px;height:96px;flex-shrink:0;border-radius:12px;overflow:hidden">' + cover(x.cat, 34) + '</span>' +
         '<span style="display:flex;flex-direction:column;gap:6px"><span style="display:flex;gap:10px;font-size:12px"><span style="font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D0021B">' + x.cat + '</span><span style="color:#8F8A82">' + x.date + '</span></span>' +
         '<span style="font-size:18px;line-height:1.25;font-weight:700">' + esc(x.title) + '</span><span style="font-size:14px;line-height:1.45;color:#5F5B55">' + esc(x.body) + '</span></span></a>';
     }).join('') + (rest.length ? '' : '<div style="padding:18px 0;border-top:1px solid #E4E0D9;font-size:15px;color:#5F5B55">No hay más noticias en esta categoría.</div>');
@@ -666,7 +663,7 @@ button{font:inherit}
   $('#chips').addEventListener('click', function (e) { var b = e.target.closest('[data-cat]'); if (b) { cat = b.getAttribute('data-cat'); drawNews(); } });
   drawNews();
   $('#mnews').innerHTML = news.slice(0, 4).map(function (x) {
-    return '<a href="#movil" style="display:flex;gap:14px;padding:16px 0;border-top:1px solid #E4E0D9"><span class="ph" style="width:88px;height:72px;flex-shrink:0;border-radius:10px"></span>' +
+    return '<a href="#movil" style="display:flex;gap:14px;padding:16px 0;border-top:1px solid #E4E0D9"><span style="width:88px;height:72px;flex-shrink:0;border-radius:10px;overflow:hidden">' + cover(x.cat, 28) + '</span>' +
       '<span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D0021B">' + x.cat + '</span><span style="font-size:16px;line-height:1.25;font-weight:700">' + esc(x.title) + '</span></span></a>';
   }).join('');
 
@@ -707,15 +704,15 @@ button{font:inherit}
   send.addEventListener('click', function () { send.textContent = '✓ ¡Felicitación enviada!'; send.style.background = '#D0021B'; send.style.color = '#fff'; });
   $('#closeParty').addEventListener('click', function () { party.hidden = true; party.style.display = 'none'; if (lastBday) lastBday.focus(); });
 
-  /* Directorio: miembros por departamento. [Nombre Apellido] = por completar con la nómina real */
-  var TBD = null;
+  /* Directorio: miembros por departamento (en la versión real, desde Microsoft 365) */
   var depts = [
-    { name: 'Auditoría', members: [['Toichi Komatsuda Hara', 'TK', 'Gerente General', '—'], TBD, TBD] },
-    { name: 'Comercial', members: [['Taimir C. Morales Pérez', 'TM', 'Supervisor I', '2698'], TBD, TBD] },
-    { name: 'Finanzas, Contabilidad & Impuestos', members: [['Solcibeth K. Pereira Duno', 'SP', 'Supervisor I', '2654'], TBD, TBD] },
-    { name: 'Mercadeo', members: [['María Alejandra Ortiz', 'MO', 'Jefe de sección', '—'], TBD, TBD] },
-    { name: 'Planificación Estratégica y Corporativa', members: [['Mariana Rangel Blanco', 'MR', 'Analista III', '—'], TBD, TBD] },
-    { name: 'Ventas & Distribución', members: [['Víctor E. Díaz Cortez', 'VD', 'Supervisor I', '—'], TBD, TBD] }
+    { name: 'Auditoría', members: [['Toichi Komatsuda Hara', 'TK', 'Gerente General', '—']] },
+    { name: 'Comercial', members: [['Taimir C. Morales Pérez', 'TM', 'Supervisor I', '2698']] },
+    { name: 'Finanzas, Contabilidad & Impuestos', members: [['Solcibeth K. Pereira Duno', 'SP', 'Supervisor I', '2654']] },
+    { name: 'Mercadeo', members: [['María Alejandra Ortiz', 'MO', 'Jefe de sección', '—']] },
+    { name: 'Operaciones de Concesionarios', members: [['Orbey Gómez', 'OG', 'Coordinador de Ventas', '—']] },
+    { name: 'Planificación Estratégica y Corporativa', members: [['Mariana Rangel Blanco', 'MR', 'Analista III', '—']] },
+    { name: 'Ventas & Distribución', members: [['Víctor E. Díaz Cortez', 'VD', 'Supervisor I', '—']] }
   ];
   var area = 'Todas', query = '';
   var isLead = function (m) { return m && /^(Gerente|Jefe)/.test(m[2]); };
@@ -772,13 +769,10 @@ button{font:inherit}
         grid(d.members.map(function (m) { return card(m, d.name); }).join('')) + '</section>';
       return;
     }
-    $('#people').innerHTML = shown.map(function (d) {
-      return '<section style="display:flex;flex-direction:column;gap:18px">' +
-        '<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #E4E0D9;padding-bottom:12px">' +
-        '<h2 style="margin:0;font-size:22px;font-weight:700">' + esc(d.name) + ' <span style="font-size:15px;font-weight:500;color:#8F8A82">· ' + d.members.length + '</span></h2>' +
-        '<button type="button" data-area="' + esc(d.name) + '" style="border:0;background:transparent;cursor:pointer;font-size:14px;font-weight:600;color:#141414;min-height:44px">Ver departamento →</button></div>' +
-        grid(d.members.map(function (m) { return card(m, d.name); }).join('')) + '</section>';
-    }).join('');
+    var all = [];
+    shown.forEach(function (d) { d.members.forEach(function (p) { all.push([p, d.name]); }); });
+    all.sort(function (x, y) { return x[0][0].localeCompare(y[0][0], 'es'); });
+    $('#people').innerHTML = grid(all.map(function (x) { return card(x[0], x[1]); }).join(''));
   }
   var pick = function (e) { var b = e.target.closest('[data-area]'); if (b) { area = b.getAttribute('data-area'); drawDir(); } };
   $('#areas').addEventListener('click', pick);
@@ -786,8 +780,10 @@ button{font:inherit}
   $('#dq').addEventListener('input', function (e) { query = e.target.value.trim().toLowerCase(); drawDir(); });
   drawDir();
 
+  $$('[data-cover]').forEach(function (el) { el.innerHTML = cover(el.getAttribute('data-cover'), 64, el.getAttribute('data-label')); });
+
   /* Recursos de marca */
-  $('#docs').innerHTML = [['PDF', '[Manual de identidad de marca]'], ['PPTX', '[Plantilla de presentación corporativa]'], ['ZIP', '[Logotipos oficiales]'], ['PDF', '[Guía de tono y voz]']].map(function (d) {
+  $('#docs').innerHTML = [['PDF', 'Manual de identidad de marca'], ['PPTX', 'Plantilla de presentación corporativa'], ['ZIP', 'Logotipos oficiales'], ['PDF', 'Guía de tono y voz']].map(function (d) {
     return '<a href="#area" style="display:flex;align-items:center;gap:20px;min-height:76px;border-top:1px solid #E4E0D9"><span style="width:56px;font-size:12px;font-weight:800;font-stretch:120%;color:#5F5B55">' + d[0] + '</span>' +
       '<span style="flex-grow:1;font-size:19px;font-weight:600">' + d[1] + '</span><span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600">Descargar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span></a>';
   }).join('');
@@ -841,7 +837,7 @@ button{font:inherit}
     return g[1].map(function (p) {
       return '<a href="#rrhh" style="display:flex;align-items:center;gap:28px;padding:32px;border-radius:20px;background:#141414;color:#fff;margin-top:4px">' +
         '<span style="width:72px;height:72px;flex-shrink:0;border-radius:18px;background:#D0021B;color:#fff;display:flex;align-items:center;justify-content:center">' + ICON(HRMETA[g[0]][0], 34) + '</span>' +
-        '<span style="display:flex;flex-direction:column;gap:6px;flex-grow:1"><span class="eyebrow" style="color:#FF6B6B">Política</span><span class="serif" style="font-size:32px;line-height:1.1">' + esc(p) + '</span><span style="font-size:14px;color:#CFCAC2">[Resumen de la política en una línea]</span></span>' +
+        '<span style="display:flex;flex-direction:column;gap:6px;flex-grow:1"><span class="eyebrow" style="color:#FF6B6B">Política</span><span class="serif" style="font-size:32px;line-height:1.1">' + esc(p) + '</span><span style="font-size:14px;color:#CFCAC2">Reconocimiento económico ligado al desempeño.</span></span>' +
         '<span class="pill" style="height:48px;padding:0 22px;background:#fff;color:#141414;font-size:15px;flex-shrink:0">Ver documento →</span></a>';
     }).join('') + (HRREL[g[0]] ? '<div style="margin-top:28px;display:flex;flex-direction:column"><span style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5F5B55;padding-bottom:6px">Relacionadas</span>' +
       HRREL[g[0]].map(function (r, k) { return hrRow(r[0], k, r[1]); }).join('') + '</div>' : '');
@@ -913,7 +909,6 @@ button{font:inherit}
         '<span style="display:flex;flex-direction:column;flex-grow:1;min-width:0"><span style="font-size:14px;font-weight:700">' + p.name + '</span><span style="font-size:12px;color:#6B1A22">' + p.area + '</span></span>' +
         '<span class="pill" style="flex-shrink:0;height:32px;padding:0 12px;background:#141414;color:#fff;font-size:12px;gap:6px">' + CAKE(14) + 'Felicitar</span></button>';
     }).join('') : '<p style="margin:0;padding:10px 12px;font-size:14px;color:#5F5B55">Hoy no hay cumpleaños.</p>';
-    $$('.upc').forEach(function (u, k) { u.style.display = k < Math.max(1, 4 - Math.max(1, list.length)) ? 'flex' : 'none'; });
     $$('#demoBday button').forEach(function (b) { var on = +b.textContent === todayN; b.setAttribute('aria-pressed', on); b.style.background = on ? '#fff' : 'transparent'; b.style.color = on ? '#141414' : '#CFCAC2'; });
   }
   $('#homesend').addEventListener('click', function (e) {
