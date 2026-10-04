@@ -1349,7 +1349,7 @@ button{font:inherit}
       '<span class="tmark" aria-hidden="true" style="width:' + w + 'px;height:' + Math.round(w * .667) + 'px;color:#CDC6BB"></span></span>';
   }
   /* Fotos locales: noticias-fotos/<n>.jpg, donde <n> es el número de la noticia en ALLNEWS (1 = la primera). Solo en la vista previa local */
-  var NFOTOS = {};
+  var NFOTOS = { 2: '02-rally.jpg', 4: '04-autodromo.jpg', 5: '05-brindis.jpg', 6: '06-mondelez.jpg', 8: '08-periodista.jpg', 9: '09-f1.jpg', 10: '10-autofest.jpg', 11: '11-ventas.jpg', 12: '12-tlac.jpg', 14: '14-kinto.jpg', 15: '15-embajadores.jpg', 16: '16-ellas.jpg', 17: '17-japon.jpg', 18: '18-movilidad.jpg' };
   ALLNEWS.forEach(function (x, k) { if (NFOTOS[k + 1]) x.img = 'noticias-fotos/' + NFOTOS[k + 1]; });
   var ncat = 'Todas', nq = '';
   function drawAllNews() {
@@ -1361,6 +1361,9 @@ button{font:inherit}
     }).join('');
     var list = ALLNEWS.filter(function (x) { return (ncat === 'Todas' || x.cat === ncat) && (!nq || (x.title + ' ' + x.body).toLowerCase().indexOf(nq) > -1); });
     $('#ncount').textContent = list.length + (list.length === 1 ? ' noticia' : ' noticias');
+    /* La destacada es la primera que tenga foto */
+    var fi = list.findIndex(function (x) { return x.img; });
+    if (fi > 0) list = [list[fi]].concat(list.slice(0, fi), list.slice(fi + 1));
     var f = list[0];
     $('#nfeature').style.display = f ? 'grid' : 'none';
     $('#nfeature').innerHTML = f ? '<span style="grid-column:span 7;height:400px;border-radius:20px;overflow:hidden">' + ncover(f, 300, 720) + '</span>' +
