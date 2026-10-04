@@ -109,26 +109,14 @@ button{font:inherit}
 </div>
 </section>
 
-<section style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;height:480px">
-<article style="grid-column:span 8;position:relative;overflow:hidden;border-radius:20px;background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:44px 48px">
-<span class="tmark" aria-hidden="true" style="position:absolute;right:-150px;top:40px;width:620px;height:414px;color:#fff;opacity:0.05"></span>
-<span id="s-ico" aria-hidden="true" style="position:absolute;right:64px;top:50%;transform:translateY(-50%);width:200px;height:200px;border-radius:50%;background:rgba(208,2,27,.14);color:#FF6B6B;display:flex;align-items:center;justify-content:center"></span>
-<div style="display:flex;justify-content:space-between;align-items:center;position:relative">
-<span id="s-kicker" style="font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#FF6B6B"></span>
-<span style="font-size:14px;font-stretch:120%;font-weight:600;color:#BDB7AE"><span id="s-num"></span> <span id="s-total" style="color:#6F6A63"></span></span>
-</div>
-<div style="display:flex;flex-direction:column;gap:22px;max-width:600px;position:relative">
-<div style="width:56px;height:4px;background:var(--red)"></div>
-<h2 id="s-title" style="margin:0;font-size:58px;line-height:1;font-weight:800;font-stretch:112%;letter-spacing:-.015em;white-space:pre-line"></h2>
-<p id="s-body" style="margin:0;font-size:18px;line-height:1.5;color:#D9D4CC;max-width:500px"></p>
-</div>
-<div style="display:flex;justify-content:space-between;align-items:center;position:relative">
-<a href="#inicio" id="s-link" class="pill" style="gap:12px;height:52px;padding:0 26px;background:var(--red);color:#fff;font-size:16px"><span id="s-cta"></span>
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-<div style="display:flex;align-items:center;gap:18px">
-<div id="s-bars" style="display:flex;gap:6px"></div>
-<button type="button" data-slide="-1" aria-label="Anterior" style="width:44px;height:44px;border-radius:50%;border:1px solid #4A4642;background:transparent;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-<button type="button" data-slide="1" aria-label="Siguiente" style="width:44px;height:44px;border-radius:50%;border:1px solid #4A4642;background:transparent;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+<section style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px">
+<article aria-roledescription="carrusel" aria-label="Avisos" style="grid-column:span 8;display:flex;flex-direction:column;justify-content:space-between;gap:16px">
+<a href="#inicio" id="s-link" style="display:block;border-radius:20px;overflow:hidden;box-shadow:0 1px 0 #E4E0D9"><img id="s-img" alt="" style="display:block;width:100%;aspect-ratio:1360/550;object-fit:cover"></a>
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:18px"><span style="font-size:14px;font-stretch:120%;font-weight:600;color:#141414"><span id="s-num"></span> <span id="s-total" style="color:#8F8A82"></span></span><div id="s-bars" style="display:flex;gap:6px"></div></div>
+<div style="display:flex;gap:10px">
+<button type="button" data-slide="-1" aria-label="Anterior" style="width:44px;height:44px;border-radius:50%;border:1px solid #DAD5CD;background:#fff;color:#141414;cursor:pointer;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+<button type="button" data-slide="1" aria-label="Siguiente" style="width:44px;height:44px;border-radius:50%;border:1px solid #DAD5CD;background:#fff;color:#141414;cursor:pointer;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
 </div>
 </div>
 </article>
@@ -798,21 +786,20 @@ button{font:inherit}
   });
 
   /* Carrusel */
-  /* Los banners que hoy publica la intranet, como texto vivo: se cambian sin diseñar una imagen nueva */
+  /* Los banners que hoy publica la intranet, tal como están diseñados en Canva.
+     Nuevos ingresos queda fuera de la vista previa pública porque lleva fotos de personas. */
   var slides = [
-    { k: 'Gestión de información · Video', t: 'Gestión de\ninformación', b: 'Cómo manejar la información de forma segura: confidencialidad, integridad y disponibilidad.', c: 'Ver video', h: '#gestion', i: 'lock' },
-    { k: 'Bienvenidos', t: '¡Nuevos\ningresos!', b: 'María Alejandra Ortiz se suma a Mercadeo, y Orbey Gómez a Operaciones de Concesionarios.', c: 'Conocer al equipo', h: '#directorio', i: 'people' },
-    { k: 'Recursos Humanos · Guía', t: 'Adelanto de\nprestaciones sociales', b: 'Descarga la guía completa y sigue los pasos, uno por uno.', c: 'Descargar guía', h: '#rrhh', i: 'coins' },
-    { k: 'Directorio · Enero 2026', t: 'Extensiones\ntelefónicas', b: 'Ya no hace falta descargar la lista: busca a cualquier persona y su extensión en el Directorio.', c: 'Abrir el Directorio', h: '#directorio', i: 'phone' },
-    { k: 'Manual', t: 'Uso de la\nimpresora', b: 'Un manual para usar la impresora de manera fácil y rápida.', c: 'Descargar manual', h: '#inicio', i: 'printer' }
+    { img: 'banners/gestion-de-informacion.png', t: 'Gestión de información: son las políticas y procedimientos para el manejo seguro y eficiente de la información. Ver video.', h: '#gestion' },
+    { img: 'banners/uso-de-la-impresora.png', t: 'Uso de la impresora: descarga el manual para usarla de manera fácil y rápida.', h: '#inicio' },
+    { img: 'banners/extensiones-telefonicas.png', t: 'Lista de extensiones telefónicas, actualizada a enero 2026. Descargar.', h: '#directorio' },
+    { img: 'banners/prestaciones-sociales.png', t: 'Adelanto de prestaciones sociales: descarga la guía completa y sigue los pasos.', h: '#rrhh' }
   ];
   var si = 0;
   function drawSlide() {
     var s = slides[si];
-    $('#s-kicker').textContent = s.k; $('#s-num').textContent = '0' + (si + 1); $('#s-total').textContent = '/ 0' + slides.length;
-    $('#s-title').textContent = s.t; $('#s-body').textContent = s.b; $('#s-cta').textContent = s.c; $('#s-link').setAttribute('href', s.h);
-    $('#s-ico').innerHTML = ICON(s.i, 96, 1.2);
-    $('#s-bars').innerHTML = slides.map(function (x, k) { return '<i style="width:40px;height:3px;display:block;background:' + (k === si ? '#fff' : '#4A4642') + '"></i>'; }).join('');
+    $('#s-img').src = s.img; $('#s-img').alt = s.t; $('#s-link').setAttribute('href', s.h);
+    $('#s-num').textContent = '0' + (si + 1); $('#s-total').textContent = '/ 0' + slides.length;
+    $('#s-bars').innerHTML = slides.map(function (x, k) { return '<i style="width:32px;height:3px;display:block;background:' + (k === si ? '#141414' : '#DAD5CD') + '"></i>'; }).join('');
   }
   $$('[data-slide]').forEach(function (b) { b.addEventListener('click', function () { si = (si + Number(b.getAttribute('data-slide')) + slides.length) % slides.length; drawSlide(); }); });
   drawSlide();
