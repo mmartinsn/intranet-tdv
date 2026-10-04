@@ -1342,6 +1342,7 @@ button{font:inherit}
   var NCOL = { 'Talento': ['#141414', '#fff', '#2C2926'], 'D&I': ['#FBE6E8', '#D0021B', '#F4C4CA'], 'Reconocimientos': ['#D0021B', '#fff', '#E23845'],
     'Formación': ['#EFEBE4', '#141414', '#E0D9CD'], 'Gente': ['#2B2826', '#fff', '#3D3936'], 'Institucional': ['#141414', '#fff', '#3A0A10'], 'Producto': ['#FFFFFF', '#141414', '#EFEBE4'], 'RSE': ['#8E0012', '#fff', '#A71D2D'] };
   function ncover(x, size, box) {
+    if (x.img) return '<img class="ncv" src="' + x.img + '" alt="" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit">';
     var c = NCOL[x.cat] || NCOL['Gente'], small = box < 200;
     /* La palabra se ajusta al ancho para leerse entera */
     size = Math.min(size, Math.floor(box / (Math.max(2, x.w.length) * 1.02)));
@@ -1350,6 +1351,9 @@ button{font:inherit}
       '<span class="tmark" aria-hidden="true" style="position:absolute;right:' + (small ? 10 : 22) + 'px;top:' + (small ? 10 : 22) + 'px;width:' + (small ? 24 : 40) + 'px;height:' + (small ? 16 : 27) + 'px;color:' + c[1] + '"></span>' +
       (small ? '' : '<span style="position:absolute;left:22px;top:24px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.8">' + esc(x.cat) + '</span>') + '</span>';
   }
+  /* Fotos locales: noticias-fotos/<n>.jpg, donde <n> es el número de la noticia en ALLNEWS (1 = la primera). Solo en la vista previa local */
+  var NFOTOS = {};
+  ALLNEWS.forEach(function (x, k) { if (NFOTOS[k + 1]) x.img = 'noticias-fotos/' + NFOTOS[k + 1]; });
   var ncat = 'Todas', nq = '';
   function drawAllNews() {
     var cats = ['Todas'].concat(ALLNEWS.map(function (x) { return x.cat; }).filter(function (c, k, a) { return a.indexOf(c) === k; }));
