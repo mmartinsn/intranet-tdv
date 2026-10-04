@@ -80,6 +80,9 @@ button{font:inherit}
 <a href="#directorio">Directorio</a>
 <a href="#area">Mercadeo</a>
 <a href="#rrhh">Recursos Humanos</a>
+<a href="#gestion">Gestión de información</a>
+<a href="#documento">Documento</a>
+<a href="#noticias">Noticias</a>
 </nav>
 </header>
 
@@ -109,9 +112,10 @@ button{font:inherit}
 <section style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;height:480px">
 <article style="grid-column:span 8;position:relative;overflow:hidden;border-radius:20px;background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:44px 48px">
 <span class="tmark" aria-hidden="true" style="position:absolute;right:-150px;top:40px;width:620px;height:414px;color:#fff;opacity:0.05"></span>
+<span id="s-ico" aria-hidden="true" style="position:absolute;right:64px;top:50%;transform:translateY(-50%);width:200px;height:200px;border-radius:50%;background:rgba(208,2,27,.14);color:#FF6B6B;display:flex;align-items:center;justify-content:center"></span>
 <div style="display:flex;justify-content:space-between;align-items:center;position:relative">
 <span id="s-kicker" style="font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#FF6B6B"></span>
-<span style="font-size:14px;font-stretch:120%;font-weight:600;color:#BDB7AE"><span id="s-num"></span> <span style="color:#6F6A63">/ 03</span></span>
+<span style="font-size:14px;font-stretch:120%;font-weight:600;color:#BDB7AE"><span id="s-num"></span> <span id="s-total" style="color:#6F6A63"></span></span>
 </div>
 <div style="display:flex;flex-direction:column;gap:22px;max-width:600px;position:relative">
 <div style="width:56px;height:4px;background:var(--red)"></div>
@@ -119,7 +123,7 @@ button{font:inherit}
 <p id="s-body" style="margin:0;font-size:18px;line-height:1.5;color:#D9D4CC;max-width:500px"></p>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;position:relative">
-<a href="#inicio" class="pill" style="gap:12px;height:52px;padding:0 26px;background:var(--red);color:#fff;font-size:16px"><span id="s-cta"></span>
+<a href="#inicio" id="s-link" class="pill" style="gap:12px;height:52px;padding:0 26px;background:var(--red);color:#fff;font-size:16px"><span id="s-cta"></span>
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 <div style="display:flex;align-items:center;gap:18px">
 <div id="s-bars" style="display:flex;gap:6px"></div>
@@ -210,7 +214,7 @@ button{font:inherit}
 <span class="eyebrow" style="color:var(--muted)">Últimas noticias</span>
 <h2 class="serif" style="margin:0;font-weight:500;font-size:44px;line-height:1.05">Lo que está pasando en TDV</h2>
 </div>
-<a href="#inicio" style="font-size:15px;font-weight:600">Ver todas las noticias →</a>
+<a href="#noticias" style="font-size:15px;font-weight:600">Ver todas las noticias →</a>
 </div>
 <div id="chips" role="tablist" aria-label="Filtrar noticias" style="display:flex;gap:8px"></div>
 <div style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;min-height:560px">
@@ -531,6 +535,119 @@ button{font:inherit}
 </div>
 </section>
 
+<!-- ============ GESTIÓN DE INFORMACIÓN ============ -->
+<section class="view" id="v-gestion">
+<div class="frame">
+<div data-header="Políticas"></div>
+<section style="padding:56px 80px 64px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:end">
+<div style="grid-column:span 7;display:flex;flex-direction:column;gap:20px">
+<nav aria-label="Ruta" style="font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Políticas / Gestión de información</nav>
+<h1 style="margin:0;font-size:80px;line-height:.95;font-weight:800;font-stretch:112%;letter-spacing:-.025em">Gestión de información</h1>
+<p style="margin:0;font-size:19px;line-height:1.55;color:#3A3733;max-width:620px">Las políticas y procedimientos para manejar la información de forma segura y eficiente: acceso, almacenamiento, protección de datos y cumplimiento legal.</p>
+</div>
+<div style="grid-column:span 5;display:flex;justify-content:flex-end">
+<p class="serif" style="margin:0;font-style:italic;font-weight:500;font-size:64px;line-height:1;color:var(--red);text-align:right;letter-spacing:-.02em">Confidencial.<br>Íntegra.<br>Disponible.</p>
+</div>
+</section>
+
+<section style="padding:0 80px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px">
+<a href="#gestion" data-soon="Vista previa: el video se reproduce desde la intranet real." aria-label="Reproducir el video Cómo evitar la fuga de información confidencial" style="grid-column:span 8;position:relative;overflow:hidden;aspect-ratio:16/9;border-radius:20px;background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:40px 44px">
+<span class="tmark" aria-hidden="true" style="position:absolute;right:-120px;bottom:-90px;width:520px;height:346px;color:#fff;opacity:.06"></span>
+<span style="position:relative;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#FF6B6B">Capacitación obligatoria</span><span style="font-size:14px;font-weight:600;color:#BDB7AE">19:08</span></span>
+<span style="position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:32px">
+<span style="display:flex;flex-direction:column;gap:14px;max-width:520px"><span style="width:56px;height:4px;background:var(--red)"></span>
+<span style="font-size:48px;line-height:1.02;font-weight:800;font-stretch:112%;letter-spacing:-.015em">Cómo evitar la fuga de información confidencial</span>
+<span style="font-size:16px;line-height:1.5;color:#D9D4CC">Toyota Motor Corporation · En inglés, con subtítulos en español</span></span>
+<span style="width:96px;height:96px;flex-shrink:0;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 10px rgba(208,2,27,.25)"><svg width="34" height="34" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+</span>
+</a>
+<aside class="card" style="grid-column:span 4;padding:28px;display:flex;flex-direction:column">
+<h2 class="eyebrow" style="margin:0 0 8px">Lo que vas a ver</h2>
+<ol id="gchap" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column"></ol>
+</aside>
+</section>
+
+<section style="padding:96px 80px 0;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end">
+<div style="display:flex;flex-direction:column;gap:10px"><span class="eyebrow" style="color:var(--muted)">Lo esencial del video</span><h2 class="serif" style="margin:0;font-weight:500;font-size:40px;line-height:1.1">Cuatro formas en que se filtra la información</h2></div>
+<p style="margin:0;max-width:420px;font-size:15px;line-height:1.55;color:var(--muted)">La mayoría de las fugas se evita con atención y con las reglas de cada día.</p>
+</div>
+<div id="gways" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px"></div>
+</section>
+
+<section style="padding:96px 80px 96px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px">
+<div style="grid-column:span 8;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:18px"><span class="eyebrow" style="color:var(--muted)">Documentos vigentes</span><span style="font-size:13px;color:var(--muted)">3 documentos</span></div>
+<div id="gdocs"></div>
+</div>
+<aside style="grid-column:10 / span 3;align-self:start;background:var(--red);color:#fff;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px">
+<span class="eyebrow">¿Notaste algo raro?</span>
+<p class="serif" style="margin:0;font-size:24px;line-height:1.2">Habla con tu supervisor. Si te cuesta hacerlo, usa el canal de denuncias.</p>
+<p style="margin:0;font-size:14px;line-height:1.5;color:#FFD5D9">Si un medio te pide información, remítelo a Relaciones Públicas.</p>
+<a href="#inicio" data-soon="Vista previa: el canal de denuncias se conecta en la intranet real." class="pill" style="margin-top:6px;height:44px;background:#fff;color:var(--ink);font-size:14px">Canal de denuncias</a>
+</aside>
+</section>
+<div data-footer></div>
+</div>
+</section>
+
+<!-- ============ DOCUMENTO ============ -->
+<section class="view" id="v-documento">
+<div class="frame">
+<div data-header="Políticas"></div>
+<section style="padding:56px 80px 96px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px">
+<div style="grid-column:span 8;display:flex;flex-direction:column;gap:20px">
+<nav aria-label="Ruta" style="font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Políticas / <a href="#gestion" style="color:var(--muted)">Gestión de información</a></nav>
+<span class="eyebrow" style="color:var(--red)">Política corporativa</span>
+<h1 style="margin:0;font-size:52px;line-height:1.02;font-weight:800;font-stretch:110%;letter-spacing:-.02em">Gestión de confidencialidad de la información</h1>
+<p style="margin:0;font-size:19px;line-height:1.55;color:#3A3733;max-width:680px">Aplica a todo el personal de TDV, en cualquier nivel, función y área, incluidos los responsables y custodios de la información.</p>
+<div style="margin-top:20px;border-radius:20px;background:#E4E0D9;padding:40px;display:flex;justify-content:center">
+<div style="width:480px;aspect-ratio:1/1.414;background:#fff;box-shadow:0 12px 32px rgba(20,20,20,.12);padding:48px 44px;display:flex;flex-direction:column;gap:14px">
+<span style="display:flex;justify-content:space-between;align-items:center"><span class="tmark" aria-hidden="true" style="width:42px;height:28px;color:#141414"></span><span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8F8A82">Toyota de Venezuela, C. A.</span></span>
+<span style="margin-top:18px;font-size:17px;font-weight:800;line-height:1.2">Política corporativa · Gestión de confidencialidad de la información</span>
+<span class="ph" style="height:10px;border-radius:3px"></span><span class="ph" style="height:10px;border-radius:3px;width:92%"></span><span class="ph" style="height:10px;border-radius:3px;width:96%"></span><span class="ph" style="height:10px;border-radius:3px;width:70%"></span>
+<span class="ph" style="margin-top:12px;height:10px;border-radius:3px;width:40%"></span><span class="ph" style="height:10px;border-radius:3px"></span><span class="ph" style="height:10px;border-radius:3px;width:88%"></span><span class="ph" style="height:10px;border-radius:3px;width:94%"></span><span class="ph" style="height:10px;border-radius:3px;width:60%"></span>
+<span style="margin-top:auto;display:flex;justify-content:space-between;font-size:10px;color:#8F8A82"><span>Uso interno</span><span>1 / [n]</span></span>
+</div>
+</div>
+</div>
+<aside style="grid-column:10 / span 3;align-self:start;position:sticky;top:24px;display:flex;flex-direction:column;gap:20px;margin-top:118px">
+<div class="card" style="padding:24px;display:flex;flex-direction:column;gap:12px">
+<a href="#documento" data-soon="Vista previa: la descarga se conecta en la intranet real." class="pill" style="height:52px;gap:10px;background:var(--red);color:#fff;font-size:15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar PDF</a>
+<a href="#documento" data-soon="Vista previa: el visor se conecta en la intranet real." class="pill" style="height:48px;border:1px solid var(--ink);font-size:15px">Abrir en el navegador</a>
+<dl id="dmeta" style="margin:8px 0 0;display:flex;flex-direction:column;font-size:14px"></dl>
+</div>
+<div style="display:flex;flex-direction:column">
+<span class="eyebrow" style="color:var(--muted);padding-bottom:10px">Del mismo tema</span>
+<div id="drel"></div>
+</div>
+</aside>
+</section>
+<div data-footer></div>
+</div>
+</section>
+
+<!-- ============ NOTICIAS ============ -->
+<section class="view" id="v-noticias">
+<div class="frame">
+<div data-header="Noticias"></div>
+<section style="padding:56px 80px 40px;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--line)">
+<div style="display:flex;flex-direction:column;gap:20px">
+<nav aria-label="Ruta" style="font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Noticias</nav>
+<h1 style="margin:0;font-size:72px;line-height:1;font-weight:800;font-stretch:115%;letter-spacing:-.02em">Noticias</h1>
+<p style="margin:0;font-size:19px;line-height:1.55;color:#3A3733;max-width:620px">Anuncios, eventos y logros de Toyota de Venezuela y su red.</p>
+</div>
+<span id="ncount" style="font-size:15px;color:var(--muted)"></span>
+</section>
+<section style="padding:32px 80px 96px;display:flex;flex-direction:column;gap:40px">
+<div id="nchips" role="tablist" aria-label="Filtrar noticias" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+<a href="#noticias" id="nfeature" style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center"></a>
+<div id="ngrid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 24px"></div>
+</section>
+<div data-footer></div>
+</div>
+</section>
+
 <script>
 (function () {
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -545,6 +662,8 @@ button{font:inherit}
   };
   var ARROW = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8F8A82" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>';
   var ICO = {
+    printer: '<path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/>',
+    phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
     shield: '<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/>',
     lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4M12 15v2"/>',
     megaphone: '<path d="M3 10v4h3l7 4V6L6 10H3z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/>',
@@ -589,9 +708,9 @@ button{font:inherit}
     ['clipboard', 'RCT', null, ['[Opciones por confirmar]']], ['cardcheck', 'Plataforma de Aprobaciones de Pagos'], ['leaf', 'Sistema de Procesos Ambientales'],
     ['growth', 'Sistema de Desarrollo Organizacional'], ['car', 'Sistema de Pre-Pedido CBU'], ['db', 'Oracle R11', null, ['[Módulos por confirmar]']]
   ];
-  var POLS = [['ABAC', 'Anticorrupción y antisoborno', '#inicio', 'shield'], ['Gestión de Información', 'Seguridad y manejo de datos', '#inicio', 'lock'],
+  var POLS = [['ABAC', 'Anticorrupción y antisoborno', '#inicio', 'shield'], ['Gestión de Información', 'Seguridad y manejo de datos', '#gestion', 'lock'],
     ['Mercadeo, Comunicaciones & RSE', 'Marca, campañas y voluntariado', '#area', 'megaphone'], ['Recursos Humanos', 'Beneficios, políticas y calendarios', '#rrhh', 'people'],
-    ['Asuntos Legales y Gubernamentales', 'Marco legal y regulatorio', '#inicio', 'scale'], ['Gobernanza', 'Estructura y lineamientos', '#inicio', 'columns']];
+    ['Asuntos Legales y Gubernamentales', 'Marco legal y regulatorio', '#inicio', 'scale'], ['Gobernanza', 'Estructura y lineamientos', '#inicio', 'columns', ['Política de Autorización', 'Regla interna']]];
   var appsPanel = '<div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px;border-bottom:1px solid #EEEAE4;margin-bottom:8px"><span class="eyebrow">Aplicaciones Toyota</span><span style="font-size:13px;color:#8F8A82">' + APPS.length + ' aplicaciones</span></div>' +
     '<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:16px">' + APPS.map(function (p) {
       var sub = p[3] ? '<span style="display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:3px">' + p[3].map(function (x) { return '<a href="#inicio" style="font-size:12px;color:#5F5B55">' + x + ' ›</a>'; }).join('') + '</span>'
@@ -601,11 +720,25 @@ button{font:inherit}
         '<span style="display:flex;flex-direction:column;min-width:0"><a href="#inicio" style="font-size:14px;font-weight:600;line-height:1.3">' + p[1] + '</a>' + sub + '</span></div>';
     }).join('') + '</div>';
   var polsPanel = '<span class="eyebrow" style="display:block;padding-bottom:12px;border-bottom:1px solid #EEEAE4;margin-bottom:6px">Políticas y más</span>' + POLS.map(function (p) {
+      if (p[4]) return '<div style="display:flex;gap:14px;align-items:flex-start;padding:10px 8px">' +
+        '<span style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON(p[3], 20) + '</span>' +
+        '<span style="display:flex;flex-direction:column"><span style="font-size:14px;font-weight:600">' + p[0] + '</span><span style="display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:3px">' +
+        p[4].map(function (x) { return '<a href="#documento" style="font-size:12px;color:#5F5B55">' + x + ' ›</a>'; }).join('') + '</span></span></div>';
       return '<a href="' + p[2] + '" style="display:flex;gap:14px;align-items:center;padding:10px 8px;border-radius:10px">' +
         '<span style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON(p[3], 20) + '</span>' +
         '<span style="display:flex;flex-direction:column"><span style="font-size:14px;font-weight:600">' + p[0] + '</span><span style="font-size:12px;color:#5F5B55">' + p[1] + '</span></span></a>';
     }).join('');
-  var NAV = [['Inicio', '#inicio'], ['Aplicaciones', null, 'apps', appsPanel, 760], ['Políticas', null, 'pols', polsPanel, 380], ['Directorio', '#directorio'], ['Noticias', '#inicio']];
+  var NAV = [['Inicio', '#inicio'], ['Aplicaciones', null, 'apps', appsPanel, 760], ['Políticas', null, 'pols', polsPanel, 380], ['Directorio', '#directorio'], ['Noticias', '#noticias']];
+  /* Menú IT: los cuatro entornos de Oracle que hoy cuelgan de «Acerca de» */
+  var itMenu = function () {
+    var row = function (n) {
+      return '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 8px;border-top:1px solid #EEEAE4"><span style="font-size:14px;font-weight:600;color:#141414">' + n + '</span>' +
+        '<span style="display:flex;gap:6px">' + ['TEST', 'QA'].map(function (e) { return '<a href="#inicio" style="font-size:12px;font-weight:700;letter-spacing:.06em;padding:5px 10px;border-radius:999px;border:1px solid #DAD5CD;color:#3A3733">' + e + '</a>'; }).join('') + '</span></div>';
+    };
+    return '<div class="dd" style="position:relative;height:100%;display:flex;align-items:center"><button type="button" class="dd-btn" aria-expanded="false" aria-haspopup="true" data-dd="it" style="display:flex;align-items:center;gap:4px;border:0;background:transparent;color:#CFCAC2;font:inherit;font-size:13px;cursor:pointer;padding:0">Menú IT' + CHEV + '</button>' +
+      '<div class="dd-panel" data-panel="it" hidden style="position:absolute;top:100%;right:-16px;z-index:60;width:340px;background:#fff;border:1px solid #E4E0D9;border-radius:16px;box-shadow:0 24px 48px rgba(20,20,20,.14);padding:18px 16px 10px;letter-spacing:0">' +
+      '<span class="eyebrow" style="display:block;padding:0 8px 10px;color:#141414">Menú IT · Entornos</span>' + row('Oracle Applications R12') + row('Oracle In-House R12') + '</div></div>';
+  };
   var CHEV = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
   $$('[data-header]').forEach(function (el) {
     var active = el.getAttribute('data-header');
@@ -620,7 +753,7 @@ button{font:inherit}
     el.innerHTML =
       '<div style="height:40px;padding:0 80px;display:flex;align-items:center;justify-content:space-between;background:#141414;color:#CFCAC2;font-size:13px;letter-spacing:.02em">' +
       '<div style="display:flex;gap:24px"><span style="color:#fff;font-weight:600">Toyota de Venezuela</span><span>Intranet corporativa</span></div>' +
-      '<div style="display:flex;gap:28px"><a href="#inicio" style="color:#CFCAC2">Menú IT</a><a href="#inicio" style="color:#CFCAC2">Oracle R12</a><a href="#inicio" style="color:#CFCAC2">Ayuda</a><a href="#inicio" style="color:#fff;font-weight:600">Salir</a></div></div>' +
+      '<div style="display:flex;gap:28px;align-items:center;height:100%">' + itMenu() + '<a href="#inicio" style="color:#CFCAC2">Oracle R12</a><a href="#inicio" style="color:#CFCAC2">Ayuda</a><a href="#inicio" style="color:#fff;font-weight:600">Salir</a></div></div>' +
       '<div style="height:84px;padding:0 80px;display:flex;align-items:center;gap:48px;border-bottom:1px solid #E4E0D9">' +
       '<a href="#inicio" aria-label="Inicio Intranet TDV" style="display:flex;align-items:center;gap:14px">' + EMBLEM(46, '#D0021B', 6) +
       '<span style="display:flex;flex-direction:column;line-height:1"><span style="font-size:20px;font-weight:800;font-stretch:118%;letter-spacing:.04em">TDV</span><span style="font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#5F5B55;margin-top:4px">Intranet</span></span></a>' +
@@ -637,29 +770,34 @@ button{font:inherit}
       return '<div style="display:flex;flex-direction:column;gap:10px;font-size:14px"><div style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#8F8A82">' + t + '</div>' +
         links.map(function (l) { return '<a href="' + l[1] + '" style="color:#CFCAC2">' + l[0] + '</a>'; }).join('') + '</div>';
     };
-    el.innerHTML = '<footer style="height:260px;padding:56px 80px 32px;background:#141414;color:#CFCAC2;display:flex;flex-direction:column;justify-content:space-between">' +
-      '<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px">' +
+    el.innerHTML = '<footer style="min-height:260px;gap:40px;padding:56px 80px 32px;background:#141414;color:#CFCAC2;display:flex;flex-direction:column;justify-content:space-between">' +
+      '<div style="display:grid;grid-template-columns:1.4fr repeat(4,minmax(0,1fr));gap:32px">' +
       '<div style="display:flex;flex-direction:column;gap:14px">' + EMBLEM(46, '#fff', 6) + '<div class="serif" style="font-style:italic;font-size:22px;color:#fff">Todo lo que te mueve.</div></div>' +
-      col('Empresa', [['Directorio', '#directorio'], ['Noticias', '#inicio'], ['Mercadeo y RSE', '#area']]) +
+      col('Empresa', [['Directorio', '#directorio'], ['Noticias', '#noticias'], ['Mercadeo y RSE', '#area']]) +
       col('Políticas', [['ABAC', '#inicio'], ['Recursos Humanos', '#rrhh'], ['Gobernanza', '#inicio']]) +
       col('Soporte', [['Menú IT', '#inicio'], ['Canal de denuncias', '#inicio'], ['Reservación de salas', '#inicio']]) +
+      col('Redes sociales', [['Instagram', '#inicio'], ['Facebook', '#inicio'], ['LinkedIn', '#inicio'], ['X', '#inicio'], ['Página web', '#inicio']]) +
       '</div><div style="display:flex;justify-content:space-between;border-top:1px solid #2E2B28;padding-top:20px;font-size:13px;color:#8F8A82"><span>© 2026 Toyota de Venezuela · Uso interno</span><span>Intranet Corporativa TDV</span></div></footer>';
   });
 
   /* Carrusel */
+  /* Los banners que hoy publica la intranet, como texto vivo: se cambian sin diseñar una imagen nueva */
   var slides = [
-    { k: 'Recursos Humanos · Guía', t: 'Adelanto de\nprestaciones sociales', b: 'Descarga la guía completa y sigue los pasos, uno por uno.', c: 'Descargar guía' },
-    { k: 'Postulación interna', t: 'Analista III de\nDesarrollo de Concesionarios', b: 'En Toyota abrimos oportunidades reales para que puedas moverte dentro de la organización.', c: 'Ver perfil y requisitos' },
-    { k: 'Bienvenidos', t: '¡Nuevos\ningresos!', b: 'Conoce a quienes se suman este mes a Toyota de Venezuela.', c: 'Conocer al equipo' }
+    { k: 'Gestión de información · Video', t: 'Gestión de\ninformación', b: 'Cómo manejar la información de forma segura: confidencialidad, integridad y disponibilidad.', c: 'Ver video', h: '#gestion', i: 'lock' },
+    { k: 'Bienvenidos', t: '¡Nuevos\ningresos!', b: 'María Alejandra Ortiz se suma a Mercadeo, y Orbey Gómez a Operaciones de Concesionarios.', c: 'Conocer al equipo', h: '#directorio', i: 'people' },
+    { k: 'Recursos Humanos · Guía', t: 'Adelanto de\nprestaciones sociales', b: 'Descarga la guía completa y sigue los pasos, uno por uno.', c: 'Descargar guía', h: '#rrhh', i: 'coins' },
+    { k: 'Directorio · Enero 2026', t: 'Extensiones\ntelefónicas', b: 'Ya no hace falta descargar la lista: busca a cualquier persona y su extensión en el Directorio.', c: 'Abrir el Directorio', h: '#directorio', i: 'phone' },
+    { k: 'Manual', t: 'Uso de la\nimpresora', b: 'Un manual para usar la impresora de manera fácil y rápida.', c: 'Descargar manual', h: '#inicio', i: 'printer' }
   ];
   var si = 0;
   function drawSlide() {
     var s = slides[si];
-    $('#s-kicker').textContent = s.k; $('#s-num').textContent = '0' + (si + 1);
-    $('#s-title').textContent = s.t; $('#s-body').textContent = s.b; $('#s-cta').textContent = s.c;
+    $('#s-kicker').textContent = s.k; $('#s-num').textContent = '0' + (si + 1); $('#s-total').textContent = '/ 0' + slides.length;
+    $('#s-title').textContent = s.t; $('#s-body').textContent = s.b; $('#s-cta').textContent = s.c; $('#s-link').setAttribute('href', s.h);
+    $('#s-ico').innerHTML = ICON(s.i, 96, 1.2);
     $('#s-bars').innerHTML = slides.map(function (x, k) { return '<i style="width:40px;height:3px;display:block;background:' + (k === si ? '#fff' : '#4A4642') + '"></i>'; }).join('');
   }
-  $$('[data-slide]').forEach(function (b) { b.addEventListener('click', function () { si = (si + Number(b.getAttribute('data-slide')) + 3) % 3; drawSlide(); }); });
+  $$('[data-slide]').forEach(function (b) { b.addEventListener('click', function () { si = (si + Number(b.getAttribute('data-slide')) + slides.length) % slides.length; drawSlide(); }); });
   drawSlide();
 
   /* Accesos rápidos */
@@ -698,7 +836,7 @@ button{font:inherit}
     { cat: 'Gente', date: '16 dic 2025', title: '¡Se celebró la 17ª edición del Concurso de Habilidades!', body: 'Celebramos la excelencia y la mejora continua en Toyota de Venezuela.', photo: 'Concurso de Habilidades' },
     { cat: 'Reconocimientos', date: '', title: 'Premio a la mejor campaña automotriz 2025: Toyota Agya', body: 'Reconocimiento en la vigésima quinta edición de los Premios P&M.', photo: 'Premios P&M' },
     { cat: 'Formación', date: '', title: 'Curso avanzado de producto en el Autódromo de San Carlos', body: 'En noviembre se llevó a cabo con éxito una capacitación exclusiva.', photo: 'Autódromo de San Carlos' },
-    { cat: 'RSE', date: '', title: 'Mes de la movilidad con el voluntariado TDV', body: 'Más de 50 niños fueron beneficiados con cirugías musculoesqueléticas.', photo: 'Voluntariado TDV' },
+    { cat: 'RSE', date: '', title: 'Mes de la movilidad con el voluntariado TDV', body: '34 niños recibieron operaciones musculoesqueléticas.', photo: 'Voluntariado TDV' },
     { cat: 'Gente', date: '1 abr 2026', title: 'Rally 4×4: D&I', body: '¿Qué tiene que ver un sistema 4×4 con la inclusión?', photo: 'Rally 4×4' },
     { cat: 'Talento', date: '', title: 'Postulación interna a vacantes: movilidad de talento', body: 'Rellena el formulario para postularte.', photo: 'Postulación interna' }
   ];
@@ -732,7 +870,7 @@ button{font:inherit}
 
   /* Políticas, cada una con su ícono */
 
-  var pol = [['01', 'ABAC', 'Anticorrupción y antisoborno', '#inicio', 'shield'], ['02', 'Gestión de Información', 'Seguridad y manejo de datos', '#inicio', 'lock'], ['03', 'Mercadeo, Comunicaciones & RSE', 'Marca, campañas y voluntariado', '#area', 'megaphone'], ['04', 'Recursos Humanos', 'Beneficios, políticas y calendarios', '#rrhh', 'people'], ['05', 'Asuntos Legales y Gubernamentales', 'Marco legal y regulatorio', '#inicio', 'scale'], ['06', 'Gobernanza', 'Estructura y lineamientos', '#inicio', 'columns']];
+  var pol = [['01', 'ABAC', 'Anticorrupción y antisoborno', '#inicio', 'shield'], ['02', 'Gestión de Información', 'Seguridad y manejo de datos', '#gestion', 'lock'], ['03', 'Mercadeo, Comunicaciones & RSE', 'Marca, campañas y voluntariado', '#area', 'megaphone'], ['04', 'Recursos Humanos', 'Beneficios, políticas y calendarios', '#rrhh', 'people'], ['05', 'Asuntos Legales y Gubernamentales', 'Marco legal y regulatorio', '#inicio', 'scale'], ['06', 'Gobernanza', 'Estructura y lineamientos', '#inicio', 'columns']];
   $('#policies').innerHTML = pol.map(function (p) {
     return '<a href="' + p[3] + '" class="card" style="min-height:200px;padding:26px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:20px">' +
       '<span style="display:flex;justify-content:space-between;align-items:flex-start">' +
@@ -1062,6 +1200,93 @@ button{font:inherit}
   }).join('');
   $$('#v-movil [data-ico]').forEach(function (el) { el.innerHTML = ICON(el.getAttribute('data-ico'), 22); });
 
+  /* Gestión de información: capítulos del video, las cuatro formas de fuga y los documentos */
+  var GCHAP = [['00:00', 'Por qué importa'], ['02:19', 'Qué es información confidencial'], ['03:32', 'Cuatro formas de fuga'], ['04:31', 'Sanciones'],
+    ['05:22', 'Casos: fuga a los medios'], ['08:46', 'Casos: fuga intencional'], ['12:52', 'Casos: fuga por descuido'], ['14:57', 'Casos: ciberataques'], ['16:47', 'Qué hacer']];
+  $('#gchap').innerHTML = GCHAP.map(function (c) {
+    return '<li><a href="#gestion" data-soon="Vista previa: el video se reproduce desde la intranet real." style="display:flex;gap:14px;align-items:baseline;padding:9px 0;border-top:1px solid #EEEAE4">' +
+      '<span style="width:44px;flex-shrink:0;font-size:13px;font-weight:700;font-stretch:115%;color:#D0021B">' + c[0] + '</span><span style="font-size:15px;font-weight:500">' + c[1] + '</span></a></li>';
+  }).join('');
+  var GWAYS = [['01', 'A los medios', 'Datos que llegan a la prensa antes del anuncio oficial, a veces armados con piezas pequeñas.', 'No comentes temas de la empresa en lugares públicos. Las consultas de prensa van a Relaciones Públicas.'],
+    ['02', 'Intencional', 'Alguien entrega información a propósito, casi siempre para beneficio propio.', 'Lleva solo lo que te corresponde. Usar información obtenida de forma ilegal también es delito.'],
+    ['03', 'Por descuido', 'Un correo al destinatario equivocado, un archivo abierto o una memoria USB perdida.', 'Revisa el destinatario antes de enviar y sigue las reglas para guardar y mover archivos.'],
+    ['04', 'Por ciberataques', 'Atacantes que entran por el eslabón más débil, propio o de un tercero.', 'Desconfía de correos sospechosos, cuida tus contraseñas y mantén tus equipos al día.']];
+  $('#gways').innerHTML = GWAYS.map(function (w, k) {
+    var dark = k === 0;
+    return '<article class="' + (dark ? '' : 'card') + '" style="border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px;min-height:340px;' + (dark ? 'background:var(--ink);color:#fff' : '') + '">' +
+      '<span style="font-size:44px;font-weight:800;font-stretch:120%;color:var(--red);line-height:1">' + w[0] + '</span>' +
+      '<h3 style="margin:0;font-size:24px;font-weight:700">' + w[1] + '</h3>' +
+      '<p style="margin:0;font-size:15px;line-height:1.5;color:' + (dark ? '#D9D4CC' : '#5F5B55') + '">' + w[2] + '</p>' +
+      '<p style="margin:auto 0 0;padding-top:14px;border-top:1px solid ' + (dark ? '#3A3733' : '#EEEAE4') + ';font-size:14px;line-height:1.5"><strong style="display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:' + (dark ? '#FF6B6B' : '#D0021B') + ';margin-bottom:4px">Qué hacer</strong>' + w[3] + '</p></article>';
+  }).join('');
+  var GDOCS = [['Política corporativa', 'Gestión de confidencialidad de la información', 'Cómo debe manejar la información todo el personal, incluidos sus responsables y custodios.'],
+    ['Procedimiento', 'Accidentes e incidentes de seguridad de la información', 'Quién hace qué, y por qué vía avisar, si se pierde, se roba o se filtra información confidencial.'],
+    ['Procedimiento', 'Manejo de cuestiones confidenciales', 'Cómo tratar los asuntos confidenciales para prevenir incidentes que dañen a TDV.']];
+  var docRow = function (d, k) {
+    return '<a href="#documento" class="hrrow" style="display:flex;align-items:center;gap:24px;padding:22px 16px;border-top:1px solid #E4E0D9;border-radius:4px">' +
+      '<span style="width:52px;height:52px;flex-shrink:0;border-radius:14px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON('doc', 24) + '</span>' +
+      '<span style="display:flex;flex-direction:column;gap:4px;flex-grow:1"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + d[0] + '</span>' +
+      '<span style="font-size:20px;font-weight:700;line-height:1.25">' + d[1] + '</span><span style="font-size:14px;line-height:1.45;color:#5F5B55">' + d[2] + '</span></span>' +
+      '<span style="flex-shrink:0;text-align:right;font-size:13px;color:#5F5B55;line-height:1.5">PDF<br>19 may 2025</span><span class="hrgo" style="color:#8F8A82">' + ICON('chev', 20) + '</span></a>';
+  };
+  $('#gdocs').innerHTML = GDOCS.map(docRow).join('');
+
+  /* Ficha de documento */
+  $('#dmeta').innerHTML = [['Formato', 'PDF · [peso real]'], ['Publicado', '19 de mayo de 2025'], ['Actualizado', '19 de mayo de 2025'], ['Área responsable', '[por confirmar]'], ['Versión', '[por confirmar]']].map(function (m) {
+    return '<div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid #EEEAE4"><dt style="color:#5F5B55">' + m[0] + '</dt><dd style="margin:0;font-weight:600;text-align:right">' + m[1] + '</dd></div>';
+  }).join('');
+  $('#drel').innerHTML = [['play', 'Video: cómo evitar la fuga de información confidencial', '#gestion'], ['doc', GDOCS[1][1], '#documento'], ['doc', GDOCS[2][1], '#documento']].map(function (r) {
+    var ico = r[0] === 'play' ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>' : ICON('doc', 18);
+    return '<a href="' + r[2] + '" style="display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid #E4E0D9;font-size:14px;font-weight:600;line-height:1.35">' +
+      '<span style="width:36px;height:36px;flex-shrink:0;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ico + '</span>' + r[1] + '</a>';
+  }).join('');
+
+  /* Noticias: las que publica hoy la intranet, con el texto acortado */
+  var ALLNEWS = [
+    { cat: 'Talento', title: 'Postulación interna: Analista III de Desarrollo de Concesionarios', body: 'Conversa con tu líder actual sobre tu interés antes de postularte.', photo: 'Postulación interna' },
+    { cat: 'D&I', title: 'Rally 4×4: D&I', body: 'El 11 de marzo celebramos la primera edición del Rally 4×4 de Diversidad e Inclusión, con colaboradores y la red de concesionarios.', photo: 'Rally 4×4' },
+    { cat: 'Reconocimientos', title: 'Toyota Agya, mejor campaña del sector automotriz', body: '«Todo lo que buscas en tu nuevo Toyota» ganó el primer lugar en la 25.ª edición de los Premios P&M.', photo: 'Premios P&M' },
+    { cat: 'Formación', title: 'Curso avanzado de producto en el Autódromo de San Carlos', body: 'En noviembre se llevó a cabo una capacitación exclusiva en el autódromo.', photo: 'Autódromo de San Carlos' },
+    { cat: 'Gente', title: 'Un brindis para cerrar el año 2025', body: 'Reconocimos el esfuerzo del equipo y a quienes celebraron años de servicio.', photo: 'Cierre de año' },
+    { cat: 'Institucional', title: 'Alianza con Mondelēz International', body: 'Entregamos una nueva flota de Toyota Agya, respaldada por Mantenimiento Express.', photo: 'Mondelēz' },
+    { cat: 'Producto', title: 'Lanzamiento de la Toyota APP y de Mantenimiento Express', body: 'La app para iOS y Android reúne en un solo lugar la gestión de tu vehículo.', photo: 'Toyota APP' },
+    { cat: 'Institucional', title: 'Día del Periodista', body: 'Comunicadores recorrieron Posventa y vieron cómo abastecemos de repuestos a los 47 concesionarios.', photo: 'Posventa' },
+    { cat: 'Reconocimientos', title: 'Dealer Award Trip: F1 – Spain 2025', body: 'Los ganadores del Programa de Premios 2024 vivieron el Gran Premio de España de Fórmula 1.', photo: 'Dealer Award Trip' },
+    { cat: 'Producto', title: 'Autofest', body: 'Del 2 al 4 de mayo exhibimos Corolla Cross, Land Cruiser Prado, Hilux 2.7, Agya y Corolla en el CCCT.', photo: 'Autofest' },
+    { cat: 'Formación', title: 'Entrenamiento «Habilidades básicas de ventas»', body: 'Más de 50 vendedores de la red se formaron dos días en nuestro Centro de Adiestramiento en Caracas.', photo: 'Centro de Adiestramiento' },
+    { cat: 'D&I', title: 'TDV en la Conferencia de Inclusión TLAC', body: 'Un encuentro de más de 20 países sobre diversidad, equidad e inclusión.', photo: 'TLAC' },
+    { cat: 'Producto', title: 'Segunda feria de carros usados', body: 'Los 47 concesionarios exhibieron usados verificados, con Trade-In y promociones en repuestos y accesorios.', photo: 'Feria de usados' },
+    { cat: 'Institucional', title: 'Kinto One: tres nuevas unidades entregadas en julio', body: 'Tres unidades más a través de Kinto One, que sigue sumando beneficios.', photo: 'Kinto One' },
+    { cat: 'Gente', title: 'Conoce a los Embajadores 2025', body: 'Serán el enlace entre la empresa y nuestra comunidad en redes sociales.', photo: 'Embajadores' },
+    { cat: 'D&I', title: 'Carrera Ellas HE', body: 'Corrimos en la carrera de Hipereventos que celebró a la mujer venezolana.', photo: 'Ellas HE' },
+    { cat: 'Institucional', title: 'Celebración del natalicio del Emperador de Japón', body: 'El 18 de febrero participamos en el Día Nacional de Japón, en la Embajada.', photo: 'Embajada de Japón' },
+    { cat: 'RSE', title: 'Mes de la movilidad: voluntariado en el Hospital Ortopédico Infantil', body: 'El 27 de noviembre, 34 niños recibieron operaciones musculoesqueléticas.', photo: 'Voluntariado TDV' },
+    { cat: 'Gente', title: '17.ª edición del Concurso de Habilidades', body: 'Celebramos la excelencia y la mejora continua en Toyota de Venezuela.', photo: 'Concurso de Habilidades' }
+  ];
+  var ncat = 'Todas';
+  function drawAllNews() {
+    var cats = ['Todas'].concat(ALLNEWS.map(function (x) { return x.cat; }).filter(function (c, k, a) { return a.indexOf(c) === k; }));
+    $('#nchips').innerHTML = cats.map(function (c) {
+      var on = c === ncat, n = c === 'Todas' ? ALLNEWS.length : ALLNEWS.filter(function (x) { return x.cat === c; }).length;
+      return '<button type="button" role="tab" aria-selected="' + on + '" data-ncat="' + esc(c) + '" style="height:40px;padding:0 18px;border-radius:999px;cursor:pointer;font-size:14px;' +
+        (on ? 'border:1px solid #141414;background:#141414;color:#fff;font-weight:600' : 'border:1px solid #DAD5CD;background:transparent;color:#3A3733') + '">' + esc(c) + ' <span style="opacity:.55">' + n + '</span></button>';
+    }).join('');
+    var list = ncat === 'Todas' ? ALLNEWS : ALLNEWS.filter(function (x) { return x.cat === ncat; });
+    $('#ncount').textContent = list.length + (list.length === 1 ? ' noticia' : ' noticias');
+    var f = list[0];
+    $('#nfeature').innerHTML = '<span style="grid-column:span 7;height:420px;border-radius:20px;overflow:hidden">' + cover(f.cat, 96, f.photo) + '</span>' +
+      '<span style="grid-column:span 5;display:flex;flex-direction:column;gap:16px;padding-left:16px"><span style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D0021B">' + esc(f.cat) + '</span>' +
+      '<span style="font-size:40px;line-height:1.08;font-weight:800;font-stretch:108%;letter-spacing:-.015em">' + esc(f.title) + '</span>' +
+      '<span style="font-size:18px;line-height:1.55;color:#5F5B55">' + esc(f.body) + '</span><span style="font-size:15px;font-weight:600">Leer la noticia →</span></span>';
+    $('#ngrid').innerHTML = list.slice(1).map(function (x) {
+      return '<a href="#noticias" style="display:flex;flex-direction:column;gap:14px"><span style="height:220px;border-radius:16px;overflow:hidden">' + cover(x.cat, 56, x.photo) + '</span>' +
+        '<span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + esc(x.cat) + '</span>' +
+        '<span style="font-size:22px;line-height:1.2;font-weight:700">' + esc(x.title) + '</span><span style="font-size:15px;line-height:1.5;color:#5F5B55">' + esc(x.body) + '</span></a>';
+    }).join('');
+  }
+  $('#nchips').addEventListener('click', function (e) { var b = e.target.closest('[data-ncat]'); if (b) { ncat = b.getAttribute('data-ncat'); drawAllNews(); } });
+  drawAllNews();
+
   /* Opciones que se conectan en la intranet real: en la vista previa avisan en vez de no hacer nada */
   var toastT;
   function soon(msg) {
@@ -1071,9 +1296,8 @@ button{font:inherit}
   }
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="#"]');
-    if (a && a.textContent.trim() === 'Noticias' && a.closest('nav')) { e.preventDefault(); soon('Vista previa: la sección Noticias se conecta en la intranet real.'); return; }
     if (a && a.closest('.dd-panel') && a.getAttribute('href') === '#inicio' && !a.closest('[data-panel="pols"]')) { e.preventDefault(); soon('Vista previa: las aplicaciones se abren desde la intranet real.'); return; }
-    if (a && !a.closest('.deck') && !a.hasAttribute('aria-label') && !a.hasAttribute('aria-current')) {
+    if (a && !a.closest('.deck') && !a.hasAttribute('aria-label') && !a.hasAttribute('aria-current') && !a.hasAttribute('data-soon')) {
       var here = '#' + ((location.hash || '#inicio').slice(1) || 'inicio'), href = a.getAttribute('href');
       /* "#inicio" solo es real en los enlaces que dicen "Inicio"; en el resto es un destino que aún no existe */
       if (href === here || (href === '#inicio' && a.textContent.trim() !== 'Inicio')) { e.preventDefault(); soon(); return; }
