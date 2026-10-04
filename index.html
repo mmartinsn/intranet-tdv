@@ -1343,13 +1343,10 @@ button{font:inherit}
     'Formación': ['#EFEBE4', '#141414', '#E0D9CD'], 'Gente': ['#2B2826', '#fff', '#3D3936'], 'Institucional': ['#141414', '#fff', '#3A0A10'], 'Producto': ['#FFFFFF', '#141414', '#EFEBE4'], 'RSE': ['#8E0012', '#fff', '#A71D2D'] };
   function ncover(x, size, box) {
     if (x.img) return '<img class="ncv" src="' + x.img + '" alt="" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit">';
-    var c = NCOL[x.cat] || NCOL['Gente'], small = box < 200;
-    /* La palabra se ajusta al ancho para leerse entera */
-    size = Math.min(size, Math.floor(box / (Math.max(2, x.w.length) * 1.02)));
-    return '<span class="ncv" style="position:relative;display:block;width:100%;height:100%;overflow:hidden;border-radius:inherit;background:' + c[0] + ';color:' + c[1] + (c[0] === '#FFFFFF' ? ';box-shadow:inset 0 0 0 1px #E4E0D9' : '') + '">' +
-      '<span aria-hidden="true" style="position:absolute;left:' + (small ? 10 : 18) + 'px;bottom:-.14em;font-size:' + size + 'px;line-height:1;font-weight:800;font-stretch:125%;letter-spacing:-.045em;white-space:nowrap;color:' + c[2] + '">' + esc(x.w) + '</span>' +
-      '<span class="tmark" aria-hidden="true" style="position:absolute;right:' + (small ? 10 : 22) + 'px;top:' + (small ? 10 : 22) + 'px;width:' + (small ? 24 : 40) + 'px;height:' + (small ? 16 : 27) + 'px;color:' + c[1] + '"></span>' +
-      (small ? '' : '<span style="position:absolute;left:22px;top:24px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.8">' + esc(x.cat) + '</span>') + '</span>';
+    /* Sin foto: un espacio neutro con el emblema, a la espera de la foto real */
+    var w = Math.max(28, Math.round(box * .16));
+    return '<span class="ncv" style="position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:inherit;background:#ECE8E2">' +
+      '<span class="tmark" aria-hidden="true" style="width:' + w + 'px;height:' + Math.round(w * .667) + 'px;color:#CDC6BB"></span></span>';
   }
   /* Fotos locales: noticias-fotos/<n>.jpg, donde <n> es el número de la noticia en ALLNEWS (1 = la primera). Solo en la vista previa local */
   var NFOTOS = {};
@@ -1366,14 +1363,14 @@ button{font:inherit}
     $('#ncount').textContent = list.length + (list.length === 1 ? ' noticia' : ' noticias');
     var f = list[0];
     $('#nfeature').style.display = f ? 'grid' : 'none';
-    $('#nfeature').innerHTML = f ? '<span style="grid-column:span 7;height:460px;border-radius:24px;overflow:hidden">' + ncover(f, 300, 720) + '</span>' +
+    $('#nfeature').innerHTML = f ? '<span style="grid-column:span 7;height:400px;border-radius:20px;overflow:hidden">' + ncover(f, 300, 720) + '</span>' +
       '<span style="grid-column:span 5;display:flex;flex-direction:column;justify-content:center;gap:18px;padding:8px 0 8px 24px"><span style="display:flex;gap:12px;align-items:center"><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:#D0021B;border-radius:999px;padding:5px 12px">Destacada</span><span style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + esc(f.cat) + '</span></span>' +
-      '<span style="font-size:46px;line-height:1.02;font-weight:800;font-stretch:108%;letter-spacing:-.02em">' + esc(f.title) + '</span>' +
-      '<span class="serif" style="font-size:21px;line-height:1.45;color:#3A3733">' + esc(f.body) + '</span>' +
+      '<span style="font-size:38px;line-height:1.08;font-weight:700;font-stretch:105%;letter-spacing:-.015em">' + esc(f.title) + '</span>' +
+      '<span style="font-size:18px;line-height:1.55;color:#5F5B55">' + esc(f.body) + '</span>' +
       '<span class="pill" style="align-self:flex-start;height:50px;padding:0 24px;background:#141414;color:#fff;font-size:15px;margin-top:6px">Leer la noticia →</span></span>' : '';
     $('#ntop').innerHTML = list.slice(1, 4).map(function (x) {
-      return '<a href="#noticias" class="nlift" style="display:flex;flex-direction:column;gap:16px"><span style="height:260px;border-radius:18px;overflow:hidden">' + ncover(x, 170, 410) + '</span>' +
-        '<span style="font-size:24px;line-height:1.15;font-weight:700;letter-spacing:-.01em">' + esc(x.title) + '</span><span style="font-size:15px;line-height:1.55;color:#5F5B55">' + esc(x.body) + '</span></a>';
+      return '<a href="#noticias" class="nlift" style="display:flex;flex-direction:column;gap:16px"><span style="height:230px;border-radius:16px;overflow:hidden">' + ncover(x, 170, 410) + '</span>' +
+        '<span style="display:flex;flex-direction:column;gap:8px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + esc(x.cat) + '</span><span style="font-size:22px;line-height:1.2;font-weight:700;letter-spacing:-.01em">' + esc(x.title) + '</span></span><span style="font-size:15px;line-height:1.55;color:#5F5B55">' + esc(x.body) + '</span></a>';
     }).join('');
     var more = list.slice(4);
     $('#nmore').innerHTML = more.length ? '<div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:18px"><span class="eyebrow">Más noticias</span><span style="font-size:14px;color:#5F5B55">' + more.length + '</span></div>' +
