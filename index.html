@@ -26,6 +26,7 @@ button{font:inherit}
 .deck strong{font-size:14px;letter-spacing:.04em}
 .deck span{font-size:13px;color:#BDB7AE;flex-grow:1}
 .deck nav{display:flex;gap:6px}
+.dh{height:26px;min-width:26px;white-space:nowrap;padding:0 8px;border-radius:999px;border:1px solid #4A4642;background:transparent;color:#CFCAC2;font:inherit;font-size:12px;cursor:pointer}.dh[aria-pressed=true]{background:#fff;color:#141414;border-color:#fff;font-weight:600}
 .deck a{color:#CFCAC2;font-size:14px;padding:8px 14px;border-radius:999px}
 .deck a[aria-current]{background:#fff;color:#141414;font-weight:600}
 .pdf .deck{display:none}
@@ -66,6 +67,24 @@ button{font:inherit}
 .mkdeck:hover .mkpost{transform:translate(var(--o),0) rotate(calc(var(--r) * .4))}
 .mkdeck .mkpost:hover{transform:translate(var(--o),-14px) rotate(0deg);box-shadow:0 28px 56px rgba(20,20,20,.26);z-index:5}
 @media (prefers-reduced-motion:reduce){.mkpost{transition:none}}
+.tl{position:relative;display:grid;grid-template-columns:130px minmax(0,1fr)}
+.tl-lab{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5F5B55;padding-top:18px;border-top:1px solid #EEEAE4}
+.tl-lab:first-child{border-top:0}
+.tl-track{position:relative;background-image:linear-gradient(to right,#EEEAE4 1px,transparent 1px);background-size:20% 100%}
+.tl-head{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));background:none}
+.tl-head span{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:0 12px 12px}
+.tl-row,.tl-ev{border-top:1px solid #EEEAE4}
+.tl-bar{position:absolute;height:36px;border-radius:8px;display:flex;align-items:center;gap:10px;padding:0 14px;font-size:13px;white-space:nowrap;overflow:hidden;box-shadow:0 6px 16px rgba(20,20,20,.12);transition:transform .2s}
+.tl-bar:hover{transform:translateY(-2px)}.tl-bar strong{font-size:14px}.tl-bar span{opacity:.8}
+.tl-ev{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.tl-ev>div{display:flex;flex-direction:column;gap:10px;padding:16px 12px 18px}
+.tl-dot{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;line-height:1.3;font-weight:500}
+.tl-dot::before{content:'';width:10px;height:10px;border-radius:50%;background:#141414;flex-shrink:0;margin-top:3px}
+.tl-end{position:absolute;font-size:13px;font-weight:600;color:#D0021B;white-space:nowrap}
+.tl-launch{color:#D0021B;font-weight:700}.tl-launch::before{background:transparent;border:1.5px dashed #D0021B;width:8px;height:8px}
+.tl-today{position:absolute;top:30px;bottom:26px;width:2px;background:#D0021B;z-index:2}
+.tl-today span{position:absolute;bottom:-26px;left:-4px;font-size:11px;font-weight:700;color:#D0021B;white-space:nowrap}
+.tl-today::after{content:'';position:absolute;top:-4px;left:-4px;width:10px;height:10px;border-radius:50%;background:#D0021B}
 .hrcat{transition:background .15s,border-color .15s}.hrcat:hover{border-color:#141414}
 /* Confeti que cae sin parar en la franja de cumpleaños del Directorio */
 .cfl{position:absolute;inset:0;overflow:hidden;pointer-events:none;border-radius:20px}
@@ -94,6 +113,7 @@ button{font:inherit}
 <header class="deck">
 <strong>Intranet TDV</strong>
 <span>Propuesta de rediseño</span>
+<div id="demoHero" role="group" aria-label="Portada de Mercadeo (demostración)" style="display:none;align-items:center;gap:6px;font-size:12px;color:#BDB7AE;white-space:nowrap">Portada:<button type="button" data-hero="A" class="dh" title="Afiches">A</button><button type="button" data-hero="B" class="dh" title="Calendario">B</button></div>
 <div id="demoBday" role="group" aria-label="Cumpleaños de hoy (demostración)" style="display:flex;align-items:center;gap:6px;font-size:12px;color:#BDB7AE">Cumpleaños hoy:</div>
 <nav aria-label="Pantallas de la propuesta">
 <a href="#inicio">Inicio</a>
@@ -490,7 +510,7 @@ button{font:inherit}
 <section class="view" id="v-area">
 <div class="frame">
 <div data-header="Políticas"></div>
-<section style="position:relative;overflow:hidden;background:var(--paper);color:var(--ink);padding:48px 80px 0">
+<section id="mkA" style="position:relative;overflow:hidden;background:var(--paper);color:var(--ink);padding:48px 80px 0">
 <span class="tmark" aria-hidden="true" style="position:absolute;right:-160px;top:-120px;width:640px;height:427px;color:#141414;opacity:.035"></span>
 <nav aria-label="Ruta" style="position:relative;font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Políticas / Mercadeo, Comunicaciones &amp; RSE</nav>
 <div style="position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:32px;align-items:end">
@@ -504,10 +524,10 @@ button{font:inherit}
 </div>
 </div>
 <div class="mkdeck" style="grid-column:8 / span 5;position:relative;height:400px;left:28px">
-<a href="#area" data-scroll="ar-activas" class="mkpost" style="--r:-10deg;--x:-150px;--y:14px;--o:-178px;z-index:1;background:#141414;color:#fff"><span class="tmark" aria-hidden="true" style="position:absolute;right:-40px;bottom:-30px;width:190px;height:127px;color:#fff;opacity:.08"></span><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#BDB7AE">Institucional</span><span style="margin-top:auto;font-size:34px;line-height:.92;font-weight:800;font-stretch:110%;letter-spacing:-.02em;color:#D0021B">Todo<br>lo que<br><span style="color:#fff">te mueve</span></span></a>
-<a href="#area" data-scroll="ar-viene" class="mkpost" style="--r:-3deg;--x:-50px;--y:-4px;--o:-58px;z-index:2;background:#EFEBE4;color:#141414"><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5F5B55">Próximamente</span><span class="serif" style="margin-top:auto;font-style:italic;font-size:34px;line-height:1">la familia<br>original</span><span style="font-size:13px;color:#5F5B55">Toyota · Posventa</span></a>
-<a href="#area" data-scroll="ar-activas" class="mkpost" style="--r:4deg;--x:50px;--y:-10px;--o:62px;z-index:4;background:#D0021B;color:#fff"><span class="tmark" aria-hidden="true" style="position:absolute;right:-36px;top:-26px;width:170px;height:113px;color:#fff;opacity:.14"></span><span style="display:flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase"><span class="live" style="background:#fff"></span>En el aire</span><span style="margin-top:auto;font-size:30px;line-height:.95;font-weight:800;font-stretch:108%;letter-spacing:-.02em">Cambia tu bolsa de aire gratis</span><span style="align-self:flex-start;font-size:13px;font-weight:700;background:#fff;color:#D0021B;border-radius:999px;padding:5px 11px">+ cupón de 50 USD</span></a>
-<a href="#area" data-scroll="ar-viene" class="mkpost" style="--r:10deg;--x:150px;--y:18px;--o:182px;z-index:3;background:#fff;color:#141414;border:1px solid #E4E0D9"><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5F5B55">Lanzamiento · Febrero</span><span style="margin-top:auto;font-size:44px;line-height:.9;font-weight:800;font-stretch:125%;letter-spacing:-.03em;color:#D0021B">HILUX</span><span style="font-size:14px;color:#5F5B55">Nueva generación</span></a>
+<a href="#area" data-scroll="ar-activas" class="mkpost" style="--r:-10deg;--x:-166px;--y:14px;--o:-190px;z-index:1;background:#141414;color:#fff"><span class="tmark" aria-hidden="true" style="position:absolute;right:-40px;bottom:-30px;width:190px;height:127px;color:#fff;opacity:.08"></span><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#BDB7AE">Institucional</span><span style="margin-top:auto;font-size:34px;line-height:.92;font-weight:800;font-stretch:110%;letter-spacing:-.02em;color:#D0021B">Todo<br>lo que<br><span style="color:#fff">te mueve</span></span></a>
+<a href="#area" data-scroll="ar-viene" class="mkpost" style="--r:-3deg;--x:-55px;--y:-4px;--o:-63px;z-index:2;background:#EFEBE4;color:#141414"><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5F5B55">Próximamente</span><span class="serif" style="margin-top:auto;font-style:italic;font-size:34px;line-height:1">la familia<br>original</span><span style="font-size:13px;color:#5F5B55">Toyota · Posventa</span></a>
+<a href="#area" data-scroll="ar-activas" class="mkpost" style="--r:4deg;--x:57px;--y:-10px;--o:66px;z-index:4;background:#D0021B;color:#fff"><span class="tmark" aria-hidden="true" style="position:absolute;right:-36px;top:-26px;width:170px;height:113px;color:#fff;opacity:.14"></span><span style="display:flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase"><span class="live" style="background:#fff"></span>En el aire</span><span style="margin-top:auto;font-size:30px;line-height:.95;font-weight:800;font-stretch:108%;letter-spacing:-.02em">Cambia tu bolsa de aire gratis</span><span style="align-self:flex-start;font-size:13px;font-weight:700;background:#fff;color:#D0021B;border-radius:999px;padding:5px 11px">+ cupón de 50 USD</span></a>
+<a href="#area" data-scroll="ar-viene" class="mkpost" style="--r:10deg;--x:168px;--y:18px;--o:194px;z-index:3;background:#fff;color:#141414;border:1px solid #E4E0D9"><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5F5B55">Lanzamiento · Febrero</span><span style="margin-top:auto;font-size:44px;line-height:.9;font-weight:800;font-stretch:125%;letter-spacing:-.03em;color:#D0021B">HILUX</span><span style="font-size:14px;color:#5F5B55">Nueva generación</span></a>
 </div>
 
 
@@ -515,6 +535,45 @@ button{font:inherit}
 <div style="height:56px"></div>
 
 </section>
+<section id="mkB" hidden style="position:relative;overflow:hidden;background:var(--paper);padding:48px 80px 56px">
+<nav aria-label="Ruta" style="font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Políticas / Mercadeo, Comunicaciones &amp; RSE</nav>
+<div style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:32px;align-items:end">
+<h1 style="grid-column:span 7;margin:0;font-size:56px;line-height:1.02;font-weight:800;font-stretch:112%;letter-spacing:-.02em">Mercadeo, Comunicaciones &amp; RSE</h1>
+<p style="grid-column:9 / span 4;margin:0;font-size:17px;line-height:1.55;color:#3A3733">Contamos la marca desde <em class="serif" style="color:var(--red);font-size:19px">adentro</em>. Este es el plan del área, de octubre a febrero, de un vistazo.</p>
+</div>
+<div class="card" style="margin-top:36px;padding:28px 32px 24px;border-radius:22px;box-shadow:0 20px 50px rgba(20,20,20,.06)">
+<div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:20px">
+<span class="eyebrow">Plan de mercadeo · Octubre – Febrero</span>
+<span style="display:flex;gap:20px;font-size:12px;color:#5F5B55"><span style="display:flex;align-items:center;gap:8px"><i style="width:22px;height:8px;border-radius:4px;background:#D0021B;display:block"></i>Campaña en el aire</span><span style="display:flex;align-items:center;gap:8px"><i style="width:10px;height:10px;border-radius:50%;background:#141414;display:block"></i>Evento</span><span style="display:flex;align-items:center;gap:8px"><i style="width:22px;height:8px;border-radius:4px;border:1.5px dashed #D0021B;display:block"></i>Lanzamiento</span></span>
+</div>
+<div class="tl">
+<div class="tl-lab"></div>
+<div class="tl-track tl-head"><span>Octubre</span><span>Noviembre</span><span>Diciembre</span><span>Enero</span><span>Febrero</span></div>
+
+<div class="tl-lab">Campañas</div>
+<div class="tl-track tl-row" style="height:96px">
+<a href="#area" data-scroll="ar-activas" class="tl-bar" style="left:0;width:26.7%;top:10px;padding-left:30px;background:linear-gradient(90deg,rgba(208,2,27,.35),#D0021B 18%);color:#fff"><strong>Bolsa de aire gratis + cupón de 50 USD</strong></a>
+<span class="tl-end" style="left:calc(26.7% + 10px);top:19px">hasta el 10 de noviembre</span>
+<a href="#area" data-scroll="ar-activas" class="tl-bar" style="left:0;width:100%;top:56px;padding-left:30px;background:#141414;color:#fff;height:28px"><strong>Todo lo que te mueve</strong><span>institucional · todo el período</span></a>
+</div>
+
+<div class="tl-lab">Eventos</div>
+<div class="tl-track tl-ev">
+<div><span class="tl-dot">Autofest</span></div>
+<div><span class="tl-dot">Skill Contest</span><span class="tl-dot">Mes de la movilidad · voluntariado</span></div>
+<div><span class="tl-dot">Encuentro de cierre de año con medios</span></div>
+<div><span class="tl-dot">Convención de concesionarios</span></div>
+<div><span class="tl-dot">Dream Car Contest</span><span class="tl-dot tl-launch">Lanzamiento de la nueva Hilux</span></div>
+</div>
+<span class="tl-today" style="left:calc(130px + (100% - 130px) * .0194)"><span>Hoy, 4 oct</span></span>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid #EEEAE4;font-size:14px">
+<span style="color:#5F5B55"><strong style="color:#141414">Por fechar:</strong> Toyota, la familia original (en producción) · Híbridos (próximamente)</span>
+<button type="button" data-scroll="ar-viene" style="border:0;background:transparent;font:inherit;font-weight:600;cursor:pointer;padding:0">Ver lo que viene →</button>
+</div>
+</div>
+</section>
+
 <nav id="arnav" aria-label="Secciones de Mercadeo" style="position:sticky;top:0;z-index:30;background:#F5F3EF;box-shadow:0 1px 0 #E4E0D9;padding:0 80px"><div style="display:flex;gap:36px;height:60px"><button type="button" class="hrtab" data-scroll="ar-activas" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Campañas activas</button><button type="button" class="hrtab" data-scroll="ar-viene" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Lo que viene</button><button type="button" class="hrtab" data-scroll="ar-rse" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">RSE y voluntariado</button><button type="button" class="hrtab" data-scroll="ar-recursos" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Recursos de marca</button></div></nav>
 
 <section id="ar-activas" style="padding:72px 80px 0;display:flex;flex-direction:column;gap:28px">
@@ -1408,6 +1467,13 @@ button{font:inherit}
   $('#nmore').addEventListener('click', function (e) { if (e.target.closest('#nmorebtn')) { nShow += 6; drawAllNews(); } });
   drawAllNews();
 
+  /* Demostración: dos portadas para Mercadeo */
+  function setHero(k) {
+    $('#mkA').hidden = k !== 'A'; $('#mkB').hidden = k !== 'B';
+    $$('#demoHero [data-hero]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-hero') === k); });
+  }
+  $('#demoHero').addEventListener('click', function (e) { var b = e.target.closest('[data-hero]'); if (b) setHero(b.getAttribute('data-hero')); });
+  setHero('A');
   /* Opciones que se conectan en la intranet real: en la vista previa avisan en vez de no hacer nada */
   var toastT;
   function soon(msg) {
@@ -1456,6 +1522,7 @@ button{font:inherit}
     if (!$('#v-' + id)) id = 'inicio';
     closeMenus();
     $$('.view').forEach(function (v) { v.classList.toggle('on', v.id === 'v-' + id); });
+    $('#demoHero').style.display = id === 'area' ? 'flex' : 'none';
     $$('.deck a').forEach(function (a) { if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     window.scrollTo(0, 0);
   }
