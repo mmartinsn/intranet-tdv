@@ -57,8 +57,9 @@ button{font:inherit}
 .mkmarq span:nth-child(odd){color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.28)}
 .mkmarq span:nth-child(even){color:#D0021B}
 @keyframes mkm{to{transform:translateX(-50%)}}
-.mkstat{display:flex;align-items:center;gap:12px;border:0;background:transparent;color:#fff;font:inherit;cursor:pointer;padding:0;text-align:left}
-.mkstat strong{font-size:52px;line-height:1;font-weight:800;font-stretch:120%;color:#fff}.mkstat span{font-size:13px;line-height:1.3;color:#BDB7AE}.mkstat:hover strong{color:#FF6B6B}
+.mklight span:nth-child(odd){-webkit-text-stroke:1.5px rgba(20,20,20,.22)}
+.mkstat{display:flex;align-items:center;gap:12px;border:0;background:transparent;color:#141414;font:inherit;cursor:pointer;padding:0;text-align:left}
+.mkstat strong{font-size:52px;line-height:1;font-weight:800;font-stretch:120%;color:#141414}.mkstat span{font-size:13px;line-height:1.3;color:#5F5B55}.mkstat:hover strong{color:#D0021B}
 .mkair{transition:transform .25s}.mkair:hover{transform:translateY(-4px)}
 @media (prefers-reduced-motion:reduce){.mkmarq{animation:none}.mkair{transition:none}}
 .hrcat{transition:background .15s,border-color .15s}.hrcat:hover{border-color:#141414}
@@ -485,21 +486,21 @@ button{font:inherit}
 <section class="view" id="v-area">
 <div class="frame">
 <div data-header="Políticas"></div>
-<section style="position:relative;overflow:hidden;background:var(--ink);color:#fff;padding:40px 80px 0">
-<span class="tmark" aria-hidden="true" style="position:absolute;right:-160px;top:-120px;width:640px;height:427px;color:#fff;opacity:.04"></span>
-<nav aria-label="Ruta" style="position:relative;font-size:13px;color:#8F8A82"><a href="#inicio" style="color:#8F8A82">Inicio</a> / Políticas / <span style="color:#CFCAC2">Mercadeo, Comunicaciones &amp; RSE</span></nav>
+<section style="position:relative;overflow:hidden;background:var(--paper);color:var(--ink);padding:40px 80px 0">
+<span class="tmark" aria-hidden="true" style="position:absolute;right:-160px;top:-120px;width:640px;height:427px;color:#141414;opacity:.035"></span>
+<nav aria-label="Ruta" style="position:relative;font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Políticas / Mercadeo, Comunicaciones &amp; RSE</nav>
 <div style="position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:32px;align-items:end">
 <div style="grid-column:span 7;display:flex;flex-direction:column;gap:22px">
-<span class="eyebrow" style="color:#FF6B6B">Mercadeo, Comunicaciones &amp; RSE</span>
-<h1 class="serif" style="margin:0;font-weight:500;font-size:68px;line-height:1;letter-spacing:-.01em">Contamos la marca<br>desde <em style="color:#FF6B6B">adentro</em>.</h1>
-<p style="margin:0;font-size:18px;line-height:1.55;color:#CFCAC2;max-width:520px">Las campañas que están en el aire, lo que viene, la marca y lo que movemos fuera de la oficina.</p>
+<span class="eyebrow" style="color:var(--red)">Mercadeo, Comunicaciones &amp; RSE</span>
+<h1 class="serif" style="margin:0;font-weight:500;font-size:68px;line-height:1;letter-spacing:-.01em">Contamos la marca<br>desde <em style="color:var(--red)">adentro</em>.</h1>
+<p style="margin:0;font-size:18px;line-height:1.55;color:#3A3733;max-width:520px">Las campañas que están en el aire, lo que viene, la marca y lo que movemos fuera de la oficina.</p>
 <div style="display:flex;gap:40px;margin-top:8px">
 <button type="button" data-scroll="ar-activas" class="mkstat"><strong>2</strong><span>campañas<br>en el aire</span></button>
 <button type="button" data-scroll="ar-viene" class="mkstat"><strong>3</strong><span>campañas en<br>preparación</span></button>
 <button type="button" data-scroll="ar-viene" class="mkstat"><strong>7</strong><span>eventos hasta<br>febrero</span></button>
 </div>
 </div>
-<button type="button" data-scroll="ar-activas" class="mkair" style="grid-column:9 / span 4;text-align:left;font:inherit;color:#fff;border:0;cursor:pointer;position:relative;overflow:hidden;border-radius:20px;background:#D0021B;padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 60px rgba(0,0,0,.35)">
+<button type="button" data-scroll="ar-activas" class="mkair" style="grid-column:9 / span 4;text-align:left;font:inherit;color:#fff;border:0;cursor:pointer;position:relative;overflow:hidden;border-radius:20px;background:#D0021B;padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 24px 48px rgba(208,2,27,.22)">
 <span class="tmark" aria-hidden="true" style="position:absolute;right:-50px;top:-40px;width:220px;height:147px;color:#fff;opacity:.12"></span>
 <span style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase"><span class="live" style="background:#fff"></span>Ahora en el aire</span>
 <span style="font-size:34px;line-height:.98;font-weight:800;font-stretch:110%;letter-spacing:-.02em">Cambia tu bolsa<br>de aire gratis</span>
@@ -507,8 +508,8 @@ button{font:inherit}
 <span style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid rgba(255,255,255,.3);font-size:14px"><span style="color:#FFD5D9">Hasta el 10 de noviembre</span><span style="font-weight:700">Ver campaña →</span></span>
 </button>
 </div>
-<div aria-hidden="true" style="position:relative;margin:48px -80px 0;overflow:hidden;border-top:1px solid #2E2B28;padding:14px 0 6px">
-<div class="mkmarq"><span>Todo lo que te mueve</span><span>Todo lo que te mueve</span><span>Todo lo que te mueve</span><span>Todo lo que te mueve</span><span>Todo lo que te mueve</span><span>Todo lo que te mueve</span></div>
+<div aria-hidden="true" style="position:relative;margin:48px -80px 0;overflow:hidden;border-top:1px solid #E4E0D9;padding:14px 0 6px">
+<div class="mkmarq mklight"><span>Todo lo que te mueve</span><span>Todo lo que te mueve</span><span>Todo lo que te mueve</span><span>Todo lo que te mueve</span><span>Todo lo que te mueve</span><span>Todo lo que te mueve</span></div>
 </div>
 </section>
 <nav id="arnav" aria-label="Secciones de Mercadeo" style="position:sticky;top:0;z-index:30;background:#F5F3EF;box-shadow:0 1px 0 #E4E0D9;padding:0 80px"><div style="display:flex;gap:36px;height:60px"><button type="button" class="hrtab" data-scroll="ar-activas" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Campañas activas</button><button type="button" class="hrtab" data-scroll="ar-viene" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Lo que viene</button><button type="button" class="hrtab" data-scroll="ar-rse" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">RSE y voluntariado</button><button type="button" class="hrtab" data-scroll="ar-recursos" style="display:flex;align-items:center;font-size:15px;color:#3A3733;border:0;border-bottom:3px solid transparent;padding:3px 0 0;background:transparent;cursor:pointer;font-family:inherit">Recursos de marca</button></div></nav>
