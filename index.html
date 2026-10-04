@@ -49,7 +49,6 @@ button{font:inherit}
 .gplaybtn{transition:transform .25s}.gplay:hover .gplaybtn{transform:translateY(-50%) scale(1.06)}
 .ncv{transition:transform .5s cubic-bezier(.2,.7,.3,1)}.nlift:hover .ncv{transform:scale(1.035)}.nrow:hover span{color:inherit}
 .gdoc .gpaper{transition:transform .3s}.gdoc:hover .gpaper{transform:translateY(-8px)}
-.gck{transition:background .15s,border-color .15s}.gck:hover{border-color:#141414!important}
 @media (prefers-reduced-motion:reduce){.ncv,.gpaper,.gplaybtn,.gseg{transition:none}}
 .hrcat{transition:background .15s,border-color .15s}.hrcat:hover{border-color:#141414}
 /* Confeti que cae sin parar en la franja de cumpleaños del Directorio */
@@ -587,18 +586,6 @@ button{font:inherit}
 <ol id="gways" style="grid-column:6 / span 7;list-style:none;margin:0;padding:0;display:flex;flex-direction:column"></ol>
 </section>
 
-<section style="margin:112px 80px 0;border-radius:24px;background:var(--sand);padding:56px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center">
-<div style="grid-column:span 4;display:flex;flex-direction:column;gap:16px">
-<span class="eyebrow" style="color:var(--muted)">Autoevaluación</span>
-<h2 class="serif" style="margin:0;font-weight:500;font-size:40px;line-height:1.08">¿Cómo cuidas la información hoy?</h2>
-<p style="margin:0;font-size:16px;line-height:1.55;color:#3A3733">Marca lo que ya haces. Nadie más ve tus respuestas.</p>
-<div style="display:flex;align-items:center;gap:18px;margin-top:8px">
-<svg width="96" height="96" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="15.9" fill="none" stroke="#DAD5CD" stroke-width="3"/><circle id="gring" cx="18" cy="18" r="15.9" fill="none" stroke="#D0021B" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 100" transform="rotate(-90 18 18)" style="transition:stroke-dasharray .4s ease"/></svg>
-<span style="display:flex;flex-direction:column"><span id="gscore" style="font-size:34px;font-weight:800;font-stretch:115%;line-height:1"></span><span id="gverdict" style="font-size:14px;color:var(--muted);margin-top:4px"></span></span>
-</div>
-</div>
-<ul id="gcheck" style="grid-column:6 / span 7;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px"></ul>
-</section>
 
 <section style="padding:112px 80px 0;display:flex;flex-direction:column;gap:32px">
 <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="display:flex;flex-direction:column;gap:10px"><span class="eyebrow" style="color:var(--muted)">Documentos vigentes</span><h2 class="serif" style="margin:0;font-weight:500;font-size:40px;line-height:1.1">La política y sus procedimientos</h2></div><span style="font-size:14px;color:var(--muted)">Actualizados el 19 de mayo de 2025</span></div>
@@ -1269,22 +1256,6 @@ button{font:inherit}
       '<p style="margin:8px 0 0;display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;font-weight:600"><span style="width:24px;height:24px;flex-shrink:0;border-radius:50%;background:#141414;color:#fff;display:flex;align-items:center;justify-content:center;margin-top:-1px">' + CHECK + '</span>' + w[2] + '</p></div></li>';
   }).join('');
 
-  var GCHK = ['Guardo los archivos de trabajo en los discos de TDV, no en el escritorio.', 'Protejo con contraseña los archivos con datos personales.', 'Comparto información solo con autorización.', 'Reviso el destinatario antes de enviar un correo.', 'No comento temas de la empresa en lugares públicos.'];
-  var gOn = GCHK.map(function () { return false; });
-  function drawCheck() {
-    var n = gOn.filter(Boolean).length;
-    $('#gcheck').innerHTML = GCHK.map(function (t, k) {
-      var on = gOn[k];
-      return '<li><button type="button" role="checkbox" aria-checked="' + on + '" data-ck="' + k + '" class="gck" style="width:100%;display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:14px;cursor:pointer;text-align:left;font:inherit;font-size:16px;line-height:1.4;' +
-        (on ? 'background:#141414;color:#fff;border:1px solid #141414' : 'background:#fff;color:#141414;border:1px solid #E4E0D9') + '">' +
-        '<span style="width:28px;height:28px;flex-shrink:0;border-radius:8px;display:flex;align-items:center;justify-content:center;' + (on ? 'background:#D0021B;color:#fff' : 'border:2px solid #CFCAC2;color:transparent') + '">' + CHECK + '</span>' + t + '</button></li>';
-    }).join('');
-    $('#gring').setAttribute('stroke-dasharray', (n / GCHK.length * 100) + ' 100');
-    $('#gscore').textContent = n + ' de ' + GCHK.length;
-    $('#gverdict').textContent = ['Empieza por uno', 'Buen comienzo', 'Vas bien', 'Más de la mitad', 'Casi todo en orden', 'Lo cuidas todo'][n];
-  }
-  $('#gcheck').addEventListener('click', function (e) { var b = e.target.closest('[data-ck]'); if (b) { gOn[+b.getAttribute('data-ck')] = !gOn[+b.getAttribute('data-ck')]; drawCheck(); } });
-  drawCheck();
 
   var GDOCS = [['Política corporativa', 'Gestión de confidencialidad de la información', 'Cómo debe manejar la información todo el personal, incluidos sus responsables y custodios.'],
     ['Procedimiento', 'Accidentes e incidentes de seguridad de la información', 'Qué hacer y por qué vía avisar si se pierde, se roba o se filtra información confidencial.'],
