@@ -561,12 +561,15 @@ button{font:inherit}
 <div id="gcia" style="display:flex;flex-direction:column;margin-top:8px"></div>
 </div>
 <div style="grid-column:7 / span 6;display:flex;flex-direction:column;gap:16px">
-<a href="#gestion" data-soon="Vista previa: el video se reproduce desde la intranet real." aria-label="Reproducir el video Cómo evitar la fuga de información confidencial" class="gplay" style="position:relative;display:block;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:radial-gradient(120% 90% at 85% 15%,#3A0A10 0%,#1E1E1E 55%,#141414 100%);color:#fff;box-shadow:0 30px 60px rgba(0,0,0,.45)">
+<div style="position:relative">
+<a href="#gestion" id="gplay" aria-label="Reproducir el video Cómo evitar la fuga de información confidencial" class="gplay" style="position:relative;display:block;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:radial-gradient(120% 90% at 85% 15%,#3A0A10 0%,#1E1E1E 55%,#141414 100%);color:#fff;box-shadow:0 30px 60px rgba(0,0,0,.45)">
 <span aria-hidden="true" style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px)"></span>
 <span style="position:absolute;left:32px;top:28px;display:flex;gap:10px;align-items:center;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#FF6B6B"><span style="width:8px;height:8px;border-radius:50%;background:#D0021B"></span>Capacitación · 19 min</span>
 <span style="position:absolute;left:32px;right:32px;bottom:30px;display:flex;flex-direction:column;gap:10px"><span style="font-size:36px;line-height:1.02;font-weight:800;font-stretch:110%;letter-spacing:-.015em;max-width:440px">Cómo evitar la fuga de información confidencial</span><span style="font-size:14px;color:#BDB7AE">Toyota Motor Corporation · En inglés, con subtítulos en español</span></span>
 <span class="gplaybtn" style="position:absolute;right:36px;top:50%;transform:translateY(-50%);width:104px;height:104px;border-radius:50%;background:#D0021B;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 14px rgba(208,2,27,.22),0 0 0 30px rgba(208,2,27,.08)"><svg width="38" height="38" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
 </a>
+<video id="gvideo" controls preload="none" playsinline hidden style="position:absolute;inset:0;width:100%;height:100%;border-radius:18px;background:#000;box-shadow:0 30px 60px rgba(0,0,0,.45)"><source src="media-local/gestion-de-informacion.mp4" type="video/mp4"></video>
+</div>
 <div aria-label="Capítulos del video" style="display:flex;flex-direction:column;gap:12px">
 <div id="gscrub" style="position:relative;display:flex;gap:3px;height:6px"></div>
 <div id="gchapnow" style="display:flex;justify-content:space-between;font-size:13px;color:#BDB7AE"></div>
@@ -1233,7 +1236,7 @@ button{font:inherit}
   var gIdle = '<span>9 capítulos · pasa el cursor para ver cada uno</span><span>19:08</span>';
   $('#gscrub').innerHTML = GCHAP.map(function (c, k) {
     var len = (k + 1 < GCHAP.length ? GCHAP[k + 1][0] : GLEN) - c[0];
-    return '<button type="button" class="gseg" data-soon="Vista previa: el video se reproduce desde la intranet real." data-ch="' + k + '" aria-label="' + mmss(c[0]) + ' ' + c[1] + '" style="flex-grow:' + len + ';flex-basis:0;height:100%;border:0;padding:0;border-radius:3px;cursor:pointer"></button>';
+    return '<button type="button" class="gseg" data-ch="' + k + '" aria-label="' + mmss(c[0]) + ' ' + c[1] + '" style="flex-grow:' + len + ';flex-basis:0;height:100%;border:0;padding:0;border-radius:3px;cursor:pointer"></button>';
   }).join('');
   $('#gchapnow').innerHTML = gIdle;
   $('#gscrub').addEventListener('mouseover', function (e) {
@@ -1242,6 +1245,16 @@ button{font:inherit}
     $('#gchapnow').innerHTML = '<span><strong style="color:#fff;font-weight:600">' + mmss(c[0]) + '</strong>&nbsp;&nbsp;' + c[1] + '</span><span>Capítulo ' + (+b.getAttribute('data-ch') + 1) + ' de 9</span>';
   });
   $('#gscrub').addEventListener('mouseleave', function () { $('#gchapnow').innerHTML = gIdle; });
+  /* El video se carga al darle play; los capítulos saltan a su minuto */
+  function gPlay(at) {
+    var v = $('#gvideo');
+    v.hidden = false;
+    var go = function () { if (at != null) v.currentTime = at; v.play().catch(function () {}); };
+    if (v.readyState >= 1) go(); else { v.addEventListener('loadedmetadata', go, { once: true }); v.load(); }
+  }
+  $('#gvideo').addEventListener('error', function () { $('#gvideo').hidden = true; soon('El video se ve en la intranet real.'); }, true);
+  $('#gplay').addEventListener('click', function (e) { e.preventDefault(); gPlay(null); });
+  $('#gscrub').addEventListener('click', function (e) { var b = e.target.closest('[data-ch]'); if (b) gPlay(GCHAP[+b.getAttribute('data-ch')][0]); });
 
   var CHECK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
   var GWAYS = [['A los medios', 'Datos que llegan a la prensa antes del anuncio oficial. Muchas veces se arman con piezas pequeñas que nadie creyó importantes.', 'No comentes temas de la empresa en lugares públicos. Las consultas de prensa van a Relaciones Públicas.'],
