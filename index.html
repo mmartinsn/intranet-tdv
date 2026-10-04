@@ -1351,7 +1351,7 @@ button{font:inherit}
   /* Fotos locales: noticias-fotos/<n>.jpg, donde <n> es el número de la noticia en ALLNEWS (1 = la primera). Solo en la vista previa local */
   var NFOTOS = { 2: '02-rally.jpg', 4: '04-autodromo.jpg', 5: '05-brindis.jpg', 6: '06-mondelez.jpg', 8: '08-periodista.jpg', 9: '09-f1.jpg', 10: '10-autofest.jpg', 11: '11-ventas.jpg', 12: '12-tlac.jpg', 14: '14-kinto.jpg', 15: '15-embajadores.jpg', 16: '16-ellas.jpg', 17: '17-japon.jpg', 18: '18-movilidad.jpg' };
   ALLNEWS.forEach(function (x, k) { if (NFOTOS[k + 1]) x.img = 'noticias-fotos/' + NFOTOS[k + 1]; });
-  var ncat = 'Todas', nq = '';
+  var ncat = 'Todas', nq = '', nShow = 6;
   function drawAllNews() {
     var cats = ['Todas'].concat(ALLNEWS.map(function (x) { return x.cat; }).filter(function (c, k, a) { return a.indexOf(c) === k; }));
     $('#nchips').innerHTML = cats.map(function (c) {
@@ -1375,15 +1375,18 @@ button{font:inherit}
       return '<a href="#noticias" class="nlift" style="display:flex;flex-direction:column;gap:16px"><span style="height:230px;border-radius:16px;overflow:hidden">' + ncover(x, 170, 410) + '</span>' +
         '<span style="display:flex;flex-direction:column;gap:8px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + esc(x.cat) + '</span><span style="font-size:22px;line-height:1.2;font-weight:700;letter-spacing:-.01em">' + esc(x.title) + '</span></span><span style="font-size:15px;line-height:1.55;color:#5F5B55">' + esc(x.body) + '</span></a>';
     }).join('');
-    var more = list.slice(4);
-    $('#nmore').innerHTML = more.length ? '<div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:18px"><span class="eyebrow">Más noticias</span><span style="font-size:14px;color:#5F5B55">' + more.length + '</span></div>' +
-      '<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px">' + more.map(function (x) {
-        return '<a href="#noticias" class="nlift nrow" style="display:flex;gap:20px;align-items:center;padding:20px 0;border-top:1px solid #E4E0D9"><span style="width:150px;height:100px;flex-shrink:0;border-radius:12px;overflow:hidden">' + ncover(x, 80, 150) + '</span>' +
-          '<span style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + esc(x.cat) + '</span><span style="font-size:19px;line-height:1.25;font-weight:700">' + esc(x.title) + '</span><span style="font-size:14px;line-height:1.45;color:#5F5B55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">' + esc(x.body) + '</span></span></a>';
-      }).join('') + '</div>' : (list.length ? '' : '<p style="margin:0;font-size:17px;color:#5F5B55">No hay noticias que coincidan con tu búsqueda.</p>');
+    var more = list.slice(4), shown = more.slice(0, nShow);
+    $('#nmore').innerHTML = more.length ? '<div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:24px;border-top:1px solid #E4E0D9;padding-top:40px"><span class="eyebrow">Más noticias</span></div>' +
+      '<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 24px">' + shown.map(function (x) {
+        return '<a href="#noticias" class="nlift" style="display:flex;flex-direction:column;gap:14px"><span style="aspect-ratio:16/10;border-radius:14px;overflow:hidden">' + ncover(x, 80, 300) + '</span>' +
+          '<span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + esc(x.cat) + '</span><span style="font-size:19px;line-height:1.25;font-weight:700">' + esc(x.title) + '</span></a>';
+      }).join('') + '</div>' +
+      (more.length > nShow ? '<div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:48px"><button type="button" id="nmorebtn" class="pill" style="height:50px;padding:0 28px;border:1px solid #141414;background:transparent;color:#141414;font-size:15px">Ver más noticias</button><span style="font-size:13px;color:#5F5B55">Mostrando ' + (4 + shown.length) + ' de ' + list.length + '</span></div>' : '')
+      : (list.length ? '' : '<p style="margin:0;font-size:17px;color:#5F5B55">No hay noticias que coincidan con tu búsqueda.</p>');
   }
-  $('#nchips').addEventListener('click', function (e) { var b = e.target.closest('[data-ncat]'); if (b) { ncat = b.getAttribute('data-ncat'); drawAllNews(); } });
-  $('#nq').addEventListener('input', function (e) { nq = e.target.value.trim().toLowerCase(); drawAllNews(); });
+  $('#nchips').addEventListener('click', function (e) { var b = e.target.closest('[data-ncat]'); if (b) { ncat = b.getAttribute('data-ncat'); nShow = 6; drawAllNews(); } });
+  $('#nq').addEventListener('input', function (e) { nq = e.target.value.trim().toLowerCase(); nShow = 6; drawAllNews(); });
+  $('#nmore').addEventListener('click', function (e) { if (e.target.closest('#nmorebtn')) { nShow += 6; drawAllNews(); } });
   drawAllNews();
 
   /* Opciones que se conectan en la intranet real: en la vista previa avisan en vez de no hacer nada */
