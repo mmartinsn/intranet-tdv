@@ -45,6 +45,12 @@ button{font:inherit}
 .hrtab[aria-current]{color:#141414!important;font-weight:600;border-bottom-color:#D0021B!important}
 #hr-estructura,#hr-consultado,#hr-politicas,#hr-valores,#ar-campana,#ar-activas,#ar-rse,#ar-recursos{scroll-margin-top:84px}
 .hrrow{transition:background .15s}.hrrow:hover{background:#F5F3EF}.hrrow:hover .hrgo{color:#D0021B}
+.gseg{background:#4A4642;transition:background .15s,transform .15s}.gseg:hover{background:#D0021B;transform:scaleY(1.6)}
+.gplaybtn{transition:transform .25s}.gplay:hover .gplaybtn{transform:translateY(-50%) scale(1.06)}
+.ncv{transition:transform .5s cubic-bezier(.2,.7,.3,1)}.nlift:hover .ncv{transform:scale(1.035)}.nrow:hover span{color:inherit}
+.gdoc .gpaper{transition:transform .3s}.gdoc:hover .gpaper{transform:translateY(-8px)}
+.gck{transition:background .15s,border-color .15s}.gck:hover{border-color:#141414!important}
+@media (prefers-reduced-motion:reduce){.ncv,.gpaper,.gplaybtn,.gseg{transition:none}}
 .hrcat{transition:background .15s,border-color .15s}.hrcat:hover{border-color:#141414}
 /* Confeti que cae sin parar en la franja de cumpleaños del Directorio */
 .cfl{position:absolute;inset:0;overflow:hidden;pointer-events:none;border-radius:20px}
@@ -544,53 +550,67 @@ button{font:inherit}
 <section class="view" id="v-gestion">
 <div class="frame">
 <div data-header="Políticas"></div>
-<section style="padding:56px 80px 64px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:end">
-<div style="grid-column:span 7;display:flex;flex-direction:column;gap:20px">
-<nav aria-label="Ruta" style="font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Políticas / Gestión de información</nav>
-<h1 style="margin:0;font-size:80px;line-height:.95;font-weight:800;font-stretch:112%;letter-spacing:-.025em">Gestión de información</h1>
-<p style="margin:0;font-size:19px;line-height:1.55;color:#3A3733;max-width:620px">Las políticas y procedimientos para manejar la información de forma segura y eficiente: acceso, almacenamiento, protección de datos y cumplimiento legal.</p>
-</div>
-<div style="grid-column:span 5;display:flex;justify-content:flex-end">
-<p class="serif" style="margin:0;font-style:italic;font-weight:500;font-size:64px;line-height:1;color:var(--red);text-align:right;letter-spacing:-.02em">Confidencial.<br>Íntegra.<br>Disponible.</p>
-</div>
-</section>
 
-<section style="padding:0 80px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px">
-<a href="#gestion" data-soon="Vista previa: el video se reproduce desde la intranet real." aria-label="Reproducir el video Cómo evitar la fuga de información confidencial" style="grid-column:span 8;position:relative;overflow:hidden;aspect-ratio:16/9;border-radius:20px;background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:40px 44px">
-<span class="tmark" aria-hidden="true" style="position:absolute;right:-120px;bottom:-90px;width:520px;height:346px;color:#fff;opacity:.06"></span>
-<span style="position:relative;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#FF6B6B">Capacitación obligatoria</span><span style="font-size:14px;font-weight:600;color:#BDB7AE">19:08</span></span>
-<span style="position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:32px">
-<span style="display:flex;flex-direction:column;gap:14px;max-width:520px"><span style="width:56px;height:4px;background:var(--red)"></span>
-<span style="font-size:48px;line-height:1.02;font-weight:800;font-stretch:112%;letter-spacing:-.015em">Cómo evitar la fuga de información confidencial</span>
-<span style="font-size:16px;line-height:1.5;color:#D9D4CC">Toyota Motor Corporation · En inglés, con subtítulos en español</span></span>
-<span style="width:96px;height:96px;flex-shrink:0;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 10px rgba(208,2,27,.25)"><svg width="34" height="34" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
-</span>
+<section style="position:relative;overflow:hidden;background:var(--ink);color:#fff;padding:48px 80px 72px">
+<span class="tmark" aria-hidden="true" style="position:absolute;left:-220px;bottom:-260px;width:900px;height:600px;color:#fff;opacity:.035"></span>
+<nav aria-label="Ruta" style="position:relative;font-size:13px;color:#8F8A82"><a href="#inicio" style="color:#8F8A82">Inicio</a> / Políticas / <span style="color:#CFCAC2">Gestión de información</span></nav>
+<div style="position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:40px;align-items:start">
+<div style="grid-column:span 5;display:flex;flex-direction:column;gap:24px;padding-top:8px">
+<span class="eyebrow" style="color:#FF6B6B">Política corporativa</span>
+<h1 style="margin:0;font-size:76px;line-height:.94;font-weight:800;font-stretch:112%;letter-spacing:-.025em">Gestión de<br>información</h1>
+<p style="margin:0;font-size:18px;line-height:1.6;color:#CFCAC2;max-width:440px">Las políticas y procedimientos para manejar la información de forma segura y eficiente: acceso, almacenamiento, protección de datos y cumplimiento legal.</p>
+<div id="gcia" style="display:flex;flex-direction:column;margin-top:8px"></div>
+</div>
+<div style="grid-column:7 / span 6;display:flex;flex-direction:column;gap:16px">
+<a href="#gestion" data-soon="Vista previa: el video se reproduce desde la intranet real." aria-label="Reproducir el video Cómo evitar la fuga de información confidencial" class="gplay" style="position:relative;display:block;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:radial-gradient(120% 90% at 85% 15%,#3A0A10 0%,#1E1E1E 55%,#141414 100%);color:#fff;box-shadow:0 30px 60px rgba(0,0,0,.45)">
+<span aria-hidden="true" style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px)"></span>
+<span style="position:absolute;left:32px;top:28px;display:flex;gap:10px;align-items:center;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#FF6B6B"><span style="width:8px;height:8px;border-radius:50%;background:#D0021B"></span>Capacitación · 19 min</span>
+<span style="position:absolute;left:32px;right:32px;bottom:30px;display:flex;flex-direction:column;gap:10px"><span style="font-size:36px;line-height:1.02;font-weight:800;font-stretch:110%;letter-spacing:-.015em;max-width:440px">Cómo evitar la fuga de información confidencial</span><span style="font-size:14px;color:#BDB7AE">Toyota Motor Corporation · En inglés, con subtítulos en español</span></span>
+<span class="gplaybtn" style="position:absolute;right:36px;top:50%;transform:translateY(-50%);width:104px;height:104px;border-radius:50%;background:#D0021B;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 14px rgba(208,2,27,.22),0 0 0 30px rgba(208,2,27,.08)"><svg width="38" height="38" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
 </a>
-<aside class="card" style="grid-column:span 4;padding:28px;display:flex;flex-direction:column">
-<h2 class="eyebrow" style="margin:0 0 8px">Lo que vas a ver</h2>
-<ol id="gchap" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column"></ol>
-</aside>
+<div aria-label="Capítulos del video" style="display:flex;flex-direction:column;gap:12px">
+<div id="gscrub" style="position:relative;display:flex;gap:3px;height:6px"></div>
+<div id="gchapnow" style="display:flex;justify-content:space-between;font-size:13px;color:#BDB7AE"></div>
+</div>
+</div>
+</div>
 </section>
 
-<section style="padding:96px 80px 0;display:flex;flex-direction:column;gap:28px">
-<div style="display:flex;justify-content:space-between;align-items:flex-end">
-<div style="display:flex;flex-direction:column;gap:10px"><span class="eyebrow" style="color:var(--muted)">Lo esencial del video</span><h2 class="serif" style="margin:0;font-weight:500;font-size:40px;line-height:1.1">Cuatro formas en que se filtra la información</h2></div>
-<p style="margin:0;max-width:420px;font-size:15px;line-height:1.55;color:var(--muted)">La mayoría de las fugas se evita con atención y con las reglas de cada día.</p>
+<section style="padding:112px 80px 0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px">
+<div style="grid-column:span 4">
+<div style="position:sticky;top:110px;display:flex;flex-direction:column;gap:18px">
+<span class="eyebrow" style="color:var(--muted)">Lo esencial del video</span>
+<h2 class="serif" style="margin:0;font-weight:500;font-size:46px;line-height:1.05">Cuatro formas en que se filtra la información.</h2>
+<p style="margin:0;font-size:17px;line-height:1.6;color:#3A3733;max-width:340px">La mayoría se evita con atención y con las reglas de cada día. Esto es lo que hay que reconocer, y qué hacer.</p>
 </div>
-<div id="gways" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px"></div>
+</div>
+<ol id="gways" style="grid-column:6 / span 7;list-style:none;margin:0;padding:0;display:flex;flex-direction:column"></ol>
 </section>
 
-<section style="padding:96px 80px 96px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px">
-<div style="grid-column:span 8;display:flex;flex-direction:column">
-<div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:18px"><span class="eyebrow" style="color:var(--muted)">Documentos vigentes</span><span style="font-size:13px;color:var(--muted)">3 documentos</span></div>
-<div id="gdocs"></div>
+<section style="margin:112px 80px 0;border-radius:24px;background:var(--sand);padding:56px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center">
+<div style="grid-column:span 4;display:flex;flex-direction:column;gap:16px">
+<span class="eyebrow" style="color:var(--muted)">Autoevaluación</span>
+<h2 class="serif" style="margin:0;font-weight:500;font-size:40px;line-height:1.08">¿Cómo cuidas la información hoy?</h2>
+<p style="margin:0;font-size:16px;line-height:1.55;color:#3A3733">Marca lo que ya haces. Nadie más ve tus respuestas.</p>
+<div style="display:flex;align-items:center;gap:18px;margin-top:8px">
+<svg width="96" height="96" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="15.9" fill="none" stroke="#DAD5CD" stroke-width="3"/><circle id="gring" cx="18" cy="18" r="15.9" fill="none" stroke="#D0021B" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 100" transform="rotate(-90 18 18)" style="transition:stroke-dasharray .4s ease"/></svg>
+<span style="display:flex;flex-direction:column"><span id="gscore" style="font-size:34px;font-weight:800;font-stretch:115%;line-height:1"></span><span id="gverdict" style="font-size:14px;color:var(--muted);margin-top:4px"></span></span>
 </div>
-<aside style="grid-column:10 / span 3;align-self:start;background:var(--red);color:#fff;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px">
-<span class="eyebrow">¿Notaste algo raro?</span>
-<p class="serif" style="margin:0;font-size:24px;line-height:1.2">Habla con tu supervisor. Si te cuesta hacerlo, usa el canal de denuncias.</p>
-<p style="margin:0;font-size:14px;line-height:1.5;color:#FFD5D9">Si un medio te pide información, remítelo a Relaciones Públicas.</p>
-<a href="#inicio" data-soon="Vista previa: el canal de denuncias se conecta en la intranet real." class="pill" style="margin-top:6px;height:44px;background:#fff;color:var(--ink);font-size:14px">Canal de denuncias</a>
-</aside>
+</div>
+<ul id="gcheck" style="grid-column:6 / span 7;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px"></ul>
+</section>
+
+<section style="padding:112px 80px 0;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="display:flex;flex-direction:column;gap:10px"><span class="eyebrow" style="color:var(--muted)">Documentos vigentes</span><h2 class="serif" style="margin:0;font-weight:500;font-size:40px;line-height:1.1">La política y sus procedimientos</h2></div><span style="font-size:14px;color:var(--muted)">Actualizados el 19 de mayo de 2025</span></div>
+<div id="gdocs" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px"></div>
+</section>
+
+<section style="margin:112px 0 0;background:var(--red);color:#fff;padding:64px 80px;position:relative;overflow:hidden">
+<span class="tmark" aria-hidden="true" style="position:absolute;right:-140px;top:-120px;width:620px;height:414px;color:#fff;opacity:.08"></span>
+<div style="position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:end">
+<div style="grid-column:span 4;display:flex;flex-direction:column;gap:14px"><span class="eyebrow" style="color:#FFD5D9">¿Notaste algo raro?</span><h2 class="serif" style="margin:0;font-weight:500;font-size:44px;line-height:1.05">Dilo a tiempo. Una fuga se contiene mejor temprano.</h2></div>
+<div id="groutes" style="grid-column:6 / span 7;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px"></div>
+</div>
 </section>
 <div data-footer></div>
 </div>
@@ -636,18 +656,24 @@ button{font:inherit}
 <section class="view" id="v-noticias">
 <div class="frame">
 <div data-header="Noticias"></div>
-<section style="padding:56px 80px 40px;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--line)">
-<div style="display:flex;flex-direction:column;gap:20px">
+<section style="padding:48px 80px 0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:end">
+<div style="grid-column:span 7;display:flex;flex-direction:column;gap:18px">
 <nav aria-label="Ruta" style="font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Noticias</nav>
-<h1 style="margin:0;font-size:72px;line-height:1;font-weight:800;font-stretch:115%;letter-spacing:-.02em">Noticias</h1>
-<p style="margin:0;font-size:19px;line-height:1.55;color:#3A3733;max-width:620px">Anuncios, eventos y logros de Toyota de Venezuela y su red.</p>
+<h1 style="margin:0;font-size:112px;line-height:.86;font-weight:800;font-stretch:118%;letter-spacing:-.035em">Noticias</h1>
 </div>
-<span id="ncount" style="font-size:15px;color:var(--muted)"></span>
+<div style="grid-column:9 / span 4;display:flex;flex-direction:column;gap:14px;padding-bottom:6px">
+<p class="serif" style="margin:0;font-style:italic;font-size:22px;line-height:1.3;color:#3A3733">Lo que pasa en Toyota de Venezuela y su red de concesionarios.</p>
+<label style="display:flex;align-items:center;gap:10px;height:46px;padding:0 14px;background:#fff;border:1px solid #DAD5CD;border-radius:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5F5B55" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="sr">Buscar noticias</span><input id="nq" type="search" placeholder="Buscar noticias" style="flex-grow:1;border:0;outline:none;background:transparent;font:inherit;font-size:15px"></label>
+</div>
 </section>
-<section style="padding:32px 80px 96px;display:flex;flex-direction:column;gap:40px">
+<div style="position:sticky;top:0;z-index:20;background:#F5F3EF;box-shadow:0 1px 0 #E4E0D9;margin-top:36px;padding:14px 80px;display:flex;justify-content:space-between;align-items:center;gap:16px">
 <div id="nchips" role="tablist" aria-label="Filtrar noticias" style="display:flex;flex-wrap:wrap;gap:8px"></div>
-<a href="#noticias" id="nfeature" style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center"></a>
-<div id="ngrid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 24px"></div>
+<span id="ncount" style="flex-shrink:0;font-size:14px;color:var(--muted)"></span>
+</div>
+<section style="padding:40px 80px 112px;display:flex;flex-direction:column;gap:64px">
+<a href="#noticias" id="nfeature" class="nlift" style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:stretch"></a>
+<div id="ntop" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px"></div>
+<div id="nmore" style="display:flex;flex-direction:column"></div>
 </section>
 <div data-footer></div>
 </div>
@@ -1209,36 +1235,76 @@ button{font:inherit}
   }).join('');
   $$('#v-movil [data-ico]').forEach(function (el) { el.innerHTML = ICON(el.getAttribute('data-ico'), 22); });
 
-  /* Gestión de información: capítulos del video, las cuatro formas de fuga y los documentos */
-  var GCHAP = [['00:00', 'Por qué importa'], ['02:19', 'Qué es información confidencial'], ['03:32', 'Cuatro formas de fuga'], ['04:31', 'Sanciones'],
-    ['05:22', 'Casos: fuga a los medios'], ['08:46', 'Casos: fuga intencional'], ['12:52', 'Casos: fuga por descuido'], ['14:57', 'Casos: ciberataques'], ['16:47', 'Qué hacer']];
-  $('#gchap').innerHTML = GCHAP.map(function (c) {
-    return '<li><a href="#gestion" data-soon="Vista previa: el video se reproduce desde la intranet real." style="display:flex;gap:14px;align-items:baseline;padding:9px 0;border-top:1px solid #EEEAE4">' +
-      '<span style="width:44px;flex-shrink:0;font-size:13px;font-weight:700;font-stretch:115%;color:#D0021B">' + c[0] + '</span><span style="font-size:15px;font-weight:500">' + c[1] + '</span></a></li>';
+  /* Gestión de información */
+  $('#gcia').innerHTML = [['Confidencialidad', 'Solo la ve quien debe verla.'], ['Integridad', 'Nadie la altera sin autorización.'], ['Disponibilidad', 'Está cuando se necesita.']].map(function (p, k) {
+    return '<div style="display:flex;align-items:baseline;gap:18px;padding:14px 0;border-top:1px solid #2E2B28' + (k === 2 ? ';border-bottom:1px solid #2E2B28' : '') + '">' +
+      '<span style="width:150px;flex-shrink:0;font-size:15px;font-weight:700">' + p[0] + '</span><span style="font-size:15px;color:#BDB7AE">' + p[1] + '</span></div>';
   }).join('');
-  var GWAYS = [['01', 'A los medios', 'Datos que llegan a la prensa antes del anuncio oficial, a veces armados con piezas pequeñas.', 'No comentes temas de la empresa en lugares públicos. Las consultas de prensa van a Relaciones Públicas.'],
-    ['02', 'Intencional', 'Alguien entrega información a propósito, casi siempre para beneficio propio.', 'Lleva solo lo que te corresponde. Usar información obtenida de forma ilegal también es delito.'],
-    ['03', 'Por descuido', 'Un correo al destinatario equivocado, un archivo abierto o una memoria USB perdida.', 'Revisa el destinatario antes de enviar y sigue las reglas para guardar y mover archivos.'],
-    ['04', 'Por ciberataques', 'Atacantes que entran por el eslabón más débil, propio o de un tercero.', 'Desconfía de correos sospechosos, cuida tus contraseñas y mantén tus equipos al día.']];
+  var GCHAP = [[0, 'Por qué importa'], [139, 'Qué es información confidencial'], [212, 'Cuatro formas de fuga'], [271, 'Sanciones'], [322, 'Casos: fuga a los medios'],
+    [526, 'Casos: fuga intencional'], [772, 'Casos: fuga por descuido'], [897, 'Casos: ciberataques'], [1007, 'Qué hacer']];
+  var GLEN = 1148, mmss = function (s) { return Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); };
+  var gIdle = '<span>9 capítulos · pasa el cursor para ver cada uno</span><span>19:08</span>';
+  $('#gscrub').innerHTML = GCHAP.map(function (c, k) {
+    var len = (k + 1 < GCHAP.length ? GCHAP[k + 1][0] : GLEN) - c[0];
+    return '<button type="button" class="gseg" data-soon="Vista previa: el video se reproduce desde la intranet real." data-ch="' + k + '" aria-label="' + mmss(c[0]) + ' ' + c[1] + '" style="flex-grow:' + len + ';flex-basis:0;height:100%;border:0;padding:0;border-radius:3px;cursor:pointer"></button>';
+  }).join('');
+  $('#gchapnow').innerHTML = gIdle;
+  $('#gscrub').addEventListener('mouseover', function (e) {
+    var b = e.target.closest('[data-ch]'); if (!b) return;
+    var c = GCHAP[+b.getAttribute('data-ch')];
+    $('#gchapnow').innerHTML = '<span><strong style="color:#fff;font-weight:600">' + mmss(c[0]) + '</strong>&nbsp;&nbsp;' + c[1] + '</span><span>Capítulo ' + (+b.getAttribute('data-ch') + 1) + ' de 9</span>';
+  });
+  $('#gscrub').addEventListener('mouseleave', function () { $('#gchapnow').innerHTML = gIdle; });
+
+  var CHECK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  var GWAYS = [['A los medios', 'Datos que llegan a la prensa antes del anuncio oficial. Muchas veces se arman con piezas pequeñas que nadie creyó importantes.', 'No comentes temas de la empresa en lugares públicos. Las consultas de prensa van a Relaciones Públicas.'],
+    ['Intencional', 'Alguien entrega información a propósito, casi siempre para beneficio propio. Usar información obtenida de forma ilegal también es delito.', 'Lleva y comparte solo lo que te corresponde, también al cambiar de trabajo.'],
+    ['Por descuido', 'Un correo al destinatario equivocado, un archivo abierto a quien no debía verlo, una memoria USB perdida.', 'Revisa el destinatario antes de enviar y guarda tus archivos donde corresponde.'],
+    ['Por ciberataques', 'Los atacantes entran por el eslabón más débil, que puede ser un equipo propio o el de un tercero.', 'Desconfía de correos sospechosos, cuida tus contraseñas y mantén tus equipos al día.']];
   $('#gways').innerHTML = GWAYS.map(function (w, k) {
-    var dark = k === 0;
-    return '<article class="' + (dark ? '' : 'card') + '" style="border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px;min-height:340px;' + (dark ? 'background:var(--ink);color:#fff' : '') + '">' +
-      '<span style="font-size:44px;font-weight:800;font-stretch:120%;color:var(--red);line-height:1">' + w[0] + '</span>' +
-      '<h3 style="margin:0;font-size:24px;font-weight:700">' + w[1] + '</h3>' +
-      '<p style="margin:0;font-size:15px;line-height:1.5;color:' + (dark ? '#D9D4CC' : '#5F5B55') + '">' + w[2] + '</p>' +
-      '<p style="margin:auto 0 0;padding-top:14px;border-top:1px solid ' + (dark ? '#3A3733' : '#EEEAE4') + ';font-size:14px;line-height:1.5"><strong style="display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:' + (dark ? '#FF6B6B' : '#D0021B') + ';margin-bottom:4px">Qué hacer</strong>' + w[3] + '</p></article>';
+    return '<li style="display:grid;grid-template-columns:180px minmax(0,1fr);gap:16px;padding:40px 0;border-top:1px solid #DAD5CD' + (k === 3 ? ';border-bottom:1px solid #DAD5CD' : '') + '">' +
+      '<span style="font-size:96px;line-height:.8;font-weight:800;font-stretch:125%;letter-spacing:-.04em;color:#D0021B">0' + (k + 1) + '</span>' +
+      '<div style="display:flex;flex-direction:column;gap:12px"><h3 style="margin:0;font-size:32px;line-height:1.1;font-weight:700;font-stretch:108%">' + w[0] + '</h3>' +
+      '<p style="margin:0;font-size:17px;line-height:1.6;color:#3A3733;max-width:560px">' + w[1] + '</p>' +
+      '<p style="margin:8px 0 0;display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;font-weight:600"><span style="width:24px;height:24px;flex-shrink:0;border-radius:50%;background:#141414;color:#fff;display:flex;align-items:center;justify-content:center;margin-top:-1px">' + CHECK + '</span>' + w[2] + '</p></div></li>';
   }).join('');
+
+  var GCHK = ['Guardo los archivos de trabajo en los discos de TDV, no en el escritorio.', 'Protejo con contraseña los archivos con datos personales.', 'Comparto información solo con autorización.', 'Reviso el destinatario antes de enviar un correo.', 'No comento temas de la empresa en lugares públicos.'];
+  var gOn = GCHK.map(function () { return false; });
+  function drawCheck() {
+    var n = gOn.filter(Boolean).length;
+    $('#gcheck').innerHTML = GCHK.map(function (t, k) {
+      var on = gOn[k];
+      return '<li><button type="button" role="checkbox" aria-checked="' + on + '" data-ck="' + k + '" class="gck" style="width:100%;display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:14px;cursor:pointer;text-align:left;font:inherit;font-size:16px;line-height:1.4;' +
+        (on ? 'background:#141414;color:#fff;border:1px solid #141414' : 'background:#fff;color:#141414;border:1px solid #E4E0D9') + '">' +
+        '<span style="width:28px;height:28px;flex-shrink:0;border-radius:8px;display:flex;align-items:center;justify-content:center;' + (on ? 'background:#D0021B;color:#fff' : 'border:2px solid #CFCAC2;color:transparent') + '">' + CHECK + '</span>' + t + '</button></li>';
+    }).join('');
+    $('#gring').setAttribute('stroke-dasharray', (n / GCHK.length * 100) + ' 100');
+    $('#gscore').textContent = n + ' de ' + GCHK.length;
+    $('#gverdict').textContent = ['Empieza por uno', 'Buen comienzo', 'Vas bien', 'Más de la mitad', 'Casi todo en orden', 'Lo cuidas todo'][n];
+  }
+  $('#gcheck').addEventListener('click', function (e) { var b = e.target.closest('[data-ck]'); if (b) { gOn[+b.getAttribute('data-ck')] = !gOn[+b.getAttribute('data-ck')]; drawCheck(); } });
+  drawCheck();
+
   var GDOCS = [['Política corporativa', 'Gestión de confidencialidad de la información', 'Cómo debe manejar la información todo el personal, incluidos sus responsables y custodios.'],
-    ['Procedimiento', 'Accidentes e incidentes de seguridad de la información', 'Quién hace qué, y por qué vía avisar, si se pierde, se roba o se filtra información confidencial.'],
+    ['Procedimiento', 'Accidentes e incidentes de seguridad de la información', 'Qué hacer y por qué vía avisar si se pierde, se roba o se filtra información confidencial.'],
     ['Procedimiento', 'Manejo de cuestiones confidenciales', 'Cómo tratar los asuntos confidenciales para prevenir incidentes que dañen a TDV.']];
-  var docRow = function (d, k) {
-    return '<a href="#documento" class="hrrow" style="display:flex;align-items:center;gap:24px;padding:22px 16px;border-top:1px solid #E4E0D9;border-radius:4px">' +
-      '<span style="width:52px;height:52px;flex-shrink:0;border-radius:14px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON('doc', 24) + '</span>' +
-      '<span style="display:flex;flex-direction:column;gap:4px;flex-grow:1"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + d[0] + '</span>' +
-      '<span style="font-size:20px;font-weight:700;line-height:1.25">' + d[1] + '</span><span style="font-size:14px;line-height:1.45;color:#5F5B55">' + d[2] + '</span></span>' +
-      '<span style="flex-shrink:0;text-align:right;font-size:13px;color:#5F5B55;line-height:1.5">PDF<br>19 may 2025</span><span class="hrgo" style="color:#8F8A82">' + ICON('chev', 20) + '</span></a>';
-  };
-  $('#gdocs').innerHTML = GDOCS.map(docRow).join('');
+  $('#gdocs').innerHTML = GDOCS.map(function (d, k) {
+    var lines = '<i style="display:block;height:7px;border-radius:2px;background:#E4E0D9;width:100%"></i><i style="display:block;height:7px;border-radius:2px;background:#E4E0D9;width:86%"></i><i style="display:block;height:7px;border-radius:2px;background:#E4E0D9;width:93%"></i><i style="display:block;height:7px;border-radius:2px;background:#E4E0D9;width:58%"></i>';
+    return '<a href="#documento" class="card gdoc" style="display:flex;flex-direction:column;overflow:hidden;border-radius:20px">' +
+      '<span style="position:relative;height:200px;background:' + (k === 0 ? '#141414' : '#EFEBE4') + ';display:flex;align-items:flex-end;justify-content:center;overflow:hidden">' +
+      '<span class="gpaper" style="position:relative;width:150px;height:144px;background:#fff;border-radius:6px 6px 0 0;box-shadow:0 -6px 24px rgba(0,0,0,.18);padding:22px 20px;display:flex;flex-direction:column;gap:9px;clip-path:polygon(0 0,82% 0,100% 15%,100% 100%,0 100%)">' +
+      '<span class="tmark" aria-hidden="true" style="width:26px;height:17px;color:#D0021B;margin-bottom:6px"></span>' + lines + '</span>' +
+      '<span style="position:absolute;left:20px;top:18px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:' + (k === 0 ? '#FF6B6B' : '#5F5B55') + '">' + d[0] + '</span></span>' +
+      '<span style="padding:24px;display:flex;flex-direction:column;gap:10px;flex-grow:1"><span style="font-size:21px;line-height:1.2;font-weight:700">' + d[1] + '</span>' +
+      '<span style="font-size:15px;line-height:1.5;color:#5F5B55">' + d[2] + '</span>' +
+      '<span style="margin-top:auto;padding-top:14px;border-top:1px solid #EEEAE4;display:flex;justify-content:space-between;font-size:14px"><span style="color:#5F5B55">PDF · 19 may 2025</span><span style="font-weight:600">Ver documento →</span></span></span></a>';
+  }).join('');
+  $('#groutes').innerHTML = [['people', 'Tu supervisor', 'El primer paso ante cualquier duda o incidente.', '#directorio'], ['shield', 'Canal de denuncias', 'Confidencial, si te cuesta hablarlo de forma directa.', '#inicio'], ['megaphone', 'Relaciones Públicas', 'Para cualquier consulta que te haga un medio.', '#area']].map(function (r) {
+    return '<a href="' + r[3] + '" style="display:flex;flex-direction:column;gap:12px;padding:22px;border-radius:16px;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.22)">' +
+      '<span style="width:44px;height:44px;border-radius:12px;background:#fff;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON(r[0], 22) + '</span>' +
+      '<span style="font-size:18px;font-weight:700">' + r[1] + '</span><span style="font-size:14px;line-height:1.5;color:#FFD5D9">' + r[2] + '</span></a>';
+  }).join('');
 
   /* Ficha de documento */
   $('#dmeta').innerHTML = [['Formato', 'PDF · [peso real]'], ['Publicado', '19 de mayo de 2025'], ['Actualizado', '19 de mayo de 2025'], ['Área responsable', '[por confirmar]'], ['Versión', '[por confirmar]']].map(function (m) {
@@ -1250,50 +1316,70 @@ button{font:inherit}
       '<span style="width:36px;height:36px;flex-shrink:0;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ico + '</span>' + r[1] + '</a>';
   }).join('');
 
-  /* Noticias: las que publica hoy la intranet, con el texto acortado */
+  /* Noticias: las que publica hoy la intranet, con el texto acortado. «w» es la palabra de la portada tipográfica */
   var ALLNEWS = [
-    { cat: 'Talento', title: 'Postulación interna: Analista III de Desarrollo de Concesionarios', body: 'Conversa con tu líder actual sobre tu interés antes de postularte.', photo: 'Postulación interna' },
-    { cat: 'D&I', title: 'Rally 4×4: D&I', body: 'El 11 de marzo celebramos la primera edición del Rally 4×4 de Diversidad e Inclusión, con colaboradores y la red de concesionarios.', photo: 'Rally 4×4' },
-    { cat: 'Reconocimientos', title: 'Toyota Agya, mejor campaña del sector automotriz', body: '«Todo lo que buscas en tu nuevo Toyota» ganó el primer lugar en la 25.ª edición de los Premios P&M.', photo: 'Premios P&M' },
-    { cat: 'Formación', title: 'Curso avanzado de producto en el Autódromo de San Carlos', body: 'En noviembre se llevó a cabo una capacitación exclusiva en el autódromo.', photo: 'Autódromo de San Carlos' },
-    { cat: 'Gente', title: 'Un brindis para cerrar el año 2025', body: 'Reconocimos el esfuerzo del equipo y a quienes celebraron años de servicio.', photo: 'Cierre de año' },
-    { cat: 'Institucional', title: 'Alianza con Mondelēz International', body: 'Entregamos una nueva flota de Toyota Agya, respaldada por Mantenimiento Express.', photo: 'Mondelēz' },
-    { cat: 'Producto', title: 'Lanzamiento de la Toyota APP y de Mantenimiento Express', body: 'La app para iOS y Android reúne en un solo lugar la gestión de tu vehículo.', photo: 'Toyota APP' },
-    { cat: 'Institucional', title: 'Día del Periodista', body: 'Comunicadores recorrieron Posventa y vieron cómo abastecemos de repuestos a los 47 concesionarios.', photo: 'Posventa' },
-    { cat: 'Reconocimientos', title: 'Dealer Award Trip: F1 – Spain 2025', body: 'Los ganadores del Programa de Premios 2024 vivieron el Gran Premio de España de Fórmula 1.', photo: 'Dealer Award Trip' },
-    { cat: 'Producto', title: 'Autofest', body: 'Del 2 al 4 de mayo exhibimos Corolla Cross, Land Cruiser Prado, Hilux 2.7, Agya y Corolla en el CCCT.', photo: 'Autofest' },
-    { cat: 'Formación', title: 'Entrenamiento «Habilidades básicas de ventas»', body: 'Más de 50 vendedores de la red se formaron dos días en nuestro Centro de Adiestramiento en Caracas.', photo: 'Centro de Adiestramiento' },
-    { cat: 'D&I', title: 'TDV en la Conferencia de Inclusión TLAC', body: 'Un encuentro de más de 20 países sobre diversidad, equidad e inclusión.', photo: 'TLAC' },
-    { cat: 'Producto', title: 'Segunda feria de carros usados', body: 'Los 47 concesionarios exhibieron usados verificados, con Trade-In y promociones en repuestos y accesorios.', photo: 'Feria de usados' },
-    { cat: 'Institucional', title: 'Kinto One: tres nuevas unidades entregadas en julio', body: 'Tres unidades más a través de Kinto One, que sigue sumando beneficios.', photo: 'Kinto One' },
-    { cat: 'Gente', title: 'Conoce a los Embajadores 2025', body: 'Serán el enlace entre la empresa y nuestra comunidad en redes sociales.', photo: 'Embajadores' },
-    { cat: 'D&I', title: 'Carrera Ellas HE', body: 'Corrimos en la carrera de Hipereventos que celebró a la mujer venezolana.', photo: 'Ellas HE' },
-    { cat: 'Institucional', title: 'Celebración del natalicio del Emperador de Japón', body: 'El 18 de febrero participamos en el Día Nacional de Japón, en la Embajada.', photo: 'Embajada de Japón' },
-    { cat: 'RSE', title: 'Mes de la movilidad: voluntariado en el Hospital Ortopédico Infantil', body: 'El 27 de noviembre, 34 niños recibieron operaciones musculoesqueléticas.', photo: 'Voluntariado TDV' },
-    { cat: 'Gente', title: '17.ª edición del Concurso de Habilidades', body: 'Celebramos la excelencia y la mejora continua en Toyota de Venezuela.', photo: 'Concurso de Habilidades' }
+    { cat: 'Talento', w: 'Talento', title: 'Postulación interna: Analista III de Desarrollo de Concesionarios', body: 'Conversa con tu líder actual sobre tu interés antes de postularte.' },
+    { cat: 'D&I', w: '4×4', title: 'Rally 4×4: D&I', body: 'El 11 de marzo celebramos la primera edición del Rally 4×4 de Diversidad e Inclusión, con colaboradores y la red de concesionarios.' },
+    { cat: 'Reconocimientos', w: 'P&M', title: 'Toyota Agya, mejor campaña del sector automotriz', body: '«Todo lo que buscas en tu nuevo Toyota» ganó el primer lugar en la 25.ª edición de los Premios P&M.' },
+    { cat: 'Formación', w: 'Pista', title: 'Curso avanzado de producto en el Autódromo de San Carlos', body: 'En noviembre se llevó a cabo una capacitación exclusiva en el autódromo.' },
+    { cat: 'Gente', w: '2025', title: 'Un brindis para cerrar el año 2025', body: 'Reconocimos el esfuerzo del equipo y a quienes celebraron años de servicio.' },
+    { cat: 'Institucional', w: 'Flota', title: 'Alianza con Mondelēz International', body: 'Entregamos una nueva flota de Toyota Agya, respaldada por Mantenimiento Express.' },
+    { cat: 'Producto', w: 'App', title: 'Lanzamiento de la Toyota APP y de Mantenimiento Express', body: 'La app para iOS y Android reúne en un solo lugar la gestión de tu vehículo.' },
+    { cat: 'Institucional', w: 'Prensa', title: 'Día del Periodista', body: 'Comunicadores recorrieron Posventa y vieron cómo abastecemos de repuestos a los 47 concesionarios.' },
+    { cat: 'Reconocimientos', w: 'F1', title: 'Dealer Award Trip: F1 – Spain 2025', body: 'Los ganadores del Programa de Premios 2024 vivieron el Gran Premio de España de Fórmula 1.' },
+    { cat: 'Producto', w: 'Autofest', title: 'Autofest', body: 'Del 2 al 4 de mayo exhibimos Corolla Cross, Land Cruiser Prado, Hilux 2.7, Agya y Corolla en el CCCT.' },
+    { cat: 'Formación', w: 'Ventas', title: 'Entrenamiento «Habilidades básicas de ventas»', body: 'Más de 50 vendedores de la red se formaron dos días en nuestro Centro de Adiestramiento en Caracas.' },
+    { cat: 'D&I', w: 'TLAC', title: 'TDV en la Conferencia de Inclusión TLAC', body: 'Un encuentro de más de 20 países sobre diversidad, equidad e inclusión.' },
+    { cat: 'Producto', w: 'Usados', title: 'Segunda feria de carros usados', body: 'Los 47 concesionarios exhibieron usados verificados, con Trade-In y promociones en repuestos y accesorios.' },
+    { cat: 'Institucional', w: 'Kinto', title: 'Kinto One: tres nuevas unidades entregadas en julio', body: 'Tres unidades más a través de Kinto One, que sigue sumando beneficios.' },
+    { cat: 'Gente', w: 'Redes', title: 'Conoce a los Embajadores 2025', body: 'Serán el enlace entre la empresa y nuestra comunidad en redes sociales.' },
+    { cat: 'D&I', w: 'Ellas', title: 'Carrera Ellas HE', body: 'Corrimos en la carrera de Hipereventos que celebró a la mujer venezolana.' },
+    { cat: 'Institucional', w: 'Japón', title: 'Celebración del natalicio del Emperador de Japón', body: 'El 18 de febrero participamos en el Día Nacional de Japón, en la Embajada.' },
+    { cat: 'RSE', w: '34', title: 'Mes de la movilidad: voluntariado en el Hospital Ortopédico Infantil', body: 'El 27 de noviembre, 34 niños recibieron operaciones musculoesqueléticas.' },
+    { cat: 'Gente', w: '17.ª', title: '17.ª edición del Concurso de Habilidades', body: 'Celebramos la excelencia y la mejora continua en Toyota de Venezuela.' }
   ];
-  var ncat = 'Todas';
+  /* Portadas tipográficas: fondo, texto y palabra gigante por categoría, hasta que haya fotos */
+  var NCOL = { 'Talento': ['#141414', '#fff', '#2C2926'], 'D&I': ['#FBE6E8', '#D0021B', '#F4C4CA'], 'Reconocimientos': ['#D0021B', '#fff', '#E23845'],
+    'Formación': ['#EFEBE4', '#141414', '#E0D9CD'], 'Gente': ['#2B2826', '#fff', '#3D3936'], 'Institucional': ['#141414', '#fff', '#3A0A10'], 'Producto': ['#FFFFFF', '#141414', '#EFEBE4'], 'RSE': ['#8E0012', '#fff', '#A71D2D'] };
+  function ncover(x, size, box) {
+    var c = NCOL[x.cat] || NCOL['Gente'], small = box < 200;
+    /* La palabra se ajusta al ancho para leerse entera */
+    size = Math.min(size, Math.floor(box / (Math.max(2, x.w.length) * 1.02)));
+    return '<span class="ncv" style="position:relative;display:block;width:100%;height:100%;overflow:hidden;border-radius:inherit;background:' + c[0] + ';color:' + c[1] + (c[0] === '#FFFFFF' ? ';box-shadow:inset 0 0 0 1px #E4E0D9' : '') + '">' +
+      '<span aria-hidden="true" style="position:absolute;left:' + (small ? 10 : 18) + 'px;bottom:-.14em;font-size:' + size + 'px;line-height:1;font-weight:800;font-stretch:125%;letter-spacing:-.045em;white-space:nowrap;color:' + c[2] + '">' + esc(x.w) + '</span>' +
+      '<span class="tmark" aria-hidden="true" style="position:absolute;right:' + (small ? 10 : 22) + 'px;top:' + (small ? 10 : 22) + 'px;width:' + (small ? 24 : 40) + 'px;height:' + (small ? 16 : 27) + 'px;color:' + c[1] + '"></span>' +
+      (small ? '' : '<span style="position:absolute;left:22px;top:24px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.8">' + esc(x.cat) + '</span>') + '</span>';
+  }
+  var ncat = 'Todas', nq = '';
   function drawAllNews() {
     var cats = ['Todas'].concat(ALLNEWS.map(function (x) { return x.cat; }).filter(function (c, k, a) { return a.indexOf(c) === k; }));
     $('#nchips').innerHTML = cats.map(function (c) {
       var on = c === ncat, n = c === 'Todas' ? ALLNEWS.length : ALLNEWS.filter(function (x) { return x.cat === c; }).length;
-      return '<button type="button" role="tab" aria-selected="' + on + '" data-ncat="' + esc(c) + '" style="height:40px;padding:0 18px;border-radius:999px;cursor:pointer;font-size:14px;' +
+      return '<button type="button" role="tab" aria-selected="' + on + '" data-ncat="' + esc(c) + '" style="height:38px;padding:0 16px;border-radius:999px;cursor:pointer;font-size:14px;' +
         (on ? 'border:1px solid #141414;background:#141414;color:#fff;font-weight:600' : 'border:1px solid #DAD5CD;background:transparent;color:#3A3733') + '">' + esc(c) + ' <span style="opacity:.55">' + n + '</span></button>';
     }).join('');
-    var list = ncat === 'Todas' ? ALLNEWS : ALLNEWS.filter(function (x) { return x.cat === ncat; });
+    var list = ALLNEWS.filter(function (x) { return (ncat === 'Todas' || x.cat === ncat) && (!nq || (x.title + ' ' + x.body).toLowerCase().indexOf(nq) > -1); });
     $('#ncount').textContent = list.length + (list.length === 1 ? ' noticia' : ' noticias');
     var f = list[0];
-    $('#nfeature').innerHTML = '<span style="grid-column:span 7;height:420px;border-radius:20px;overflow:hidden">' + cover(f.cat, 96, f.photo) + '</span>' +
-      '<span style="grid-column:span 5;display:flex;flex-direction:column;gap:16px;padding-left:16px"><span style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D0021B">' + esc(f.cat) + '</span>' +
-      '<span style="font-size:40px;line-height:1.08;font-weight:800;font-stretch:108%;letter-spacing:-.015em">' + esc(f.title) + '</span>' +
-      '<span style="font-size:18px;line-height:1.55;color:#5F5B55">' + esc(f.body) + '</span><span style="font-size:15px;font-weight:600">Leer la noticia →</span></span>';
-    $('#ngrid').innerHTML = list.slice(1).map(function (x) {
-      return '<a href="#noticias" style="display:flex;flex-direction:column;gap:14px"><span style="height:220px;border-radius:16px;overflow:hidden">' + cover(x.cat, 56, x.photo) + '</span>' +
-        '<span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + esc(x.cat) + '</span>' +
-        '<span style="font-size:22px;line-height:1.2;font-weight:700">' + esc(x.title) + '</span><span style="font-size:15px;line-height:1.5;color:#5F5B55">' + esc(x.body) + '</span></a>';
+    $('#nfeature').style.display = f ? 'grid' : 'none';
+    $('#nfeature').innerHTML = f ? '<span style="grid-column:span 7;height:460px;border-radius:24px;overflow:hidden">' + ncover(f, 300, 720) + '</span>' +
+      '<span style="grid-column:span 5;display:flex;flex-direction:column;justify-content:center;gap:18px;padding:8px 0 8px 24px"><span style="display:flex;gap:12px;align-items:center"><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:#D0021B;border-radius:999px;padding:5px 12px">Destacada</span><span style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + esc(f.cat) + '</span></span>' +
+      '<span style="font-size:46px;line-height:1.02;font-weight:800;font-stretch:108%;letter-spacing:-.02em">' + esc(f.title) + '</span>' +
+      '<span class="serif" style="font-size:21px;line-height:1.45;color:#3A3733">' + esc(f.body) + '</span>' +
+      '<span class="pill" style="align-self:flex-start;height:50px;padding:0 24px;background:#141414;color:#fff;font-size:15px;margin-top:6px">Leer la noticia →</span></span>' : '';
+    $('#ntop').innerHTML = list.slice(1, 4).map(function (x) {
+      return '<a href="#noticias" class="nlift" style="display:flex;flex-direction:column;gap:16px"><span style="height:260px;border-radius:18px;overflow:hidden">' + ncover(x, 170, 410) + '</span>' +
+        '<span style="font-size:24px;line-height:1.15;font-weight:700;letter-spacing:-.01em">' + esc(x.title) + '</span><span style="font-size:15px;line-height:1.55;color:#5F5B55">' + esc(x.body) + '</span></a>';
     }).join('');
+    var more = list.slice(4);
+    $('#nmore').innerHTML = more.length ? '<div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:18px"><span class="eyebrow">Más noticias</span><span style="font-size:14px;color:#5F5B55">' + more.length + '</span></div>' +
+      '<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px">' + more.map(function (x) {
+        return '<a href="#noticias" class="nlift nrow" style="display:flex;gap:20px;align-items:center;padding:20px 0;border-top:1px solid #E4E0D9"><span style="width:150px;height:100px;flex-shrink:0;border-radius:12px;overflow:hidden">' + ncover(x, 80, 150) + '</span>' +
+          '<span style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + esc(x.cat) + '</span><span style="font-size:19px;line-height:1.25;font-weight:700">' + esc(x.title) + '</span><span style="font-size:14px;line-height:1.45;color:#5F5B55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">' + esc(x.body) + '</span></span></a>';
+      }).join('') + '</div>' : (list.length ? '' : '<p style="margin:0;font-size:17px;color:#5F5B55">No hay noticias que coincidan con tu búsqueda.</p>');
   }
   $('#nchips').addEventListener('click', function (e) { var b = e.target.closest('[data-ncat]'); if (b) { ncat = b.getAttribute('data-ncat'); drawAllNews(); } });
+  $('#nq').addEventListener('input', function (e) { nq = e.target.value.trim().toLowerCase(); drawAllNews(); });
   drawAllNews();
 
   /* Opciones que se conectan en la intranet real: en la vista previa avisan en vez de no hacer nada */
