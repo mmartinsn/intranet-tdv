@@ -80,6 +80,13 @@ button{font:inherit}
 .dlife>div:last-child{align-items:flex-end;text-align:right}.dlife>div:last-child::before{left:auto;right:0}
 .dlife>div:nth-child(2){align-items:center;text-align:center}.dlife>div:nth-child(2)::before{left:calc(50% - 7px)}
 @media (prefers-reduced-motion:reduce){.dcover{transition:none}}
+#ddrawer{position:fixed;inset:0;z-index:90}
+.dd-scrim{position:absolute;inset:0;background:rgba(20,20,20,.38);animation:ddf .25s ease both}
+.dd-sheet{position:absolute;top:0;right:0;bottom:0;width:480px;max-width:100%;background:#FAF9F7;display:flex;flex-direction:column;box-shadow:-30px 0 60px rgba(20,20,20,.18);animation:dds .35s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ddf{from{opacity:0}}@keyframes dds{from{transform:translateX(100%)}}
+.ddsib{display:flex;gap:12px;align-items:center;padding:14px 16px;border:1px solid #E4E0D9;border-radius:14px;background:#fff;cursor:pointer;width:100%;font:inherit;text-align:left}
+.ddsib:hover{border-color:#141414}
+@media (prefers-reduced-motion:reduce){.dd-scrim,.dd-sheet{animation:none}}
 .hrcat{transition:background .15s,border-color .15s}.hrcat:hover{border-color:#141414}
 /* Confeti que cae sin parar en la franja de cumpleaños del Directorio */
 .cfl{position:absolute;inset:0;overflow:hidden;pointer-events:none;border-radius:20px}
@@ -117,7 +124,6 @@ button{font:inherit}
 <a href="#area">Mercadeo</a>
 <a href="#rrhh">Recursos Humanos</a>
 <a href="#gestion">Gestión de información</a>
-<a href="#documento">Documento</a>
 <a href="#noticias">Noticias</a>
 </nav>
 </header>
@@ -1503,6 +1509,33 @@ button{font:inherit}
   }
   $('#demoHero').addEventListener('click', function (e) { var b = e.target.closest('[data-hero]'); if (b) setHero(b.getAttribute('data-hero')); });
   setHero('A');
+  /* Documento en panel lateral: se abre sobre la página en la que estás */
+  var ddLast = null;
+  function openDoc(k) {
+    var d = DOCS[k]; if (!d) return;
+    curDoc = k;
+    var same = Object.keys(DOCS).filter(function (x) { return DOCS[x].area === d.area && x !== k; });
+    $('#ddarea').textContent = d.area; $('#ddkind').textContent = d.kind.replace(d.area + ' · ', '');
+    $('#ddtitle').textContent = d.title; $('#ddsum').textContent = d.sum;
+    var days = Math.max(0, Math.round((Date.now() - new Date(d.iso + 'T12:00:00')) / 864e5));
+    $('#ddfresh').innerHTML = '<span class="live" style="background:#1E8E3E"></span>Vigente · actualizado ' + (days < 31 ? 'hace ' + days + ' días' : days < 365 ? 'hace ' + Math.round(days / 30) + ' meses' : 'hace más de un año');
+    $('#ddmeta').innerHTML = [['Creado', d.made], ['Última actualización', d.upd], ['Formato', 'PDF · [peso real]'], ['Responsable', '[por confirmar]']].map(function (m) {
+      return '<div style="display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid #EEEAE4"><dt style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + m[0] + '</dt><dd style="margin:0;font-size:15px;font-weight:600">' + m[1] + '</dd></div>';
+    }).join('');
+    var sib = same.map(function (x) { return '<button type="button" class="ddsib" data-sib="' + x + '"><span style="width:36px;height:36px;flex-shrink:0;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON('doc', 18) + '</span><span style="flex-grow:1;font-size:14px;font-weight:600;line-height:1.3">' + x + '</span><span style="color:#8F8A82">→</span></button>'; });
+    if (d.area === 'Gestión de información') sib.unshift('<a href="#gestion" data-close class="ddsib"><span style="width:36px;height:36px;flex-shrink:0;border-radius:10px;background:#141414;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span><span style="flex-grow:1;font-size:14px;font-weight:600;line-height:1.3">Video: cómo evitar la fuga de información confidencial</span><span style="color:#8F8A82">→</span></a>');
+    $('#ddsib').innerHTML = sib.length ? '<span class="eyebrow" style="display:block;color:#5F5B55;padding-bottom:12px">Del mismo tema</span><div style="display:flex;flex-direction:column;gap:8px">' + sib.join('') + '</div>' : '';
+    if ($('#ddrawer').hidden) { ddLast = document.activeElement; $('#ddrawer').hidden = false; document.body.style.overflow = 'hidden'; }
+    $('#ddrawer [data-close][aria-label]').focus();
+  }
+  function closeDoc() { $('#ddrawer').hidden = true; document.body.style.overflow = ''; if (ddLast) ddLast.focus(); }
+  document.addEventListener('click', function (e) {
+    var s = e.target.closest('[data-sib]'); if (s) { openDoc(s.getAttribute('data-sib')); return; }
+    if (e.target.closest('#ddrawer [data-close]')) { closeDoc(); return; }
+    var g = e.target.closest('a[href="#documento"]');
+    if (g) { var k = g.getAttribute('data-doc') || (/Gobernanza/.test(g.textContent) ? 'Política de Autorización' : null); if (k && DOCS[k]) { e.preventDefault(); e.stopPropagation(); closeMenus(); openDoc(k); } }
+  }, true);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !$('#ddrawer').hidden) closeDoc(); });
   /* Opciones que se conectan en la intranet real: en la vista previa avisan en vez de no hacer nada */
   var toastT;
   function soon(msg) {
@@ -1560,6 +1593,29 @@ button{font:inherit}
   route(); fit();
 })();
 </script>
+<div id="ddrawer" hidden>
+<div class="dd-scrim" data-close></div>
+<aside class="dd-sheet" role="dialog" aria-modal="true" aria-labelledby="ddtitle">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:22px 28px;border-bottom:1px solid #EEEAE4">
+<span id="ddarea" class="eyebrow" style="color:#5F5B55"></span>
+<button type="button" data-close aria-label="Cerrar" style="width:40px;height:40px;border-radius:50%;border:1px solid #DAD5CD;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+<div style="flex-grow:1;overflow:auto;padding:32px 28px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;align-items:center;gap:16px">
+<span style="width:56px;height:66px;flex-shrink:0;border-radius:8px;background:#D0021B;color:#fff;display:flex;align-items:flex-end;justify-content:center;padding-bottom:9px;font-size:12px;font-weight:800;letter-spacing:.06em;clip-path:polygon(0 0,72% 0,100% 22%,100% 100%,0 100%)">PDF</span>
+<span style="display:flex;flex-direction:column;gap:6px"><span id="ddkind" style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D0021B"></span><span id="ddfresh" class="dpill" style="align-self:flex-start"></span></span>
+</div>
+<h2 id="ddtitle" style="margin:0;font-size:32px;line-height:1.1;font-weight:800;font-stretch:108%;letter-spacing:-.015em"></h2>
+<p id="ddsum" class="serif" style="margin:0;font-size:20px;line-height:1.5;color:#141414"></p>
+<dl id="ddmeta" style="margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #EEEAE4"></dl>
+<div id="ddsib"></div>
+</div>
+<div style="padding:20px 28px 26px;border-top:1px solid #EEEAE4;display:flex;gap:10px">
+<a href="#" data-soon="Vista previa: la descarga se conecta en la intranet real." class="pill" style="flex-grow:1;height:52px;gap:10px;background:var(--red);color:#fff;font-size:15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar PDF</a>
+<a href="#" data-soon="Vista previa: el visor se conecta en la intranet real." class="pill" style="height:52px;padding:0 20px;border:1px solid var(--ink);font-size:15px">Ver</a>
+</div>
+</aside>
+</div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
