@@ -67,6 +67,19 @@ button{font:inherit}
 .mkdeck:hover .mkpost{transform:translate(var(--o),0) rotate(calc(var(--r) * .4))}
 .mkdeck .mkpost:hover{transform:translate(var(--o),-14px) rotate(0deg);box-shadow:0 28px 56px rgba(20,20,20,.26);z-index:5}
 @media (prefers-reduced-motion:reduce){.mkpost{transition:none}}
+.dtab{display:flex;align-items:baseline;gap:10px;padding:12px 18px 14px;border:0;border-bottom:3px solid transparent;margin-bottom:-1px;background:transparent;font:inherit;font-size:15px;color:#5F5B55;cursor:pointer}
+.dtab b{font-size:12px;font-weight:800;font-stretch:120%;color:#B3ADA4}.dtab[aria-selected=true]{color:#141414;font-weight:600;border-bottom-color:#D0021B}.dtab[aria-selected=true] b{color:#D0021B}.dtab:hover{color:#141414}
+.dpill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px;background:#fff;border:1px solid #DAD5CD}
+.dcover{position:relative;overflow:hidden;width:290px;height:370px;border-radius:18px;background:#D0021B;color:#fff;padding:26px;display:flex;flex-direction:column;gap:20px;transform:rotate(4deg);box-shadow:0 30px 60px rgba(208,2,27,.28),0 0 0 10px #F5F3EF,0 0 0 11px #E4E0D9;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.dcover:hover{transform:rotate(0) translateY(-6px)}
+.dlife{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.dlife::before{content:'';position:absolute;left:6px;right:6px;top:6px;height:2px;background:linear-gradient(90deg,#141414 0%,#141414 var(--p,50%),#DAD5CD var(--p,50%))}
+.dlife>div{position:relative;display:flex;flex-direction:column;gap:6px;padding-top:30px}
+.dlife>div::before{content:'';position:absolute;top:0;left:0;width:14px;height:14px;border-radius:50%;background:#141414;box-shadow:0 0 0 5px #F5F3EF}
+.dlife>div.now::before{background:#D0021B}
+.dlife>div:last-child{align-items:flex-end;text-align:right}.dlife>div:last-child::before{left:auto;right:0}
+.dlife>div:nth-child(2){align-items:center;text-align:center}.dlife>div:nth-child(2)::before{left:calc(50% - 7px)}
+@media (prefers-reduced-motion:reduce){.dcover{transition:none}}
 .hrcat{transition:background .15s,border-color .15s}.hrcat:hover{border-color:#141414}
 /* Confeti que cae sin parar en la franja de cumpleaños del Directorio */
 .cfl{position:absolute;inset:0;overflow:hidden;pointer-events:none;border-radius:20px}
@@ -689,32 +702,35 @@ button{font:inherit}
 <section class="view" id="v-documento">
 <div class="frame">
 <div data-header="Políticas"></div>
-<section style="padding:48px 80px 0;display:flex;flex-direction:column;gap:18px;max-width:1040px">
+<section style="padding:40px 80px 0">
 <nav aria-label="Ruta" style="font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Políticas / <a id="dcrumb" href="#gestion" style="color:var(--muted)">Gestión de información</a></nav>
-<span id="dkind" class="eyebrow" style="color:var(--red)">Política corporativa</span>
-<h1 id="dtitle" style="margin:0;font-size:52px;line-height:1.04;font-weight:800;font-stretch:110%;letter-spacing:-.02em">Gestión de confidencialidad de la información</h1>
+<div id="dtabs" role="tablist" aria-label="Documentos del área" style="display:flex;gap:8px;margin-top:22px;border-bottom:1px solid #DAD5CD"></div>
 </section>
 
-<section style="padding:40px 80px 0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:start">
-<div style="grid-column:span 7;display:flex;flex-direction:column;gap:14px">
-<span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">De qué trata</span>
-<p id="dsum" class="serif" style="margin:0;font-size:26px;line-height:1.4;color:#141414">Aplica a todo el personal de TDV.</p>
+<section style="padding:56px 80px 0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center">
+<div style="grid-column:span 7;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap"><span id="dkind" class="eyebrow" style="color:var(--red)">Política</span><span id="dfresh" class="dpill"></span></div>
+<h1 id="dtitle" style="margin:0;font-size:58px;line-height:1.02;font-weight:800;font-stretch:110%;letter-spacing:-.025em">Documento</h1>
+<blockquote style="margin:6px 0 0;padding:4px 0 4px 26px;border-left:4px solid var(--red)"><p id="dsum" class="serif" style="margin:0;font-size:25px;line-height:1.42;color:#141414">Resumen</p></blockquote>
 </div>
-<div class="card" style="grid-column:9 / span 4;padding:24px;display:flex;flex-direction:column;gap:18px;border-radius:20px">
-<div style="display:flex;align-items:center;gap:14px">
-<span style="width:52px;height:60px;flex-shrink:0;border-radius:8px;background:#D0021B;color:#fff;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;font-size:12px;font-weight:800;letter-spacing:.06em;clip-path:polygon(0 0,72% 0,100% 22%,100% 100%,0 100%)">PDF</span>
-<span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span id="dfile" style="font-size:15px;font-weight:700;line-height:1.3">Documento</span><span style="font-size:13px;color:var(--muted)">PDF · [peso real]</span></span>
+<div style="grid-column:9 / span 4;display:flex;justify-content:center;padding:20px 0">
+<div class="dcover">
+<span class="tmark" aria-hidden="true" style="position:absolute;right:-60px;bottom:-50px;width:260px;height:173px;color:#fff;opacity:.1"></span>
+<span style="display:flex;justify-content:space-between;align-items:center;position:relative"><span class="tmark" aria-hidden="true" style="width:40px;height:27px;color:#fff"></span><span style="font-size:11px;font-weight:800;letter-spacing:.14em;border:1.5px solid rgba(255,255,255,.6);border-radius:6px;padding:4px 8px">PDF</span></span>
+<span style="position:relative;display:flex;flex-direction:column;gap:8px;margin-top:auto"><span id="dcarea" style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#FFD5D9"></span><span id="dfile" style="font-size:24px;line-height:1.1;font-weight:800;font-stretch:105%"></span><span style="font-size:13px;color:#FFD5D9">Toyota de Venezuela, C. A. · [peso real]</span></span>
+<a href="#documento" data-soon="Vista previa: la descarga se conecta en la intranet real." class="pill" style="position:relative;height:50px;gap:10px;background:#fff;color:#D0021B;font-size:15px;font-weight:700"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar</a>
 </div>
-<a href="#documento" data-soon="Vista previa: la descarga se conecta en la intranet real." class="pill" style="height:52px;gap:10px;background:var(--red);color:#fff;font-size:15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar</a>
-<a href="#documento" data-soon="Vista previa: el visor se conecta en la intranet real." style="align-self:center;font-size:14px;font-weight:600">Ver en el navegador →</a>
 </div>
+<a href="#documento" data-soon="Vista previa: el visor se conecta en la intranet real." style="grid-column:9 / span 4;justify-self:center;font-size:14px;font-weight:600;margin-top:-6px">Ver en el navegador →</a>
 </section>
 
-<section style="padding:48px 80px 0">
-<dl id="dmeta" style="margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #E4E0D9;border-bottom:1px solid #E4E0D9"></dl>
+<section style="padding:72px 80px 0">
+<div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:22px"><span class="eyebrow" style="color:var(--muted)">Vida del documento</span><span id="dresp" style="font-size:14px;color:var(--muted)"></span></div>
+<div id="dlife" class="dlife"></div>
 </section>
+<div style="height:112px"></div>
 
-<section style="padding:64px 80px 112px;display:flex;flex-direction:column;gap:18px">
+<section style="padding:80px 80px 0;display:flex;flex-direction:column;gap:18px">
 <span class="eyebrow" style="color:var(--muted)">Del mismo tema</span>
 <div id="drel" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px"></div>
 </section>
@@ -1372,21 +1388,32 @@ button{font:inherit}
 
   /* Ficha de documento: se llena según el documento elegido */
   var DOCS = {};
-  GDOCS.forEach(function (d) { DOCS[d[1]] = { kind: d[0], title: d[1], sum: d[2], area: 'Gestión de información', back: '#gestion', made: '19 de mayo de 2025', upd: '19 de mayo de 2025' }; });
+  GDOCS.forEach(function (d) { DOCS[d[1]] = { kind: d[0], title: d[1], sum: d[2], area: 'Gestión de información', back: '#gestion', made: '19 de mayo de 2025', upd: '19 de mayo de 2025', iso: '2025-05-19' }; });
   /* Datos de la intranet actual: resumen, creación y última actualización */
-  DOCS['Política de Autorización'] = { kind: 'Gobernanza · Política', title: 'Política de Autorización', sum: 'Promueve la delegación de autoridad a niveles de gestión superiores, con una línea de decisión clara, sus límites y sus niveles.', area: 'Gobernanza', back: '#documento', made: '15 de enero de 2025', upd: '23 de septiembre de 2025' };
-  DOCS['Política de Autorización (Regla interna)'] = { kind: 'Gobernanza · Regla interna', title: 'Política de Autorización (Regla interna)', sum: 'La regla interna de la Política de Autorización: la línea de decisión, sus límites y sus niveles.', area: 'Gobernanza', back: '#documento', made: '15 de enero de 2025', upd: '23 de septiembre de 2025' };
+  DOCS['Política de Autorización'] = { kind: 'Gobernanza · Política', title: 'Política de Autorización', sum: 'Promueve la delegación de autoridad a niveles de gestión superiores, con una línea de decisión clara, sus límites y sus niveles.', area: 'Gobernanza', back: '#documento', made: '15 de enero de 2025', upd: '23 de septiembre de 2025', iso: '2025-09-23' };
+  DOCS['Política de Autorización (Regla interna)'] = { kind: 'Gobernanza · Regla interna', title: 'Política de Autorización (Regla interna)', sum: 'La regla interna de la Política de Autorización: la línea de decisión, sus límites y sus niveles.', area: 'Gobernanza', back: '#documento', made: '15 de enero de 2025', upd: '23 de septiembre de 2025', iso: '2025-09-23' };
   var curDoc = GDOCS[0][1];
   function drawDoc() {
     var d = DOCS[curDoc];
+    var same = Object.keys(DOCS).filter(function (k) { return DOCS[k].area === d.area; });
+    $('#dtabs').innerHTML = same.map(function (k, i) {
+      return '<button type="button" role="tab" class="dtab" data-doc="' + k + '" aria-selected="' + (k === curDoc) + '"><b>0' + (i + 1) + '</b>' + k + '</button>';
+    }).join('');
     $('#dkind').textContent = d.kind; $('#dtitle').textContent = d.title; $('#dsum').textContent = d.sum;
     $('#dcrumb').textContent = d.area; $('#dcrumb').setAttribute('href', d.back);
-    $('#dfile').textContent = d.title;
-    $('#dmeta').innerHTML = [['Área', d.area], ['Creado', d.made], ['Última actualización', d.upd], ['Responsable', '[por confirmar]']].map(function (m, k) {
-      return '<div style="display:flex;flex-direction:column;gap:6px;padding:20px 24px 20px ' + (k ? '24px' : '0') + (k ? ';border-left:1px solid #E4E0D9' : '') + '"><dt style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + m[0] + '</dt><dd style="margin:0;font-size:17px;font-weight:600">' + m[1] + '</dd></div>';
+    $('#dfile').textContent = d.title; $('#dcarea').textContent = d.area;
+    var days = Math.max(0, Math.round((Date.now() - new Date(d.iso + 'T12:00:00')) / 864e5));
+    var ago = days < 31 ? 'hace ' + days + ' días' : days < 365 ? 'hace ' + Math.round(days / 30) + ' meses' : 'hace más de un año';
+    $('#dfresh').innerHTML = '<span class="live" style="background:#1E8E3E"></span>Vigente · actualizado ' + ago;
+    $('#dresp').textContent = 'Responsable: [por confirmar]';
+    var span = Date.now() - new Date(d.iso + 'T12:00:00'), tot = Date.now() - new Date((d.made.indexOf('enero') > -1 ? '2025-01-15' : '2025-05-19') + 'T12:00:00');
+    $('#dlife').style.setProperty('--p', Math.round(100 - span / Math.max(tot, 1) * 100) + '%');
+    $('#dlife').innerHTML = [['Creado', d.made, ''], ['Última actualización', d.upd, ''], ['Hoy', 'Vigente', 'now']].map(function (s) {
+      return '<div class="' + s[2] + '"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + s[0] + '</span><span style="font-size:18px;font-weight:600">' + s[1] + '</span></div>';
     }).join('');
-    var rel = Object.keys(DOCS).filter(function (k) { return k !== curDoc && DOCS[k].area === d.area; }).map(function (k) { return ['doc', k, '#documento', k]; });
-    if (d.area === 'Gestión de información') rel.unshift(['play', 'Video: cómo evitar la fuga de información confidencial', '#gestion']);
+    /* Los demás documentos del área ya están en las pestañas; aquí solo lo que suma */
+    var rel = d.area === 'Gestión de información' ? [['play', 'Video: cómo evitar la fuga de información confidencial', '#gestion']] : [];
+    $('#drel').parentNode.hidden = !rel.length;
     $('#drel').innerHTML = rel.map(function (r) {
       var ico = r[0] === 'play' ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>' : ICON('doc', 18);
       return '<a href="' + r[2] + '"' + (r[3] ? ' data-doc="' + r[3] + '"' : '') + ' class="card" style="display:flex;gap:14px;align-items:center;padding:18px 20px;border-radius:16px;font-size:15px;font-weight:600;line-height:1.35">' +
