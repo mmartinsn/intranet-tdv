@@ -106,7 +106,6 @@ button{font:inherit}
 <a href="#gestion">Gestión de información</a>
 <a href="#documento">Documento</a>
 <a href="#noticias">Noticias</a>
-<a href="#gobernanza">Gobernanza</a>
 </nav>
 </header>
 
@@ -722,25 +721,6 @@ button{font:inherit}
 </div>
 </section>
 
-<!-- ============ GOBERNANZA ============ -->
-<section class="view" id="v-gobernanza">
-<div class="frame">
-<div data-header="Políticas"></div>
-<section style="padding:48px 80px 0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:end">
-<div style="grid-column:span 8;display:flex;flex-direction:column;gap:20px">
-<nav aria-label="Ruta" style="font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Políticas / Gobernanza</nav>
-<h1 style="margin:0;font-size:60px;line-height:1.02;font-weight:800;font-stretch:112%;letter-spacing:-.02em">Gobernanza</h1>
-<p style="margin:0;font-size:18px;line-height:1.55;color:#3A3733;max-width:620px">La estructura y los lineamientos con los que se toman y se autorizan las decisiones en Toyota de Venezuela.</p>
-</div>
-<p style="grid-column:10 / span 3;margin:0;font-size:14px;line-height:1.5;color:var(--muted);padding-bottom:6px">2 documentos vigentes</p>
-</section>
-<section style="padding:48px 80px 112px">
-<div id="gobdocs" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px"></div>
-</section>
-<div data-footer></div>
-</div>
-</section>
-
 <!-- ============ NOTICIAS ============ -->
 <section class="view" id="v-noticias">
 <div class="frame">
@@ -830,7 +810,7 @@ button{font:inherit}
   ];
   var POLS = [['ABAC', 'Anticorrupción y antisoborno', '#inicio', 'shield'], ['Gestión de Información', 'Seguridad y manejo de datos', '#gestion', 'lock'],
     ['Mercadeo, Comunicaciones & RSE', 'Marca, campañas y voluntariado', '#area', 'megaphone'], ['Recursos Humanos', 'Beneficios, políticas y calendarios', '#rrhh', 'people'],
-    ['Asuntos Legales y Gubernamentales', 'Marco legal y regulatorio', '#inicio', 'scale'], ['Gobernanza', 'Estructura y lineamientos', '#gobernanza', 'columns', ['Política de Autorización', 'Regla interna']]];
+    ['Asuntos Legales y Gubernamentales', 'Marco legal y regulatorio', '#inicio', 'scale'], ['Gobernanza', 'Estructura y lineamientos', '#documento', 'columns', ['Política de Autorización', 'Política de Autorización (Regla interna)']]];
   var appsPanel = '<div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px;border-bottom:1px solid #EEEAE4;margin-bottom:8px"><span class="eyebrow">Aplicaciones Toyota</span><span style="font-size:13px;color:#8F8A82">' + APPS.length + ' aplicaciones</span></div>' +
     '<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:16px">' + APPS.map(function (p) {
       var sub = p[3] ? '<span style="display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:3px">' + p[3].map(function (x) { return '<a href="#inicio" style="font-size:12px;color:#5F5B55">' + x + ' ›</a>'; }).join('') + '</span>'
@@ -842,7 +822,7 @@ button{font:inherit}
   var polsPanel = '<span class="eyebrow" style="display:block;padding-bottom:12px;border-bottom:1px solid #EEEAE4;margin-bottom:6px">Políticas y más</span>' + POLS.map(function (p) {
       if (p[4]) return '<div style="display:flex;gap:14px;align-items:flex-start;padding:10px 8px">' +
         '<span style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON(p[3], 20) + '</span>' +
-        '<span style="display:flex;flex-direction:column"><a href="' + p[2] + '" style="font-size:14px;font-weight:600">' + p[0] + '</a><span style="display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:3px">' +
+        '<span style="display:flex;flex-direction:column"><span style="font-size:14px;font-weight:600">' + p[0] + '</span><span style="display:flex;flex-direction:column;gap:3px;margin-top:4px">' +
         p[4].map(function (x) { return '<a href="#documento" data-doc="' + x + '" style="font-size:12px;color:#5F5B55">' + x + ' ›</a>'; }).join('') + '</span></span></div>';
       return '<a href="' + p[2] + '" style="display:flex;gap:14px;align-items:center;padding:10px 8px;border-radius:10px">' +
         '<span style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON(p[3], 20) + '</span>' +
@@ -894,7 +874,7 @@ button{font:inherit}
       '<div style="display:grid;grid-template-columns:1.4fr repeat(4,minmax(0,1fr));gap:32px">' +
       '<div style="display:flex;flex-direction:column;gap:14px">' + EMBLEM(46, '#fff', 6) + '<div class="serif" style="font-style:italic;font-size:22px;color:#fff">Todo lo que te mueve.</div></div>' +
       col('Empresa', [['Directorio', '#directorio'], ['Noticias', '#noticias'], ['Mercadeo y RSE', '#area']]) +
-      col('Políticas', [['ABAC', '#inicio'], ['Recursos Humanos', '#rrhh'], ['Gobernanza', '#gobernanza']]) +
+      col('Políticas', [['ABAC', '#inicio'], ['Recursos Humanos', '#rrhh'], ['Gobernanza', '#documento']]) +
       col('Soporte', [['Menú IT', '#inicio'], ['Canal de denuncias', '#inicio'], ['Reservación de salas', '#inicio']]) +
       col('Redes sociales', [['Instagram', '#inicio'], ['Facebook', '#inicio'], ['LinkedIn', '#inicio'], ['X', '#inicio'], ['Página web', '#inicio']]) +
       '</div><div style="display:flex;justify-content:space-between;border-top:1px solid #2E2B28;padding-top:20px;font-size:13px;color:#8F8A82"><span>© 2026 Toyota de Venezuela · Uso interno</span><span>Intranet Corporativa TDV</span></div></footer>';
@@ -989,7 +969,7 @@ button{font:inherit}
 
   /* Políticas, cada una con su ícono */
 
-  var pol = [['01', 'ABAC', 'Anticorrupción y antisoborno', '#inicio', 'shield'], ['02', 'Gestión de Información', 'Seguridad y manejo de datos', '#gestion', 'lock'], ['03', 'Mercadeo, Comunicaciones & RSE', 'Marca, campañas y voluntariado', '#area', 'megaphone'], ['04', 'Recursos Humanos', 'Beneficios, políticas y calendarios', '#rrhh', 'people'], ['05', 'Asuntos Legales y Gubernamentales', 'Marco legal y regulatorio', '#inicio', 'scale'], ['06', 'Gobernanza', 'Estructura y lineamientos', '#gobernanza', 'columns']];
+  var pol = [['01', 'ABAC', 'Anticorrupción y antisoborno', '#inicio', 'shield'], ['02', 'Gestión de Información', 'Seguridad y manejo de datos', '#gestion', 'lock'], ['03', 'Mercadeo, Comunicaciones & RSE', 'Marca, campañas y voluntariado', '#area', 'megaphone'], ['04', 'Recursos Humanos', 'Beneficios, políticas y calendarios', '#rrhh', 'people'], ['05', 'Asuntos Legales y Gubernamentales', 'Marco legal y regulatorio', '#inicio', 'scale'], ['06', 'Gobernanza', 'Estructura y lineamientos', '#documento', 'columns']];
   $('#policies').innerHTML = pol.map(function (p) {
     return '<a href="' + p[3] + '" class="card" style="min-height:200px;padding:26px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:20px">' +
       '<span style="display:flex;justify-content:space-between;align-items:flex-start">' +
@@ -1370,8 +1350,8 @@ button{font:inherit}
 
 
   var GDOCS = [['Política corporativa', 'Gestión de confidencialidad de la información', 'Cómo debe manejar la información todo el personal, incluidos sus responsables y custodios.'],
-    ['Procedimiento', 'Accidentes e incidentes de seguridad de la información', 'Qué hacer y por qué vía avisar si se pierde, se roba o se filtra información confidencial.'],
-    ['Procedimiento', 'Manejo de cuestiones confidenciales', 'Cómo tratar los asuntos confidenciales para prevenir incidentes que dañen a TDV.']];
+    ['Procedimiento', 'Accidentes e incidentes de seguridad de la información', 'La organización, los procesos y las vías de comunicación a seguir si se pierde, se roba o se filtra información confidencial, para minimizar los daños a la compañía.'],
+    ['Procedimiento', 'Manejo de cuestiones confidenciales', 'El correcto manejo de las cuestiones confidenciales, para prevenir accidentes o incidentes que puedan dañar a Toyota de Venezuela.']];
   $('#gdocs').innerHTML = GDOCS.map(function (d, k) {
     var lines = '<i style="display:block;height:7px;border-radius:2px;background:#E4E0D9;width:100%"></i><i style="display:block;height:7px;border-radius:2px;background:#E4E0D9;width:86%"></i><i style="display:block;height:7px;border-radius:2px;background:#E4E0D9;width:93%"></i><i style="display:block;height:7px;border-radius:2px;background:#E4E0D9;width:58%"></i>';
     return '<a href="#documento" data-doc="' + d[1] + '" class="card gdoc" style="display:flex;flex-direction:column;overflow:hidden;border-radius:20px">' +
@@ -1391,15 +1371,16 @@ button{font:inherit}
 
   /* Ficha de documento: se llena según el documento elegido */
   var DOCS = {};
-  GDOCS.forEach(function (d) { DOCS[d[1]] = { kind: d[0], title: d[1], sum: d[2], area: 'Gestión de información', back: '#gestion', date: '19 de mayo de 2025' }; });
-  DOCS['Política de Autorización'] = { kind: 'Política', title: 'Política de Autorización', sum: '[Resumen por confirmar: qué decisiones requieren autorización y quién puede darla.]', area: 'Gobernanza', back: '#gobernanza', date: '[por confirmar]' };
-  DOCS['Regla interna'] = { kind: 'Regla interna', title: 'Regla interna', sum: '[Resumen por confirmar: a quién aplica y qué regula.]', area: 'Gobernanza', back: '#gobernanza', date: '[por confirmar]' };
+  GDOCS.forEach(function (d) { DOCS[d[1]] = { kind: d[0], title: d[1], sum: d[2], area: 'Gestión de información', back: '#gestion', made: '19 de mayo de 2025', upd: '19 de mayo de 2025' }; });
+  /* Datos de la intranet actual: resumen, creación y última actualización */
+  DOCS['Política de Autorización'] = { kind: 'Gobernanza · Política', title: 'Política de Autorización', sum: 'Promueve la delegación de autoridad a niveles de gestión superiores, con una línea de decisión clara, sus límites y sus niveles.', area: 'Gobernanza', back: '#documento', made: '15 de enero de 2025', upd: '23 de septiembre de 2025' };
+  DOCS['Política de Autorización (Regla interna)'] = { kind: 'Gobernanza · Regla interna', title: 'Política de Autorización (Regla interna)', sum: 'La regla interna de la Política de Autorización: la línea de decisión, sus límites y sus niveles.', area: 'Gobernanza', back: '#documento', made: '15 de enero de 2025', upd: '23 de septiembre de 2025' };
   var curDoc = GDOCS[0][1];
   function drawDoc() {
     var d = DOCS[curDoc];
     $('#dkind').textContent = d.kind; $('#dtitle').textContent = d.title; $('#dsum').textContent = d.sum;
-    $('#dpaper').textContent = d.kind + ' · ' + d.title; $('#dcrumb').textContent = d.area; $('#dcrumb').setAttribute('href', d.back);
-    $('#dmeta').innerHTML = [['Formato', 'PDF · [peso real]'], ['Publicado', d.date], ['Actualizado', d.date], ['Área responsable', '[por confirmar]'], ['Versión', '[por confirmar]']].map(function (m) {
+    $('#dpaper').textContent = d.title; $('#dcrumb').textContent = d.area; $('#dcrumb').setAttribute('href', d.back);
+    $('#dmeta').innerHTML = [['Formato', 'PDF · [peso real]'], ['Creado', d.made], ['Última actualización', d.upd], ['Área responsable', '[por confirmar]'], ['Versión', '[por confirmar]']].map(function (m) {
       return '<div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid #EEEAE4"><dt style="color:#5F5B55">' + m[0] + '</dt><dd style="margin:0;font-weight:600;text-align:right">' + m[1] + '</dd></div>';
     }).join('');
     var rel = Object.keys(DOCS).filter(function (k) { return k !== curDoc && DOCS[k].area === d.area; }).map(function (k) { return ['doc', k, '#documento', k]; });
@@ -1410,21 +1391,8 @@ button{font:inherit}
         '<span style="width:36px;height:36px;flex-shrink:0;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ico + '</span>' + r[1] + '</a>';
     }).join('');
   }
-  document.addEventListener('click', function (e) { var a = e.target.closest('[data-doc]'); if (a && DOCS[a.getAttribute('data-doc')]) { curDoc = a.getAttribute('data-doc'); drawDoc(); } }, true);
+  document.addEventListener('click', function (e) { var g = e.target.closest('a[href="#documento"]:not([data-doc])'); if (g && /Gobernanza/.test(g.textContent)) { curDoc = 'Política de Autorización'; drawDoc(); } var a = e.target.closest('[data-doc]'); if (a && DOCS[a.getAttribute('data-doc')]) { curDoc = a.getAttribute('data-doc'); drawDoc(); } }, true);
   drawDoc();
-  /* Gobernanza: sus dos documentos, con la misma ficha que los de Gestión de información */
-  $('#gobdocs').innerHTML = ['Política de Autorización', 'Regla interna'].map(function (k, i) {
-    var d = DOCS[k];
-    var lines = '<i style="display:block;height:7px;border-radius:2px;background:#E4E0D9;width:100%"></i><i style="display:block;height:7px;border-radius:2px;background:#E4E0D9;width:86%"></i><i style="display:block;height:7px;border-radius:2px;background:#E4E0D9;width:93%"></i><i style="display:block;height:7px;border-radius:2px;background:#E4E0D9;width:58%"></i>';
-    return '<a href="#documento" data-doc="' + k + '" class="card gdoc" style="display:flex;flex-direction:column;overflow:hidden;border-radius:20px">' +
-      '<span style="position:relative;height:220px;background:' + (i === 0 ? '#141414' : '#EFEBE4') + ';display:flex;align-items:flex-end;justify-content:center;overflow:hidden">' +
-      '<span class="gpaper" style="position:relative;width:150px;height:160px;background:#fff;border-radius:6px 6px 0 0;box-shadow:0 -6px 24px rgba(0,0,0,.18);padding:22px 20px;display:flex;flex-direction:column;gap:9px;clip-path:polygon(0 0,82% 0,100% 15%,100% 100%,0 100%)">' +
-      '<span class="tmark" aria-hidden="true" style="width:26px;height:17px;color:#D0021B;margin-bottom:6px"></span>' + lines + '</span>' +
-      '<span style="position:absolute;left:22px;top:20px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:' + (i === 0 ? '#FF6B6B' : '#5F5B55') + '">' + d.kind + '</span></span>' +
-      '<span style="padding:26px;display:flex;flex-direction:column;gap:10px;flex-grow:1"><span style="font-size:24px;line-height:1.2;font-weight:700">' + d.title + '</span>' +
-      '<span style="font-size:15px;line-height:1.5;color:#5F5B55">' + d.sum + '</span>' +
-      '<span style="margin-top:auto;padding-top:14px;border-top:1px solid #EEEAE4;display:flex;justify-content:space-between;font-size:14px"><span style="color:#5F5B55">PDF · ' + d.date + '</span><span style="font-weight:600">Ver documento →</span></span></span></a>';
-  }).join('');
 
   /* Noticias: las que publica hoy la intranet, con el texto acortado. «w» es la palabra de la portada tipográfica */
   var ALLNEWS = [
