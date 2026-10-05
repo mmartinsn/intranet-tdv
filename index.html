@@ -6,16 +6,16 @@
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>Intranet TDV — Propuesta de rediseño</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400..800;1,400..700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#141414;--paper:#F5F3EF;--line:#E4E0D9;--muted:#5F5B55;--red:#D0021B;--sand:#EFEBE4;--pink:#FBE6E8}
+:root{--font:'Toyota Type','ToyotaType','Figtree',system-ui,sans-serif;--ink:#141414;--paper:#F5F3EF;--line:#E4E0D9;--muted:#5F5B55;--red:#D0021B;--sand:#EFEBE4;--pink:#FBE6E8}
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:#E7E3DC;font-family:'Archivo',sans-serif;color:var(--ink)}
+body{background:#E7E3DC;font-family:var(--font);color:var(--ink)}
 a{color:var(--ink);text-decoration:none}a:hover{color:var(--red)}
 button{font:inherit}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.serif{font-family:'Source Serif 4',serif}
+.serif{font-family:var(--font);font-weight:500;letter-spacing:-.01em}
 .eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
 .card{background:#fff;border:1px solid var(--line);border-radius:20px}
 .pill{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;font-weight:600;cursor:pointer}
@@ -54,13 +54,13 @@ button{font:inherit}
 .pslot{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#ECE8E2}.pslot .tmark{width:72px;height:48px;color:#CDC6BB}.pslot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .arch{font-size:13px;padding:5px 12px;border:1px solid #DAD5CD;border-radius:999px;background:#fff}
 .mkmarq{display:flex;width:max-content;animation:mkm 48s linear infinite}
-.mkmarq span{font-size:44px;line-height:1.1;font-weight:800;font-stretch:120%;letter-spacing:-.02em;white-space:nowrap;padding-right:36px}
+.mkmarq span{font-size:44px;line-height:1.1;font-weight:700;letter-spacing:-.02em;white-space:nowrap;padding-right:36px}
 .mkmarq span:nth-child(odd){color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.28)}
 .mkmarq span:nth-child(even){color:#D0021B}
 @keyframes mkm{to{transform:translateX(-50%)}}
 .mklight span:nth-child(odd){-webkit-text-stroke:1px rgba(20,20,20,.35)}
 .mkstat{display:flex;align-items:center;gap:12px;border:0;background:transparent;color:#141414;font:inherit;cursor:pointer;padding:0;text-align:left}
-.mkstat strong{font-size:40px;line-height:1;font-weight:800;font-stretch:120%;color:#141414}.mkstat span{font-size:13px;line-height:1.3;color:#5F5B55}.mkstat:hover strong{color:#D0021B}
+.mkstat strong{font-size:40px;line-height:1;font-weight:700;color:#141414}.mkstat span{font-size:13px;line-height:1.3;color:#5F5B55}.mkstat:hover strong{color:#D0021B}
 .mkair{transition:transform .25s}.mkair:hover{transform:translateY(-4px)}
 @media (prefers-reduced-motion:reduce){.mkmarq{animation:none}.mkair{transition:none}}
 .mkpost{position:absolute;left:50%;top:50%;width:184px;height:250px;margin:-125px 0 0 -92px;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;overflow:hidden;box-shadow:0 18px 40px rgba(20,20,20,.18);transform:translate(var(--x),var(--y)) rotate(var(--r));transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
@@ -68,7 +68,7 @@ button{font:inherit}
 .mkdeck .mkpost:hover{transform:translate(var(--o),-14px) rotate(0deg);box-shadow:0 28px 56px rgba(20,20,20,.26);z-index:5}
 @media (prefers-reduced-motion:reduce){.mkpost{transition:none}}
 .dtab{display:flex;align-items:baseline;gap:10px;padding:12px 18px 14px;border:0;border-bottom:3px solid transparent;margin-bottom:-1px;background:transparent;font:inherit;font-size:15px;color:#5F5B55;cursor:pointer}
-.dtab b{font-size:12px;font-weight:800;font-stretch:120%;color:#B3ADA4}.dtab[aria-selected=true]{color:#141414;font-weight:600;border-bottom-color:#D0021B}.dtab[aria-selected=true] b{color:#D0021B}.dtab:hover{color:#141414}
+.dtab b{font-size:12px;font-weight:700;color:#B3ADA4}.dtab[aria-selected=true]{color:#141414;font-weight:600;border-bottom-color:#D0021B}.dtab[aria-selected=true] b{color:#D0021B}.dtab:hover{color:#141414}
 .dpill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px;background:#fff;border:1px solid #DAD5CD}
 .dcover{position:relative;overflow:hidden;width:290px;height:370px;border-radius:18px;background:#D0021B;color:#fff;padding:26px;display:flex;flex-direction:column;gap:20px;transform:rotate(4deg);box-shadow:0 30px 60px rgba(208,2,27,.28),0 0 0 10px #F5F3EF,0 0 0 11px #E4E0D9;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 .dcover:hover{transform:rotate(0) translateY(-6px)}
@@ -159,7 +159,7 @@ button{font:inherit}
 <article aria-roledescription="carrusel" aria-label="Avisos" style="grid-column:span 8;display:flex;flex-direction:column;justify-content:space-between;gap:16px">
 <a href="#inicio" id="s-link" style="display:block;border-radius:20px;overflow:hidden;box-shadow:0 1px 0 #E4E0D9"><img id="s-img" alt="" style="display:block;width:100%;aspect-ratio:1360/550;object-fit:cover"></a>
 <div style="display:flex;justify-content:space-between;align-items:center">
-<div style="display:flex;align-items:center;gap:18px"><span style="font-size:14px;font-stretch:120%;font-weight:600;color:#141414"><span id="s-num"></span> <span id="s-total" style="color:#8F8A82"></span></span><div id="s-bars" style="display:flex;gap:6px"></div></div>
+<div style="display:flex;align-items:center;gap:18px"><span style="font-size:14px;font-weight:600;color:#141414"><span id="s-num"></span> <span id="s-total" style="color:#8F8A82"></span></span><div id="s-bars" style="display:flex;gap:6px"></div></div>
 <div style="display:flex;gap:10px">
 <button type="button" data-slide="-1" aria-label="Anterior" style="width:44px;height:44px;border-radius:50%;border:1px solid #DAD5CD;background:#fff;color:#141414;cursor:pointer;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
 <button type="button" data-slide="1" aria-label="Siguiente" style="width:44px;height:44px;border-radius:50%;border:1px solid #DAD5CD;background:#fff;color:#141414;cursor:pointer;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -287,7 +287,7 @@ button{font:inherit}
 <div><span class="eyebrow" style="display:block;text-align:center;color:#5F5B55;padding-bottom:14px">Inicio</span><div class="phone">
 <header style="height:64px;padding:0 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line)">
 <span data-icon="emblem36"></span>
-<span style="font-size:18px;font-weight:800;font-stretch:118%;letter-spacing:.04em;flex-grow:1">TDV</span>
+<span style="font-size:18px;font-weight:700;letter-spacing:.04em;flex-grow:1">TDV</span>
 <button type="button" aria-label="Buscar" style="width:44px;height:44px;border:0;background:transparent;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
 <button type="button" aria-label="Mi perfil" style="width:40px;height:40px;border-radius:50%;border:0;background:var(--ink);color:#fff;font-size:13px;font-weight:700">MN</button>
 </header>
@@ -298,10 +298,10 @@ button{font:inherit}
 </div>
 <article style="position:relative;overflow:hidden;border-radius:20px;background:var(--ink);color:#fff;padding:28px 24px;height:400px;display:flex;flex-direction:column;justify-content:space-between">
 <span class="tmark" aria-hidden="true" style="position:absolute;right:-140px;top:30px;width:360px;height:240px;color:#fff;opacity:0.05"></span>
-<div style="display:flex;justify-content:space-between;position:relative"><span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#FF6B6B">RR. HH. · Guía</span><span style="font-size:13px;font-weight:600;font-stretch:120%;color:#BDB7AE">01 <span style="color:#6F6A63">/ 03</span></span></div>
+<div style="display:flex;justify-content:space-between;position:relative"><span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#FF6B6B">RR. HH. · Guía</span><span style="font-size:13px;font-weight:600;color:#BDB7AE">01 <span style="color:#6F6A63">/ 03</span></span></div>
 <div style="display:flex;flex-direction:column;gap:16px;position:relative">
 <div style="width:44px;height:4px;background:var(--red)"></div>
-<h2 style="margin:0;font-size:38px;line-height:1;font-weight:800;font-stretch:110%">Adelanto de prestaciones sociales</h2>
+<h2 style="margin:0;font-size:38px;line-height:1;font-weight:700;">Adelanto de prestaciones sociales</h2>
 <p style="margin:0;font-size:16px;line-height:1.5;color:#D9D4CC">Descarga la guía completa y sigue los pasos, uno por uno.</p>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;position:relative">
@@ -353,7 +353,7 @@ button{font:inherit}
 <main style="padding:24px 16px 28px;display:flex;flex-direction:column;gap:20px;flex-grow:1">
 <div style="display:flex;flex-direction:column;gap:6px">
 <span style="font-size:12px;color:var(--muted)">Inicio / Directorio</span>
-<h1 style="margin:0;font-size:44px;line-height:1;font-weight:800;font-stretch:112%;letter-spacing:-.02em">Directorio</h1>
+<h1 style="margin:0;font-size:44px;line-height:1;font-weight:700;letter-spacing:-.02em">Directorio</h1>
 <p class="serif" style="margin:0;font-style:italic;font-size:17px;color:var(--muted)">Encuentra a cualquier persona de TDV.</p>
 </div>
 <div style="display:flex;align-items:center;gap:10px;height:48px;padding:0 14px;background:#fff;border:1px solid #DAD5CD;border-radius:12px">
@@ -362,7 +362,7 @@ button{font:inherit}
 </div>
 <div id="mdirchips" role="tablist" aria-label="Áreas" style="display:flex;gap:8px;overflow-x:auto;margin:0 -16px;padding:0 16px 2px;scrollbar-width:none"></div>
 <div style="display:flex;align-items:center;gap:12px;background:#141414;color:#fff;border-radius:16px;padding:14px">
-<span style="width:48px;height:48px;flex-shrink:0;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px">MR</span>
+<span style="width:48px;height:48px;flex-shrink:0;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px">MR</span>
 <span style="display:flex;flex-direction:column;flex-grow:1;min-width:0"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FF9AA5">Hoy cumple años</span><span class="serif" style="font-size:18px;line-height:1.15">Mariana Rangel Blanco</span></span>
 <button type="button" class="pill" data-soon="Vista previa: abre un chat de Teams con Mariana para felicitarla." style="flex-shrink:0;height:40px;padding:0 14px;border:0;background:#fff;color:#141414;font-size:13px;font-weight:700">Felicitar</button>
 </div>
@@ -376,7 +376,7 @@ button{font:inherit}
 <main style="padding:24px 16px 28px;display:flex;flex-direction:column;gap:24px;flex-grow:1">
 <div style="display:flex;flex-direction:column;gap:8px">
 <span style="font-size:12px;color:var(--muted)">Inicio / Políticas / Recursos Humanos</span>
-<h1 style="margin:0;font-size:44px;line-height:.98;font-weight:800;font-stretch:112%;letter-spacing:-.02em">Recursos<br>Humanos</h1>
+<h1 style="margin:0;font-size:44px;line-height:.98;font-weight:700;letter-spacing:-.02em">Recursos<br>Humanos</h1>
 <p style="margin:0;font-size:15px;line-height:1.5;color:#3A3733">Beneficios, políticas y calendarios para cada etapa de tu carrera.</p>
 </div>
 <article style="background:#141414;color:#fff;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px">
@@ -409,7 +409,7 @@ button{font:inherit}
 <section style="padding:56px 80px 40px;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--line)">
 <div style="display:flex;flex-direction:column;gap:12px">
 <nav aria-label="Ruta" style="font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> <span aria-hidden="true">/</span> Directorio</nav>
-<h1 style="margin:0;font-size:72px;line-height:1;font-weight:800;font-stretch:115%;letter-spacing:-.02em">Directorio</h1>
+<h1 style="margin:0;font-size:72px;line-height:1;font-weight:700;letter-spacing:-.02em">Directorio</h1>
 <p class="serif" style="margin:0;font-style:italic;font-size:22px;color:var(--muted)">Encuentra a cualquier persona de Toyota de Venezuela.</p>
 </div>
 <form role="search" onsubmit="return false" style="display:flex;gap:12px;align-items:flex-end">
@@ -421,7 +421,7 @@ button{font:inherit}
 
 <section aria-label="Cumpleaños de hoy" style="margin:40px 80px 0;height:150px;position:relative;overflow:hidden;border-radius:20px;background:var(--ink);color:#fff;padding:0 40px;display:flex;align-items:center;gap:28px">
 <div class="cfl" id="dircf" aria-hidden="true"></div>
-<span style="width:84px;height:84px;flex-shrink:0;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px var(--ink),0 0 0 6px var(--red);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;font-stretch:110%;position:relative">MR</span>
+<span style="width:84px;height:84px;flex-shrink:0;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px var(--ink),0 0 0 6px var(--red);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;position:relative">MR</span>
 <div style="display:flex;flex-direction:column;gap:6px;flex-grow:1;position:relative">
 <span class="eyebrow" style="display:inline-flex;align-items:center;gap:8px;color:#FF6B6B"><span data-icon="cake16"></span>Hoy, 26 de septiembre</span>
 <p class="serif" style="margin:0;font-size:34px;line-height:1.1">¡Feliz cumpleaños, <em style="color:#FF6B6B">Mariana</em>!</p>
@@ -454,7 +454,7 @@ button{font:inherit}
 <section style="padding:56px 80px 56px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:end">
 <div style="grid-column:span 7;display:flex;flex-direction:column;gap:20px">
 <nav aria-label="Ruta" style="font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Políticas / Recursos Humanos</nav>
-<h1 style="margin:0;font-size:88px;line-height:.95;font-weight:800;font-stretch:112%;letter-spacing:-.025em">Recursos<br>Humanos</h1>
+<h1 style="margin:0;font-size:88px;line-height:.95;font-weight:700;letter-spacing:-.025em">Recursos<br>Humanos</h1>
 <p style="margin:0;font-size:19px;line-height:1.55;color:#3A3733;max-width:600px">Beneficios, políticas y calendarios para cada etapa de tu carrera en Toyota de Venezuela.</p>
 </div>
 <aside style="grid-column:9 / span 4;background:var(--ink);color:#fff;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:16px">
@@ -520,7 +520,7 @@ button{font:inherit}
 <nav aria-label="Ruta" style="position:relative;font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Políticas / Mercadeo, Comunicaciones &amp; RSE</nav>
 <div style="position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:32px;align-items:end">
 <div style="grid-column:span 7;display:flex;flex-direction:column;gap:24px">
-<h1 style="margin:0;font-size:56px;line-height:1.02;font-weight:800;font-stretch:112%;letter-spacing:-.02em">Mercadeo, Comunicaciones &amp; RSE</h1>
+<h1 style="margin:0;font-size:56px;line-height:1.02;font-weight:700;letter-spacing:-.02em">Mercadeo,<br>Comunicaciones &amp; RSE</h1>
 <p style="margin:0;font-size:18px;line-height:1.55;color:#3A3733;max-width:560px">Contamos la marca desde <em class="serif" style="color:var(--red);font-size:20px">adentro</em>: las campañas en el aire, lo que viene y lo que movemos fuera de la oficina.</p>
 <div style="display:flex;gap:36px;margin-top:8px;padding-top:22px;border-top:1px solid #DAD5CD">
 <button type="button" data-scroll="ar-activas" class="mkstat"><strong>2</strong><span>campañas<br>en el aire</span></button>
@@ -529,10 +529,10 @@ button{font:inherit}
 </div>
 </div>
 <div class="mkdeck" style="grid-column:8 / span 5;position:relative;height:400px;left:28px">
-<a href="#area" data-scroll="ar-activas" class="mkpost" style="--r:-10deg;--x:-186px;--y:14px;--o:-200px;z-index:1;background:#141414;color:#fff"><span class="tmark" aria-hidden="true" style="position:absolute;right:-40px;bottom:-30px;width:190px;height:127px;color:#fff;opacity:.08"></span><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#BDB7AE">Institucional</span><span style="margin-top:auto;font-size:24px;line-height:1;font-weight:800;font-stretch:108%;letter-spacing:-.01em;color:#D0021B">Todo<br>lo que<br><span style="color:#fff">te mueve</span></span></a>
+<a href="#area" data-scroll="ar-activas" class="mkpost" style="--r:-10deg;--x:-186px;--y:14px;--o:-200px;z-index:1;background:#141414;color:#fff"><span class="tmark" aria-hidden="true" style="position:absolute;right:-40px;bottom:-30px;width:190px;height:127px;color:#fff;opacity:.08"></span><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#BDB7AE">Institucional</span><span style="margin-top:auto;font-size:24px;line-height:1;font-weight:700;letter-spacing:-.01em;color:#D0021B">Todo<br>lo que<br><span style="color:#fff">te mueve</span></span></a>
 <a href="#area" data-scroll="ar-viene" class="mkpost" style="--r:-3deg;--x:-62px;--y:-4px;--o:-67px;z-index:2;background:#EFEBE4;color:#141414"><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5F5B55">Próximamente</span><span class="serif" style="margin-top:auto;font-style:italic;font-size:26px;line-height:1.05">la familia<br>original</span><span style="font-size:13px;color:#5F5B55">Toyota · Postventa</span></a>
-<a href="#area" data-scroll="ar-activas" class="mkpost" style="--r:4deg;--x:64px;--y:-10px;--o:69px;z-index:4;background:#D0021B;color:#fff"><span class="tmark" aria-hidden="true" style="position:absolute;right:-36px;top:-26px;width:170px;height:113px;color:#fff;opacity:.14"></span><span style="display:flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase"><span class="live" style="background:#fff"></span>En el aire</span><span style="margin-top:auto;font-size:22px;line-height:1.05;font-weight:800;font-stretch:105%;letter-spacing:-.01em">Cambia tu bolsa de aire gratis</span><span style="align-self:flex-start;font-size:12px;font-weight:700;background:#fff;color:#D0021B;border-radius:999px;padding:4px 10px">+ cupón de 50 USD</span></a>
-<a href="#area" data-scroll="ar-viene" class="mkpost" style="--r:10deg;--x:190px;--y:18px;--o:204px;z-index:3;background:#fff;color:#141414;border:1px solid #E4E0D9"><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5F5B55">Lanzamiento · Febrero</span><span style="margin-top:auto;font-size:30px;line-height:1;font-weight:800;font-stretch:118%;letter-spacing:-.02em;color:#D0021B">HILUX</span><span style="font-size:14px;color:#5F5B55">Nueva generación</span></a>
+<a href="#area" data-scroll="ar-activas" class="mkpost" style="--r:4deg;--x:64px;--y:-10px;--o:69px;z-index:4;background:#D0021B;color:#fff"><span class="tmark" aria-hidden="true" style="position:absolute;right:-36px;top:-26px;width:170px;height:113px;color:#fff;opacity:.14"></span><span style="display:flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase"><span class="live" style="background:#fff"></span>En el aire</span><span style="margin-top:auto;font-size:22px;line-height:1.05;font-weight:700;letter-spacing:-.01em">Cambia tu bolsa de aire gratis</span><span style="align-self:flex-start;font-size:12px;font-weight:700;background:#fff;color:#D0021B;border-radius:999px;padding:4px 10px">+ cupón de 50 USD</span></a>
+<a href="#area" data-scroll="ar-viene" class="mkpost" style="--r:10deg;--x:190px;--y:18px;--o:204px;z-index:3;background:#fff;color:#141414;border:1px solid #E4E0D9"><span style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5F5B55">Lanzamiento · Febrero</span><span style="margin-top:auto;font-size:30px;line-height:1;font-weight:700;letter-spacing:-.02em;color:#D0021B">HILUX</span><span style="font-size:14px;color:#5F5B55">Nueva generación</span></a>
 </div>
 
 
@@ -545,7 +545,7 @@ button{font:inherit}
 <nav aria-label="Ruta" style="position:relative;font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Políticas / Mercadeo, Comunicaciones &amp; RSE</nav>
 <div style="position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:32px;align-items:end">
 <div style="grid-column:span 8;display:flex;flex-direction:column;gap:24px">
-<h1 style="margin:0;font-size:60px;line-height:1.02;font-weight:800;font-stretch:112%;letter-spacing:-.02em">Mercadeo, Comunicaciones &amp; RSE</h1>
+<h1 style="margin:0;font-size:60px;line-height:1.02;font-weight:700;letter-spacing:-.02em">Mercadeo,<br>Comunicaciones &amp; RSE</h1>
 <p style="margin:0;font-size:18px;line-height:1.55;color:#3A3733;max-width:560px">Contamos la marca desde <em class="serif" style="color:var(--red);font-size:20px">adentro</em>: las campañas en el aire, lo que viene y lo que movemos fuera de la oficina.</p>
 </div>
 <div style="grid-column:10 / span 3;display:flex;flex-direction:column;gap:20px;padding:4px 0 6px 32px;border-left:1px solid #DAD5CD">
@@ -563,7 +563,7 @@ button{font:inherit}
 <nav aria-label="Ruta" style="position:relative;font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Políticas / Mercadeo, Comunicaciones &amp; RSE</nav>
 <div style="position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:32px;align-items:end">
 <div style="grid-column:span 7;display:flex;flex-direction:column;gap:24px">
-<h1 style="margin:0;font-size:56px;line-height:1.02;font-weight:800;font-stretch:112%;letter-spacing:-.02em">Mercadeo, Comunicaciones &amp; RSE</h1>
+<h1 style="margin:0;font-size:56px;line-height:1.02;font-weight:700;letter-spacing:-.02em">Mercadeo,<br>Comunicaciones &amp; RSE</h1>
 <p style="margin:0;font-size:18px;line-height:1.55;color:#3A3733;max-width:560px">Contamos la marca desde <em class="serif" style="color:var(--red);font-size:20px">adentro</em>: las campañas en el aire, lo que viene y lo que movemos fuera de la oficina.</p>
 <div style="display:flex;gap:36px;margin-top:8px;padding-top:22px;border-top:1px solid #DAD5CD">
 <button type="button" data-scroll="ar-activas" class="mkstat"><strong>2</strong><span>campañas<br>en el aire</span></button>
@@ -574,7 +574,7 @@ button{font:inherit}
 <button type="button" data-scroll="ar-activas" class="mkair" style="grid-column:9 / span 4;align-self:center;text-align:left;font:inherit;color:#fff;border:0;cursor:pointer;position:relative;overflow:hidden;border-radius:20px;background:#D0021B;padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 24px 48px rgba(208,2,27,.22)">
 <span class="tmark" aria-hidden="true" style="position:absolute;right:-50px;top:-40px;width:220px;height:147px;color:#fff;opacity:.12"></span>
 <span style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase"><span class="live" style="background:#fff"></span>Ahora en el aire</span>
-<span style="font-size:34px;line-height:.98;font-weight:800;font-stretch:110%;letter-spacing:-.02em">Cambia tu bolsa<br>de aire gratis</span>
+<span style="font-size:34px;line-height:.98;font-weight:700;letter-spacing:-.02em">Cambia tu bolsa<br>de aire gratis</span>
 <span style="align-self:flex-start;font-size:15px;font-weight:700;background:#fff;color:#D0021B;border-radius:999px;padding:6px 14px">+ cupón de 50 USD</span>
 <span style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid rgba(255,255,255,.3);font-size:14px"><span style="color:#FFD5D9">Hasta el 10 de noviembre</span><span style="font-weight:700">Ver campaña →</span></span>
 </button>
@@ -587,8 +587,8 @@ button{font:inherit}
 <section id="ar-activas" style="padding:72px 80px 0;display:flex;flex-direction:column;gap:28px">
 <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="display:flex;flex-direction:column;gap:10px"><span class="eyebrow" style="color:var(--muted)">Campañas activas</span><h2 class="serif" style="margin:0;font-weight:500;font-size:40px;line-height:1.1">Lo que estamos comunicando hoy</h2></div><p style="margin:0;max-width:420px;font-size:15px;line-height:1.55;color:var(--muted)">Consulta el mensaje, las piezas y la guía de uso de cada campaña antes de compartirla con clientes o concesionarios.</p></div>
 <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
-<article class="card" style="grid-column:span 2;display:flex;flex-direction:column;overflow:hidden;border-radius:20px"><span class="banner" style="background:#D0021B;color:#fff"><span class="tmark" aria-hidden="true" style="position:absolute;right:-50px;top:-60px;width:280px;height:187px;color:#fff;opacity:.12"></span><span style="position:absolute;left:28px;top:24px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#FFD5D9">Llamado Toyota</span><span style="position:absolute;left:26px;right:26px;bottom:22px;display:flex;flex-direction:column;gap:10px"><span style="font-size:76px;line-height:.92;font-weight:800;font-stretch:108%;letter-spacing:-.02em">Cambia tu bolsa<br>de aire gratis</span><span style="align-self:flex-start;font-size:22px;font-weight:700;background:#fff;color:#D0021B;border-radius:999px;padding:10px 20px">+ cupón de 50 USD</span></span></span><div style="padding:24px;display:flex;flex-direction:column;gap:10px;flex-grow:1"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Postventa · Seguridad</span><span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#141414"><span class="live"></span>Hasta el 10 de noviembre</span></div><h3 style="margin:0;font-size:28px;line-height:1.15;font-weight:700">Bolsa de aire nueva, más 50 USD para ti</h3><p style="margin:0;font-size:15px;line-height:1.5;color:var(--muted)">El cliente cambia gratis la bolsa de aire de su Toyota y recibe un cupón para servicios, repuestos o accesorios en concesionarios autorizados. Sale en radio, prensa digital y nuestras redes.</p><a href="#area" style="margin-top:auto;padding-top:10px;font-size:14px;font-weight:600">Ver piezas y guía de uso →</a></div></article>
-<article class="card" style="display:flex;flex-direction:column;overflow:hidden;border-radius:20px"><span class="banner" style="background:#141414;color:#fff"><span class="tmark" aria-hidden="true" style="position:absolute;right:-60px;bottom:-70px;width:300px;height:200px;color:#fff;opacity:.07"></span><span style="position:absolute;left:28px;top:24px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#BDB7AE">Toyota de Venezuela</span><span style="position:absolute;left:26px;bottom:22px;font-size:46px;line-height:.9;font-weight:800;font-stretch:108%;letter-spacing:-.02em;color:#D0021B">Todo<br>lo que<br><span style="color:#fff">te mueve</span></span></span><div style="padding:24px;display:flex;flex-direction:column;gap:10px;flex-grow:1"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Institucional</span><span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#141414"><span class="live"></span>En curso</span></div><h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:700">Todo lo que te mueve</h3><p style="margin:0;font-size:15px;line-height:1.5;color:var(--muted)">La firma de la marca: servicio de excelencia, calidad, durabilidad y confiabilidad (QDR) y tecnología híbrida. Sus plantillas, fondos y firma digital son los de uso diario.</p><a href="#area" style="margin-top:auto;padding-top:10px;font-size:14px;font-weight:600">Descargar plantillas →</a></div></article>
+<article class="card" style="grid-column:span 2;display:flex;flex-direction:column;overflow:hidden;border-radius:20px"><span class="banner" style="background:#D0021B;color:#fff"><span class="tmark" aria-hidden="true" style="position:absolute;right:-50px;top:-60px;width:280px;height:187px;color:#fff;opacity:.12"></span><span style="position:absolute;left:28px;top:24px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#FFD5D9">Llamado Toyota</span><span style="position:absolute;left:26px;right:26px;bottom:22px;display:flex;flex-direction:column;gap:10px"><span style="font-size:76px;line-height:.92;font-weight:700;letter-spacing:-.02em">Cambia tu bolsa<br>de aire gratis</span><span style="align-self:flex-start;font-size:22px;font-weight:700;background:#fff;color:#D0021B;border-radius:999px;padding:10px 20px">+ cupón de 50 USD</span></span></span><div style="padding:24px;display:flex;flex-direction:column;gap:10px;flex-grow:1"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Postventa · Seguridad</span><span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#141414"><span class="live"></span>Hasta el 10 de noviembre</span></div><h3 style="margin:0;font-size:28px;line-height:1.15;font-weight:700">Bolsa de aire nueva, más 50 USD para ti</h3><p style="margin:0;font-size:15px;line-height:1.5;color:var(--muted)">El cliente cambia gratis la bolsa de aire de su Toyota y recibe un cupón para servicios, repuestos o accesorios en concesionarios autorizados. Sale en radio, prensa digital y nuestras redes.</p><a href="#area" style="margin-top:auto;padding-top:10px;font-size:14px;font-weight:600">Ver piezas y guía de uso →</a></div></article>
+<article class="card" style="display:flex;flex-direction:column;overflow:hidden;border-radius:20px"><span class="banner" style="background:#141414;color:#fff"><span class="tmark" aria-hidden="true" style="position:absolute;right:-60px;bottom:-70px;width:300px;height:200px;color:#fff;opacity:.07"></span><span style="position:absolute;left:28px;top:24px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#BDB7AE">Toyota de Venezuela</span><span style="position:absolute;left:26px;bottom:22px;font-size:46px;line-height:.9;font-weight:700;letter-spacing:-.02em;color:#D0021B">Todo<br>lo que<br><span style="color:#fff">te mueve</span></span></span><div style="padding:24px;display:flex;flex-direction:column;gap:10px;flex-grow:1"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Institucional</span><span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#141414"><span class="live"></span>En curso</span></div><h3 style="margin:0;font-size:22px;line-height:1.2;font-weight:700">Todo lo que te mueve</h3><p style="margin:0;font-size:15px;line-height:1.5;color:var(--muted)">La firma de la marca: servicio de excelencia, calidad, durabilidad y confiabilidad (QDR) y tecnología híbrida. Sus plantillas, fondos y firma digital son los de uso diario.</p><a href="#area" style="margin-top:auto;padding-top:10px;font-size:14px;font-weight:600">Descargar plantillas →</a></div></article>
 
 </div>
 <div style="margin-top:24px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center;padding:36px 40px;border-radius:20px;background:var(--sand);position:relative;overflow:hidden">
@@ -607,9 +607,9 @@ button{font:inherit}
 <div id="ar-viene" style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:40px">
 <div style="grid-column:span 7;display:flex;flex-direction:column">
 <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px"><span class="eyebrow">Lo que viene</span><span style="font-size:13px;color:var(--muted)">En preparación</span></div>
-<div style="display:flex;gap:20px;align-items:center;padding:20px 0;border-top:1px solid #E4E0D9"><span style="width:96px;height:72px;flex-shrink:0;border-radius:12px;background:#141414;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-style:italic;font-size:15px;line-height:1.05;text-align:center;padding:6px">la familia original</span><span style="display:flex;flex-direction:column;gap:4px;flex-grow:1"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Postventa · Nueva campaña de antigrey</span><span style="font-size:20px;font-weight:700">Toyota, la familia original</span><span style="font-size:14px;line-height:1.45;color:var(--muted)">Lo original se hereda: el Toyota que pasa de una generación a otra, cuidado con repuestos y servicio originales.</span></span><span style="flex-shrink:0;font-size:12px;font-weight:700;border-radius:999px;padding:5px 12px;background:#F5F3EF;border:1px solid #E4E0D9">En producción</span></div>
+<div style="display:flex;gap:20px;align-items:center;padding:20px 0;border-top:1px solid #E4E0D9"><span style="width:96px;height:72px;flex-shrink:0;border-radius:12px;background:#141414;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font);font-style:italic;font-size:15px;line-height:1.05;text-align:center;padding:6px">la familia original</span><span style="display:flex;flex-direction:column;gap:4px;flex-grow:1"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Postventa · Nueva campaña de antigrey</span><span style="font-size:20px;font-weight:700">Toyota, la familia original</span><span style="font-size:14px;line-height:1.45;color:var(--muted)">Lo original se hereda: el Toyota que pasa de una generación a otra, cuidado con repuestos y servicio originales.</span></span><span style="flex-shrink:0;font-size:12px;font-weight:700;border-radius:999px;padding:5px 12px;background:#F5F3EF;border:1px solid #E4E0D9">En producción</span></div>
 <div style="display:flex;gap:20px;align-items:center;padding:20px 0;border-top:1px solid #E4E0D9"><span style="width:96px;height:72px;flex-shrink:0;border-radius:12px;background:#EFEBE4;color:#141414;display:flex;align-items:center;justify-content:center" data-ico="leaf"></span><span style="display:flex;flex-direction:column;gap:4px;flex-grow:1"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Producto · Regional</span><span style="font-size:20px;font-weight:700">Híbridos</span><span style="font-size:14px;line-height:1.45;color:var(--muted)">Campaña de la región para la tecnología híbrida, adaptada a Venezuela.</span></span><span style="flex-shrink:0;font-size:12px;font-weight:700;border-radius:999px;padding:5px 12px;background:#F5F3EF;border:1px solid #E4E0D9">Próximamente</span></div>
-<div style="display:flex;gap:20px;align-items:center;padding:20px 0;border-top:1px solid #E4E0D9;border-bottom:1px solid #E4E0D9"><span style="width:96px;height:72px;flex-shrink:0;border-radius:12px;background:#D0021B;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;font-stretch:118%;letter-spacing:.04em">HILUX</span><span style="display:flex;flex-direction:column;gap:4px;flex-grow:1"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Lanzamiento</span><span style="font-size:20px;font-weight:700">Nueva generación Hilux</span><span style="font-size:14px;line-height:1.45;color:var(--muted)">Una campaña para retener a quien ya tiene Hilux y reconquistar a quien se fue a otra marca.</span></span><span style="flex-shrink:0;font-size:12px;font-weight:700;border-radius:999px;padding:5px 12px;background:#F5F3EF;border:1px solid #E4E0D9">Febrero</span></div>
+<div style="display:flex;gap:20px;align-items:center;padding:20px 0;border-top:1px solid #E4E0D9;border-bottom:1px solid #E4E0D9"><span style="width:96px;height:72px;flex-shrink:0;border-radius:12px;background:#D0021B;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;letter-spacing:.04em">HILUX</span><span style="display:flex;flex-direction:column;gap:4px;flex-grow:1"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Lanzamiento</span><span style="font-size:20px;font-weight:700">Nueva generación Hilux</span><span style="font-size:14px;line-height:1.45;color:var(--muted)">Una campaña para retener a quien ya tiene Hilux y reconquistar a quien se fue a otra marca.</span></span><span style="flex-shrink:0;font-size:12px;font-weight:700;border-radius:999px;padding:5px 12px;background:#F5F3EF;border:1px solid #E4E0D9">Febrero</span></div>
 </div>
 <aside style="grid-column:9 / span 4;background:var(--ink);color:#fff;border-radius:20px;padding:28px;display:flex;flex-direction:column">
 <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px"><span class="eyebrow">Agenda de mercadeo</span><span class="serif" style="font-style:italic;font-size:16px;color:#BDB7AE">Oct – Feb</span></div>
@@ -658,7 +658,7 @@ button{font:inherit}
 <div style="position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:40px;align-items:start">
 <div style="grid-column:span 5;display:flex;flex-direction:column;gap:24px;padding-top:8px">
 <span class="eyebrow" style="color:#FF6B6B">Política corporativa</span>
-<h1 style="margin:0;font-size:76px;line-height:.94;font-weight:800;font-stretch:112%;letter-spacing:-.025em">Gestión de<br>información</h1>
+<h1 style="margin:0;font-size:76px;line-height:.94;font-weight:700;letter-spacing:-.025em">Gestión de<br>información</h1>
 <p style="margin:0;font-size:18px;line-height:1.6;color:#CFCAC2;max-width:440px">Las políticas y procedimientos para manejar la información de forma segura y eficiente: acceso, almacenamiento, protección de datos y cumplimiento legal.</p>
 <div id="gcia" style="display:flex;flex-direction:column;margin-top:8px"></div>
 </div>
@@ -667,7 +667,7 @@ button{font:inherit}
 <a href="#gestion" id="gplay" aria-label="Reproducir el video Cómo evitar la fuga de información confidencial" class="gplay" style="position:relative;display:block;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:radial-gradient(120% 90% at 85% 15%,#3A0A10 0%,#1E1E1E 55%,#141414 100%);color:#fff;box-shadow:0 30px 60px rgba(0,0,0,.45)">
 <span aria-hidden="true" style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px)"></span>
 <span style="position:absolute;left:32px;top:28px;display:flex;gap:10px;align-items:center;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#FF6B6B"><span style="width:8px;height:8px;border-radius:50%;background:#D0021B"></span>Capacitación · 19 min</span>
-<span style="position:absolute;left:32px;right:32px;bottom:30px;display:flex;flex-direction:column;gap:10px"><span style="font-size:36px;line-height:1.02;font-weight:800;font-stretch:110%;letter-spacing:-.015em;max-width:440px">Cómo evitar la fuga de información confidencial</span><span style="font-size:14px;color:#BDB7AE">Toyota Motor Corporation · En inglés, con subtítulos en español</span></span>
+<span style="position:absolute;left:32px;right:32px;bottom:30px;display:flex;flex-direction:column;gap:10px"><span style="font-size:36px;line-height:1.02;font-weight:700;letter-spacing:-.015em;max-width:440px">Cómo evitar la fuga de información confidencial</span><span style="font-size:14px;color:#BDB7AE">Toyota Motor Corporation · En inglés, con subtítulos en español</span></span>
 <span class="gplaybtn" style="position:absolute;right:36px;top:50%;transform:translateY(-50%);width:104px;height:104px;border-radius:50%;background:#D0021B;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 14px rgba(208,2,27,.22),0 0 0 30px rgba(208,2,27,.08)"><svg width="38" height="38" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
 </a>
 <video id="gvideo" controls preload="none" playsinline hidden style="position:absolute;inset:0;width:100%;height:100%;border-radius:18px;background:#000;box-shadow:0 30px 60px rgba(0,0,0,.45)"><source src="media-local/gestion-de-informacion.mp4" type="video/mp4"></video>
@@ -720,14 +720,14 @@ button{font:inherit}
 <section style="padding:56px 80px 0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center">
 <div style="grid-column:span 7;display:flex;flex-direction:column;gap:22px">
 <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap"><span id="dkind" class="eyebrow" style="color:var(--red)">Política</span><span id="dfresh" class="dpill"></span></div>
-<h1 id="dtitle" style="margin:0;font-size:58px;line-height:1.02;font-weight:800;font-stretch:110%;letter-spacing:-.025em">Documento</h1>
+<h1 id="dtitle" style="margin:0;font-size:58px;line-height:1.02;font-weight:700;letter-spacing:-.025em">Documento</h1>
 <blockquote style="margin:6px 0 0;padding:4px 0 4px 26px;border-left:4px solid var(--red)"><p id="dsum" class="serif" style="margin:0;font-size:25px;line-height:1.42;color:#141414">Resumen</p></blockquote>
 </div>
 <div style="grid-column:9 / span 4;display:flex;justify-content:center;padding:20px 0">
 <div class="dcover">
 <span class="tmark" aria-hidden="true" style="position:absolute;right:-60px;bottom:-50px;width:260px;height:173px;color:#fff;opacity:.1"></span>
-<span style="display:flex;justify-content:space-between;align-items:center;position:relative"><span class="tmark" aria-hidden="true" style="width:40px;height:27px;color:#fff"></span><span style="font-size:11px;font-weight:800;letter-spacing:.14em;border:1.5px solid rgba(255,255,255,.6);border-radius:6px;padding:4px 8px">PDF</span></span>
-<span style="position:relative;display:flex;flex-direction:column;gap:8px;margin-top:auto"><span id="dcarea" style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#FFD5D9"></span><span id="dfile" style="font-size:24px;line-height:1.1;font-weight:800;font-stretch:105%"></span><span style="font-size:13px;color:#FFD5D9">Toyota de Venezuela, C. A. · [peso real]</span></span>
+<span style="display:flex;justify-content:space-between;align-items:center;position:relative"><span class="tmark" aria-hidden="true" style="width:40px;height:27px;color:#fff"></span><span style="font-size:11px;font-weight:700;letter-spacing:.14em;border:1.5px solid rgba(255,255,255,.6);border-radius:6px;padding:4px 8px">PDF</span></span>
+<span style="position:relative;display:flex;flex-direction:column;gap:8px;margin-top:auto"><span id="dcarea" style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#FFD5D9"></span><span id="dfile" style="font-size:24px;line-height:1.1;font-weight:700;"></span><span style="font-size:13px;color:#FFD5D9">Toyota de Venezuela, C. A. · [peso real]</span></span>
 <a href="#documento" data-soon="Vista previa: la descarga se conecta en la intranet real." class="pill" style="position:relative;height:50px;gap:10px;background:#fff;color:#D0021B;font-size:15px;font-weight:700"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar</a>
 </div>
 </div>
@@ -755,7 +755,7 @@ button{font:inherit}
 <section style="padding:48px 80px 0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:end">
 <div style="grid-column:span 7;display:flex;flex-direction:column;gap:18px">
 <nav aria-label="Ruta" style="font-size:13px;color:var(--muted)"><a href="#inicio" style="color:var(--muted)">Inicio</a> / Noticias</nav>
-<h1 style="margin:0;font-size:72px;line-height:1;font-weight:800;font-stretch:115%;letter-spacing:-.02em">Noticias</h1>
+<h1 style="margin:0;font-size:72px;line-height:1;font-weight:700;letter-spacing:-.02em">Noticias</h1>
 </div>
 <div style="grid-column:9 / span 4;display:flex;flex-direction:column;gap:14px;padding-bottom:6px">
 <p class="serif" style="margin:0;font-style:italic;font-size:22px;line-height:1.3;color:#3A3733">Lo que pasa en Toyota de Venezuela y su red de concesionarios.</p>
@@ -885,7 +885,7 @@ button{font:inherit}
       '<div style="display:flex;gap:28px;align-items:center;height:100%">' + itMenu() + '<a href="#inicio" style="color:#CFCAC2">Oracle R12</a><a href="#inicio" style="color:#CFCAC2">Ayuda</a><a href="#inicio" style="color:#fff;font-weight:600">Salir</a></div></div>' +
       '<div style="height:84px;padding:0 80px;display:flex;align-items:center;gap:48px;border-bottom:1px solid #E4E0D9">' +
       '<a href="#inicio" aria-label="Inicio Intranet TDV" style="display:flex;align-items:center;gap:14px">' + EMBLEM(46, '#D0021B', 6) +
-      '<span style="display:flex;flex-direction:column;line-height:1"><span style="font-size:20px;font-weight:800;font-stretch:118%;letter-spacing:.04em">TDV</span><span style="font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#5F5B55;margin-top:4px">Intranet</span></span></a>' +
+      '<span style="display:flex;flex-direction:column;line-height:1"><span style="font-size:20px;font-weight:700;letter-spacing:.04em">TDV</span><span style="font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#5F5B55;margin-top:4px">Intranet</span></span></a>' +
       '<nav aria-label="Principal" style="display:flex;gap:32px;align-items:center;flex-grow:1;height:100%">' + nav + '</nav>' +
       '<form role="search" onsubmit="return false" style="display:flex;align-items:center;gap:10px;width:320px;height:44px;padding:0 14px;background:#fff;border:1px solid #DAD5CD;border-radius:10px">' +
       '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5F5B55" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>' +
@@ -980,7 +980,7 @@ button{font:inherit}
     $('#feature').innerHTML = f ?
       '<div style="height:360px;border-radius:20px;overflow:hidden">' + cover(f.cat, 88, f.photo) + '</div>' +
       '<div style="display:flex;gap:12px;align-items:center;font-size:13px"><span style="font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + f.cat + '</span><span style="color:#8F8A82">' + f.date + '</span></div>' +
-      '<h3 style="margin:0;font-size:32px;line-height:1.12;font-weight:700;font-stretch:105%;letter-spacing:-.01em">' + esc(f.title) + '</h3>' +
+      '<h3 style="margin:0;font-size:32px;line-height:1.12;font-weight:700;letter-spacing:-.01em">' + esc(f.title) + '</h3>' +
       '<p style="margin:0;font-size:17px;line-height:1.55;color:#5F5B55">' + esc(f.body) + '</p>' : '';
     var rest = list.slice(1, 5);
     $('#rest').innerHTML = rest.map(function (x) {
@@ -1004,7 +1004,7 @@ button{font:inherit}
       '<span style="display:flex;justify-content:space-between;align-items:flex-start">' +
       '<span style="width:56px;height:56px;border-radius:16px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICO[p[4]] + '</svg></span>' +
       ARROW.replace('#8F8A82', '#141414').replace(/16/g, '20') + '</span>' +
-      '<span style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:700;font-stretch:120%;color:#8F8A82">' + p[0] + '</span>' +
+      '<span style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:700;color:#8F8A82">' + p[0] + '</span>' +
       '<span style="font-size:22px;font-weight:700;line-height:1.15">' + esc(p[1]) + '</span><span style="font-size:14px;color:#5F5B55">' + p[2] + '</span></span></a>';
   }).join('');
 
@@ -1069,7 +1069,7 @@ button{font:inherit}
       : lead ? '<span style="align-self:flex-start;margin-bottom:6px;padding:4px 10px;border-radius:999px;background:#141414;color:#fff;font-size:12px;font-weight:700">Responsable del área</span>' : '';
     return '<article class="card" style="padding:24px;display:flex;flex-direction:column;gap:16px;min-height:280px">' +
       '<div style="display:flex;justify-content:space-between;align-items:flex-start">' +
-      '<span style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;font-stretch:110%;' +
+      '<span style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;' +
       (bd ? 'background:#D0021B;color:#fff;box-shadow:0 0 0 3px #fff,0 0 0 5px #D0021B' : lead ? 'background:#141414;color:#fff' : 'background:#EFEBE4') + '">' + m[1] + '</span>' +
       '<span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5F5B55;text-align:right;max-width:150px;line-height:1.4">' + esc(dept) + '</span></div>' +
       '<div style="display:flex;flex-direction:column;gap:4px">' + badge +
@@ -1120,7 +1120,7 @@ button{font:inherit}
 
   /* Recursos de marca */
   $('#docs').innerHTML = [['PDF', 'Manual de identidad de marca'], ['PPTX', 'Plantilla de presentación corporativa'], ['ZIP', 'Logotipos oficiales'], ['PDF', 'Guía de tono y voz']].map(function (d) {
-    return '<a href="#area" style="display:flex;align-items:center;gap:20px;min-height:76px;border-top:1px solid #E4E0D9"><span style="width:56px;font-size:12px;font-weight:800;font-stretch:120%;color:#5F5B55">' + d[0] + '</span>' +
+    return '<a href="#area" style="display:flex;align-items:center;gap:20px;min-height:76px;border-top:1px solid #E4E0D9"><span style="width:56px;font-size:12px;font-weight:700;color:#5F5B55">' + d[0] + '</span>' +
       '<span style="flex-grow:1;font-size:19px;font-weight:600">' + d[1] + '</span><span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600">Descargar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span></a>';
   }).join('');
 
@@ -1140,7 +1140,7 @@ button{font:inherit}
   var hrCat = 'Beneficios', hrQ = '';
   var hrRow = function (p, k, tag) {
     return '<a href="#rrhh" class="hrrow" style="display:grid;grid-template-columns:44px 1fr auto;gap:18px;align-items:center;min-height:64px;padding:10px 14px;margin:0 -14px;border-top:1px solid #EEEAE4">' +
-      '<span style="font-size:13px;font-weight:700;font-stretch:120%;color:#B3ADA4">' + (k < 9 ? '0' : '') + (k + 1) + '</span>' +
+      '<span style="font-size:13px;font-weight:700;color:#B3ADA4">' + (k < 9 ? '0' : '') + (k + 1) + '</span>' +
       '<span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:17px;font-weight:600;line-height:1.3">' + esc(p) + '</span>' + (tag ? '<span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + tag + '</span>' : '') + '</span>' +
       '<span class="hrgo" style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:#5F5B55">Ver documento ' +
       '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>';
@@ -1152,7 +1152,7 @@ button{font:inherit}
         (on ? 'background:#141414;border:1px solid #141414;color:#fff' : 'background:#fff;border:1px solid #E4E0D9;color:#141414') + '">' +
         '<span style="width:48px;height:48px;flex-shrink:0;border-radius:12px;display:flex;align-items:center;justify-content:center;' + (on ? 'background:#D0021B;color:#fff' : 'background:#FBE6E8;color:#D0021B') + '">' + ICON(m[0], 24) + '</span>' +
         '<span style="display:flex;flex-direction:column;gap:3px;flex-grow:1"><span style="font-size:17px;font-weight:700">' + g[0] + '</span><span style="font-size:13px;line-height:1.35;' + (on ? 'color:#CFCAC2' : 'color:#5F5B55') + '">' + m[1] + '</span></span>' +
-        '<span style="font-size:22px;font-weight:800;font-stretch:115%;' + (on ? 'color:#fff' : 'color:#B3ADA4') + '">' + g[1].length + '</span></button>';
+        '<span style="font-size:22px;font-weight:700;' + (on ? 'color:#fff' : 'color:#B3ADA4') + '">' + g[1].length + '</span></button>';
     }).join('');
     if (hrQ) {
       var hits = [];
@@ -1164,7 +1164,7 @@ button{font:inherit}
     var g = HR.filter(function (x) { return x[0] === hrCat; })[0], m = HRMETA[hrCat];
     $('#hrlist').innerHTML = '<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding-bottom:24px">' +
       '<div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow" style="color:#5F5B55">Categoría</span><h3 class="serif" style="margin:0;font-weight:500;font-size:44px;line-height:1">' + hrCat + '</h3><span style="font-size:15px;color:#5F5B55">' + m[1] + '</span></div>' +
-      '<span style="display:flex;flex-direction:column;align-items:flex-end;line-height:1"><span style="font-size:56px;font-weight:800;font-stretch:115%;color:#141414">' + g[1].length + '</span><span style="font-size:13px;color:#5F5B55;margin-top:6px">' + (g[1].length === 1 ? 'política' : 'políticas') + '</span></span></div>' +
+      '<span style="display:flex;flex-direction:column;align-items:flex-end;line-height:1"><span style="font-size:56px;font-weight:700;color:#141414">' + g[1].length + '</span><span style="font-size:13px;color:#5F5B55;margin-top:6px">' + (g[1].length === 1 ? 'política' : 'políticas') + '</span></span></div>' +
       (g[1].length > 2 ? g[1].map(function (p, k) { return hrRow(p, k); }).join('') : hrFew(g));
   }
   /* Con una o dos políticas, la lista se veía vacía: se muestran destacadas, con relacionadas debajo */
@@ -1182,7 +1182,7 @@ button{font:inherit}
   $('#hrq').addEventListener('input', function (e) { hrQ = e.target.value.trim().toLowerCase(); drawHR(); });
   drawHR();
   $('#values').innerHTML = ['Actuamos por los demás', 'Trabajamos con integridad', 'Nos mueve la curiosidad', 'Observamos en profundidad', 'Creemos que siempre hay una manera', 'Creamos espacio para crecer', 'Celebramos la competencia', 'Respetamos a las personas', 'Agradecemos a las personas'].map(function (v, k) {
-    return '<li style="display:flex;gap:14px;align-items:baseline;padding:14px 0;border-top:1px solid rgba(255,255,255,.25)"><span style="font-size:13px;font-weight:700;font-stretch:120%;color:#FFD5D9">0' + (k + 1) + '</span><span style="font-size:18px;font-weight:600">' + v + '</span></li>';
+    return '<li style="display:flex;gap:14px;align-items:baseline;padding:14px 0;border-top:1px solid rgba(255,255,255,.25)"><span style="font-size:13px;font-weight:700;color:#FFD5D9">0' + (k + 1) + '</span><span style="font-size:18px;font-weight:600">' + v + '</span></li>';
   }).join('');
   /* Agenda de mercadeo: los eventos del año fiscal que quedan */
   if ($('#mkagenda')) $('#mkagenda').innerHTML = [['Oct', 'Autofest'], ['Nov', 'Skill Contest'], ['Nov', 'Mes de la movilidad: voluntariado en el Hospital Ortopédico Infantil'], ['Dic', 'Encuentro de cierre de año con medios'],
@@ -1223,7 +1223,7 @@ button{font:inherit}
   ];
   var m = /[?&]cumples=(\d)/.exec(location.search), todayN = m ? Math.min(3, +m[1]) : 1;
   var face = function (p, k, size) {
-    return '<span style="position:relative;width:' + size + 'px;height:' + size + 'px;margin-left:' + (k ? -14 : 0) + 'px;border-radius:50%;background:#D0021B;color:#fff;box-shadow:0 0 0 3px #fff' + (k ? '' : ',0 0 0 5px #F1C9CD') + ';display:flex;align-items:center;justify-content:center;font-size:' + Math.round(size / 3) + 'px;font-weight:800;font-stretch:112%;z-index:' + (5 - k) + '">' + p.ini + '</span>';
+    return '<span style="position:relative;width:' + size + 'px;height:' + size + 'px;margin-left:' + (k ? -14 : 0) + 'px;border-radius:50%;background:#D0021B;color:#fff;box-shadow:0 0 0 3px #fff' + (k ? '' : ',0 0 0 5px #F1C9CD') + ';display:flex;align-items:center;justify-content:center;font-size:' + Math.round(size / 3) + 'px;font-weight:700;z-index:' + (5 - k) + '">' + p.ini + '</span>';
   };
   var joinNames = function (list) { var f = list.map(function (p) { return p.first; }); return f.length > 1 ? f.slice(0, -1).join(', ') + ' y ' + f[f.length - 1] : f[0]; };
   function drawToday() {
@@ -1246,7 +1246,7 @@ button{font:inherit}
     }
     $('#bdaytoday').innerHTML = list.length ? list.map(function (p, k) {
       return '<button type="button" data-bday="' + k + '" aria-label="Felicitar a ' + p.name + ' por su cumpleaños" style="display:flex;align-items:center;gap:12px;width:100%;background:#FBE6E8;border:0;border-radius:12px;padding:8px 12px;color:inherit;text-align:left;cursor:pointer">' +
-        '<span style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#D0021B;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1"><span style="font-size:14px;font-weight:800;font-stretch:115%">26</span><span style="font-size:9px;font-weight:700;letter-spacing:.1em;margin-top:2px">HOY</span></span>' +
+        '<span style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#D0021B;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1"><span style="font-size:14px;font-weight:700;">26</span><span style="font-size:9px;font-weight:700;letter-spacing:.1em;margin-top:2px">HOY</span></span>' +
         '<span style="display:flex;flex-direction:column;flex-grow:1;min-width:0"><span style="font-size:14px;font-weight:700">' + p.name + '</span><span style="font-size:12px;color:#6B1A22">' + p.area + '</span></span>' +
         '<span class="pill" style="flex-shrink:0;height:32px;padding:0 12px;background:#141414;color:#fff;font-size:12px;gap:6px">' + CAKE(14) + 'Felicitar</span></button>';
     }).join('') : '<p style="margin:0;padding:10px 12px;font-size:14px;color:#5F5B55">Hoy no hay cumpleaños.</p>';
@@ -1286,7 +1286,7 @@ button{font:inherit}
   /* Móvil: cabecera y barra inferior compartidas, Directorio y Recursos Humanos */
   $$('[data-mhead]').forEach(function (el) {
     el.innerHTML = '<header style="height:64px;padding:0 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #E4E0D9">' + EMBLEM(36, '#D0021B') +
-      '<span style="font-size:18px;font-weight:800;font-stretch:118%;letter-spacing:.04em;flex-grow:1">TDV</span>' +
+      '<span style="font-size:18px;font-weight:700;letter-spacing:.04em;flex-grow:1">TDV</span>' +
       '<button type="button" aria-label="Buscar" data-soon style="width:44px;height:44px;border:0;background:transparent;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>' +
       '<button type="button" aria-label="Mi perfil" data-soon style="width:40px;height:40px;border-radius:50%;border:0;background:#141414;color:#fff;font-size:13px;font-weight:700">MN</button></header>';
   });
@@ -1327,7 +1327,7 @@ button{font:inherit}
     var g = HR.filter(function (x) { return x[0] === mCat; })[0];
     $('#mhrlist').innerHTML = g[1].map(function (p, k) {
       return '<a href="#movil" style="display:flex;align-items:center;gap:12px;min-height:56px;padding:10px 0;border-top:1px solid #E4E0D9">' +
-        '<span style="width:24px;font-size:12px;font-weight:700;font-stretch:120%;color:#B3ADA4">' + (k < 9 ? '0' : '') + (k + 1) + '</span>' +
+        '<span style="width:24px;font-size:12px;font-weight:700;color:#B3ADA4">' + (k < 9 ? '0' : '') + (k + 1) + '</span>' +
         '<span style="flex-grow:1;font-size:15px;font-weight:600;line-height:1.3">' + esc(p) + '</span>' +
         '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5F5B55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>';
     }).join('');
@@ -1335,7 +1335,7 @@ button{font:inherit}
   $('#mhrchips').addEventListener('click', function (e) { var b = e.target.closest('[data-mcat]'); if (b) { mCat = b.getAttribute('data-mcat'); drawMHR(); } });
   drawMHR();
   $('#mvalues').innerHTML = ['Actuamos por los demás', 'Trabajamos con integridad', 'Nos mueve la curiosidad', 'Observamos en profundidad', 'Creemos que siempre hay una manera', 'Creamos espacio para crecer', 'Celebramos la competencia', 'Respetamos a las personas', 'Agradecemos a las personas'].map(function (v, k) {
-    return '<li style="display:flex;gap:12px;align-items:baseline;padding:9px 0;border-top:1px solid rgba(255,255,255,.25)"><span style="font-size:12px;font-weight:700;font-stretch:120%;color:#FFD5D9">0' + (k + 1) + '</span><span style="font-size:15px;font-weight:600">' + v + '</span></li>';
+    return '<li style="display:flex;gap:12px;align-items:baseline;padding:9px 0;border-top:1px solid rgba(255,255,255,.25)"><span style="font-size:12px;font-weight:700;color:#FFD5D9">0' + (k + 1) + '</span><span style="font-size:15px;font-weight:600">' + v + '</span></li>';
   }).join('');
   $$('#v-movil [data-ico]').forEach(function (el) { el.innerHTML = ICON(el.getAttribute('data-ico'), 22); });
 
@@ -1377,8 +1377,8 @@ button{font:inherit}
     ['Por ciberataques', 'Los atacantes entran por el eslabón más débil, que puede ser un equipo propio o el de un tercero.', 'Desconfía de correos sospechosos, cuida tus contraseñas y mantén tus equipos al día.']];
   $('#gways').innerHTML = GWAYS.map(function (w, k) {
     return '<li style="display:grid;grid-template-columns:180px minmax(0,1fr);gap:16px;padding:40px 0;border-top:1px solid #DAD5CD' + (k === 3 ? ';border-bottom:1px solid #DAD5CD' : '') + '">' +
-      '<span style="font-size:96px;line-height:.8;font-weight:800;font-stretch:125%;letter-spacing:-.04em;color:#D0021B">0' + (k + 1) + '</span>' +
-      '<div style="display:flex;flex-direction:column;gap:12px"><h3 style="margin:0;font-size:32px;line-height:1.1;font-weight:700;font-stretch:108%">' + w[0] + '</h3>' +
+      '<span style="font-size:96px;line-height:.8;font-weight:700;letter-spacing:-.04em;color:#D0021B">0' + (k + 1) + '</span>' +
+      '<div style="display:flex;flex-direction:column;gap:12px"><h3 style="margin:0;font-size:32px;line-height:1.1;font-weight:700;">' + w[0] + '</h3>' +
       '<p style="margin:0;font-size:17px;line-height:1.6;color:#3A3733;max-width:560px">' + w[1] + '</p>' +
       '<p style="margin:8px 0 0;display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;font-weight:600"><span style="width:24px;height:24px;flex-shrink:0;border-radius:50%;background:#141414;color:#fff;display:flex;align-items:center;justify-content:center;margin-top:-1px">' + CHECK + '</span>' + w[2] + '</p></div></li>';
   }).join('');
@@ -1493,7 +1493,7 @@ button{font:inherit}
     $('#nfeature').style.display = f ? 'grid' : 'none';
     $('#nfeature').innerHTML = f ? '<span style="grid-column:span 7;height:400px;border-radius:20px;overflow:hidden">' + ncover(f, 300, 720) + '</span>' +
       '<span style="grid-column:span 5;display:flex;flex-direction:column;justify-content:center;gap:18px;padding:8px 0 8px 24px"><span style="display:flex;gap:12px;align-items:center"><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:#D0021B;border-radius:999px;padding:5px 12px">Destacada</span><span style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F5B55">' + esc(f.cat) + '</span></span>' +
-      '<span style="font-size:38px;line-height:1.08;font-weight:700;font-stretch:105%;letter-spacing:-.015em">' + esc(f.title) + '</span>' +
+      '<span style="font-size:38px;line-height:1.08;font-weight:700;letter-spacing:-.015em">' + esc(f.title) + '</span>' +
       '<span style="font-size:18px;line-height:1.55;color:#5F5B55">' + esc(f.body) + '</span>' +
       '<span class="pill" style="align-self:flex-start;height:50px;padding:0 24px;background:#141414;color:#fff;font-size:15px;margin-top:6px">Leer la noticia →</span></span>' : '';
     $('#ntop').innerHTML = list.slice(1, 4).map(function (x) {
@@ -1614,10 +1614,10 @@ button{font:inherit}
 </div>
 <div style="flex-grow:1;overflow:auto;padding:32px 28px;display:flex;flex-direction:column;gap:22px">
 <div style="display:flex;align-items:center;gap:16px">
-<span style="width:56px;height:66px;flex-shrink:0;border-radius:8px;background:#D0021B;color:#fff;display:flex;align-items:flex-end;justify-content:center;padding-bottom:9px;font-size:12px;font-weight:800;letter-spacing:.06em;clip-path:polygon(0 0,72% 0,100% 22%,100% 100%,0 100%)">PDF</span>
+<span style="width:56px;height:66px;flex-shrink:0;border-radius:8px;background:#D0021B;color:#fff;display:flex;align-items:flex-end;justify-content:center;padding-bottom:9px;font-size:12px;font-weight:700;letter-spacing:.06em;clip-path:polygon(0 0,72% 0,100% 22%,100% 100%,0 100%)">PDF</span>
 <span style="display:flex;flex-direction:column;gap:6px"><span id="ddkind" style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D0021B"></span><span id="ddfresh" class="dpill" style="align-self:flex-start"></span></span>
 </div>
-<h2 id="ddtitle" style="margin:0;font-size:32px;line-height:1.1;font-weight:800;font-stretch:108%;letter-spacing:-.015em"></h2>
+<h2 id="ddtitle" style="margin:0;font-size:32px;line-height:1.1;font-weight:700;letter-spacing:-.015em"></h2>
 <p id="ddsum" class="serif" style="margin:0;font-size:20px;line-height:1.5;color:#141414"></p>
 <dl id="ddmeta" style="margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #EEEAE4"></dl>
 <div id="ddsib"></div>
