@@ -87,6 +87,10 @@ button{font:inherit}
 .ddsib{display:flex;gap:12px;align-items:center;padding:14px 16px;border:1px solid #E4E0D9;border-radius:14px;background:#fff;cursor:pointer;width:100%;font:inherit;text-align:left}
 .ddsib:hover{border-color:#141414}
 @media (prefers-reduced-motion:reduce){.dd-scrim,.dd-sheet{animation:none}}
+.pfly{display:none;position:absolute;left:calc(100% + 18px);top:-12px;width:300px;background:#fff;border:1px solid #E4E0D9;border-radius:16px;box-shadow:0 24px 48px rgba(20,20,20,.14);padding:14px 12px;z-index:2}
+.pfly::before{content:'';position:absolute;left:-20px;top:0;bottom:0;width:20px}
+.pfly-row:hover,.pfly-row:focus-within{background:#F5F3EF}.pfly-row:hover .pfly,.pfly-row:focus-within .pfly{display:block}
+.pfly a:hover{background:#F5F3EF;color:#D0021B}
 .hrcat{transition:background .15s,border-color .15s}.hrcat:hover{border-color:#141414}
 /* Confeti que cae sin parar en la franja de cumpleaños del Directorio */
 .cfl{position:absolute;inset:0;overflow:hidden;pointer-events:none;border-radius:20px}
@@ -843,10 +847,12 @@ button{font:inherit}
         '<span style="display:flex;flex-direction:column;min-width:0"><a href="#inicio" style="font-size:14px;font-weight:600;line-height:1.3">' + p[1] + '</a>' + sub + '</span></div>';
     }).join('') + '</div>';
   var polsPanel = '<span class="eyebrow" style="display:block;padding-bottom:12px;border-bottom:1px solid #EEEAE4;margin-bottom:6px">Políticas y más</span>' + POLS.map(function (p) {
-      if (p[4]) return '<div style="display:flex;gap:14px;align-items:flex-start;padding:10px 8px">' +
+      if (p[4]) return '<div class="pfly-row" tabindex="0" aria-haspopup="true" style="position:relative;display:flex;gap:14px;align-items:center;padding:10px 8px;border-radius:10px;cursor:default">' +
         '<span style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON(p[3], 20) + '</span>' +
-        '<span style="display:flex;flex-direction:column"><span style="font-size:14px;font-weight:600">' + p[0] + '</span><span style="display:flex;flex-direction:column;gap:3px;margin-top:4px">' +
-        p[4].map(function (x) { return '<a href="#documento" data-doc="' + x + '" style="font-size:12px;color:#5F5B55">' + x + ' ›</a>'; }).join('') + '</span></span></div>';
+        '<span style="display:flex;flex-direction:column;flex-grow:1"><span style="font-size:14px;font-weight:600">' + p[0] + '</span><span style="font-size:12px;color:#5F5B55">' + p[1] + '</span></span>' +
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5F5B55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>' +
+        '<div class="pfly" role="menu"><span class="eyebrow" style="display:block;padding:4px 8px 10px;border-bottom:1px solid #EEEAE4;margin-bottom:6px">' + p[0] + '</span>' +
+        p[4].map(function (x) { return '<a href="#documento" data-doc="' + x + '" role="menuitem" style="display:flex;gap:12px;align-items:center;padding:10px 8px;border-radius:10px;font-size:14px;font-weight:600;line-height:1.3"><span style="width:32px;height:32px;flex-shrink:0;border-radius:8px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON('doc', 16) + '</span>' + x + '</a>'; }).join('') + '</div></div>';
       return '<a href="' + p[2] + '" style="display:flex;gap:14px;align-items:center;padding:10px 8px;border-radius:10px">' +
         '<span style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#FBE6E8;color:#D0021B;display:flex;align-items:center;justify-content:center">' + ICON(p[3], 20) + '</span>' +
         '<span style="display:flex;flex-direction:column"><span style="font-size:14px;font-weight:600">' + p[0] + '</span><span style="font-size:12px;color:#5F5B55">' + p[1] + '</span></span></a>';
