@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>Intranet TDV — Propuesta de rediseño</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400..800;1,400..700&family=Montserrat:ital,wght@0,400..800;1,400..700&family=Inter:ital,wght@0,400..800;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..700&family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400..800;1,400..700&display=swap" rel="stylesheet">
 <style>
 :root{--font:'Toyota Type','ToyotaType','Figtree',system-ui,sans-serif;--ink:#141414;--paper:#F5F3EF;--line:#E4E0D9;--muted:#5F5B55;--red:#D0021B;--sand:#EFEBE4;--pink:#FBE6E8}
 *{box-sizing:border-box}
@@ -15,8 +15,7 @@ body{background:#E7E3DC;font-family:var(--font);color:var(--ink)}
 a{color:var(--ink);text-decoration:none}a:hover{color:var(--red)}
 button{font:inherit}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.serif{font-family:var(--font-serif,var(--font));font-weight:500;letter-spacing:-.01em}
-h1,h2,h3{font-stretch:var(--stretch,100%)}
+.serif{font-family:var(--font);font-weight:500;letter-spacing:-.01em}
 .eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
 .card{background:#fff;border:1px solid var(--line);border-radius:20px}
 .pill{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;font-weight:600;cursor:pointer}
@@ -120,7 +119,6 @@ h1,h2,h3{font-stretch:var(--stretch,100%)}
 <header class="deck">
 <strong>Intranet TDV</strong>
 <span>Propuesta de rediseño</span>
-<div id="demoFont" role="group" aria-label="Tipografía (demostración)" style="display:flex;align-items:center;gap:6px;font-size:12px;color:#BDB7AE;white-space:nowrap">Letra:<button type="button" data-font="1" class="dh" title="Montserrat">1</button><button type="button" data-font="2" class="dh" title="Inter">2</button><button type="button" data-font="3" class="dh" title="Plus Jakarta Sans">3</button><button type="button" data-font="4" class="dh" title="Figtree">4</button><button type="button" data-font="5" class="dh" title="Original: Archivo y Source Serif">5</button></div>
 <div id="demoHero" role="group" aria-label="Portada de Mercadeo (demostración)" style="display:none;align-items:center;gap:6px;font-size:12px;color:#BDB7AE;white-space:nowrap">Portada:<button type="button" data-hero="A" class="dh" title="Afiches">A</button><button type="button" data-hero="B" class="dh" title="Sin imagen">B</button><button type="button" data-hero="C" class="dh" title="Solo la campaña activa">C</button></div>
 <div id="demoBday" role="group" aria-label="Cumpleaños de hoy (demostración)" style="display:flex;align-items:center;gap:6px;font-size:12px;color:#BDB7AE">Cumpleaños hoy:</div>
 <nav aria-label="Pantallas de la propuesta">
@@ -1516,19 +1514,6 @@ h1,h2,h3{font-stretch:var(--stretch,100%)}
   $('#nmore').addEventListener('click', function (e) { if (e.target.closest('#nmorebtn')) { nShow += 6; drawAllNews(); } });
   drawAllNews();
 
-  /* Demostración: comparar tipografías (Toyota Type tiene prioridad si está instalada) */
-  var FONTS = { 1: ["'Montserrat'"], 2: ["'Inter'"], 3: ["'Plus Jakarta Sans'"], 4: ["'Figtree'"], 5: ["'Archivo'", "'Source Serif 4',serif", '112%'] };
-  function setFont(k) {
-    var f = FONTS[k], r = document.documentElement.style;
-    r.setProperty('--font', "'Toyota Type','ToyotaType'," + f[0] + ',system-ui,sans-serif');
-    if (f[1]) r.setProperty('--font-serif', f[1]); else r.removeProperty('--font-serif');
-    if (f[2]) r.setProperty('--stretch', f[2]); else r.removeProperty('--stretch');
-    $$('#demoFont [data-font]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-font') === String(k)); });
-    try { localStorage.setItem('tdvFont', k); } catch (e) {}
-  }
-  $('#demoFont').addEventListener('click', function (e) { var b = e.target.closest('[data-font]'); if (b) setFont(b.getAttribute('data-font')); });
-  var savedFont = 1; try { savedFont = localStorage.getItem('tdvFont') || 1; } catch (e) {}
-  setFont(savedFont);
   /* Demostración: dos portadas para Mercadeo */
   function setHero(k) {
     $('#mkA').hidden = k !== 'A'; $('#mkB').hidden = k !== 'B'; $('#mkC').hidden = k !== 'C';
